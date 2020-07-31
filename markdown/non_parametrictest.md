@@ -103,7 +103,7 @@ print(list(wilcox_pairwise = wilcox, wilcox3))
 Dunn <- dunnTest(Jumlah.petiqlule ~ Media, method = "bh")
 Dunn1 <- Dunn$res
 Dunn2 <- cldList(comparison = Dunn1$Comparison, p.value = Dunn1$P.adj, threshold = 0.05)
-print(list(Dunn = Dunn, Dunn1, Dunn2))
+print(list(Dunn = Dunn, Dunn2))
 ```
 
 ```
@@ -132,19 +132,6 @@ print(list(Dunn = Dunn, Dunn1, Dunn2))
 ## 10 50% Tanah 50% Jangkos - 50% Tanah 50% Kompos -1.506075 0.1320480437 0.220080073
 ## 
 ## [[2]]
-##                                      Comparison         Z      P.unadj       P.adj
-## 1                    100% Jangkos - 100% Kompos  1.029663 0.3031681386 0.336853487
-## 2                     100% Jangkos - 100% Tanah -1.582915 0.1134408255 0.226881651
-## 3                      100% Kompos - 100% Tanah -2.612578 0.0089862117 0.029954039
-## 4          100% Jangkos - 50% Tanah 50% Jangkos -1.160292 0.2459298967 0.351328424
-## 5           100% Kompos - 50% Tanah 50% Jangkos -2.189955 0.0285274786 0.071318697
-## 6            100% Tanah - 50% Tanah 50% Jangkos  0.422623 0.6725703772 0.672570377
-## 7           100% Jangkos - 50% Tanah 50% Kompos -2.666367 0.0076676023 0.038338011
-## 8            100% Kompos - 50% Tanah 50% Kompos -3.696030 0.0002189973 0.002189973
-## 9             100% Tanah - 50% Tanah 50% Kompos -1.083452 0.2786080358 0.348260045
-## 10 50% Tanah 50% Jangkos - 50% Tanah 50% Kompos -1.506075 0.1320480437 0.220080073
-## 
-## [[3]]
 ##              Group Letter MonoLetter
 ## 1        1%Jangkos     ab        ab 
 ## 2         1%Kompos      a        a  
