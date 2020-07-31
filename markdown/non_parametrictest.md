@@ -66,7 +66,7 @@ print(kruskalw)
 ```r
 wilcox <- pairwise.wilcox.test(Jumlah.petiqlule,Media,
                                p.adjust.method = "BH", exact = FALSE)
-                                #p.adjust.method: Returns p-values adjusted using Benjamini                                 & Hochberg (1995) method ("BH")
+#p.adjust.method: Returns p-values adjusted using Benjamini & Hochberg (1995) method ("BH")
 wilcox1 <- wilcox$p.value
 wilcox2 <- fullPTable(wilcox1)
 wilcox3 <- multcompLetters(wilcox2,compare = "<", threshold = 0.05, 
