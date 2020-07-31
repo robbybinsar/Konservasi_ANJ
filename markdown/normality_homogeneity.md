@@ -5,6 +5,7 @@ date: "7/31/2020"
 output: 
     html_document:
         keep_md: TRUE
+        toc: TRUE
 ---
 
 
