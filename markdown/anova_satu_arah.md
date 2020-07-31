@@ -9,12 +9,13 @@ output:
 
 
 
-**Use this analysis according to the result of homogeneity and normality test**
+**Use this analysis based on homogeneity and normality test results**
 
 
 ```r
 library(Rmisc)
 library(agricolae)
+library(ggplot2)
 ```
 
 
@@ -190,12 +191,12 @@ grafik <- ggplot(dat,
                 plot.title = element_text(size = rel(1.5),face = "bold",hjust=0),
                 plot.subtitle = element_text(size = rel(1), hjust = 0),
                 axis.title = element_text(face="bold",size = 11),
-                axis.title.y = element_text(vjust = 3,size = 11),
+                axis.title.y = element_text(vjust = 4,size = 11),
                 axis.title.x = element_text(vjust=-2, size=11),
                 axis.line = element_line(colour="black"),
                 axis.text = element_text(size = 10,color = "black"))
 print(grafik)
 ```
 
-![](anova_satu_arah_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](anova_satu_arah_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
