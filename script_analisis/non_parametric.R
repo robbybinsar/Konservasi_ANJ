@@ -1,6 +1,7 @@
 library(rcompanion)
 library(multcompView)
 library(DescTools)
+library(FSA)
 
 direktori_nonpara <- function(nama_pengamatan) {
     dir.create(file.path("Uji data non parametrik",nama_pengamatan),recursive = T)

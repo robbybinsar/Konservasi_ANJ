@@ -1,15 +1,12 @@
 library(tidyr)
-library(dplyr)
+library(Rmisc)
 library(plyr)
 library(ggplot2)
-library(Rmisc)
-library(scales)
 
 # Preparing data
 df <- read.delim("Trembesi_summary.txt")
 
 ## Gather the data to 'long' format so the bodytemp, length and mass are all in one column
-longdata <- gather(test4, variable, value, -Sex)
 longdata <- pivot_longer(df,c(Tinggi.tanaman, Jumlah.petiole, Jumlah.petiqlule), names_to = "variable") ## alternatif kedua selain pakai gather
 
 # Create the summary statistics seperately for grouping variables (i.e. bodytemp, length and mass)
