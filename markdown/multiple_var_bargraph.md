@@ -347,62 +347,54 @@ attach(df)
 
 ```r
 longdata <- pivot_longer(df,c(Tinggi.tanaman, Jumlah.petiole, Jumlah.petiqlule), names_to = "variable")
-head(longdata)
+kable(head(longdata), format = "latex")
 ```
 
-```
-## # A tibble: 6 x 3
-##   Media      variable         value
-##   <chr>      <chr>            <dbl>
-## 1 100% Tanah Tinggi.tanaman    22.3
-## 2 100% Tanah Jumlah.petiole     8  
-## 3 100% Tanah Jumlah.petiqlule  68  
-## 4 100% Tanah Tinggi.tanaman     0  
-## 5 100% Tanah Jumlah.petiole     0  
-## 6 100% Tanah Jumlah.petiqlule   0
-```
+
+\begin{tabular}{l|l|r}
+\hline
+Media & variable & value\\
+\hline
+100\% Tanah & Tinggi.tanaman & 22.3\\
+\hline
+100\% Tanah & Jumlah.petiole & 8.0\\
+\hline
+100\% Tanah & Jumlah.petiqlule & 68.0\\
+\hline
+100\% Tanah & Tinggi.tanaman & 0.0\\
+\hline
+100\% Tanah & Jumlah.petiole & 0.0\\
+\hline
+100\% Tanah & Jumlah.petiqlule & 0.0\\
+\hline
+\end{tabular}
 
 ### **Create summary statistics**
 
 ```r
 summary <- longdata %>% summarySE(measurevar = "value", groupvars = c("Media","variable"))
-print(summary)
+kable(summary, format = "pipe")
 ```
 
-```
-##                    Media         variable  N  value        sd         se
-## 1           100% Jangkos   Jumlah.petiole 10   5.70  3.973523  1.2565385
-## 2           100% Jangkos Jumlah.petiqlule 10  61.60 43.244011 13.6749568
-## 3           100% Jangkos   Tinggi.tanaman 10  14.53 10.110286  3.1971532
-## 4            100% Kompos   Jumlah.petiole 10   2.60  2.366432  0.7483315
-## 5            100% Kompos Jumlah.petiqlule 10  21.20 21.399896  6.7672414
-## 6            100% Kompos   Tinggi.tanaman 10   8.23  7.251827  2.2932292
-## 7             100% Tanah   Jumlah.petiole 10   6.60  4.695151  1.4847372
-## 8             100% Tanah Jumlah.petiqlule 10  61.20 43.330256 13.7022302
-## 9             100% Tanah   Tinggi.tanaman 10  17.10 12.174290  3.8498485
-## 10 50% Tanah 50% Jangkos   Jumlah.petiole 10  11.90  9.480389  2.9979623
-## 11 50% Tanah 50% Jangkos Jumlah.petiqlule 10 112.70 72.366429 22.8842741
-## 12 50% Tanah 50% Jangkos   Tinggi.tanaman 10  23.13  9.448933  2.9880149
-## 13  50% Tanah 50% Kompos   Jumlah.petiole 10   7.70  5.578729  1.7641491
-## 14  50% Tanah 50% Kompos Jumlah.petiqlule 10  69.80 52.615587 16.6385095
-## 15  50% Tanah 50% Kompos   Tinggi.tanaman 10  21.63 15.295319  4.8368045
-##           ci
-## 1   2.842487
-## 2  30.934902
-## 3   7.232463
-## 4   1.692843
-## 5  15.308564
-## 6   5.187645
-## 7   3.358709
-## 8  30.996598
-## 9   8.708962
-## 10  6.781862
-## 11 51.767825
-## 12  6.759359
-## 13  3.990783
-## 14 37.638924
-## 15 10.941612
-```
+
+
+|Media                 |variable         |  N|  value|        sd|         se|        ci|
+|:---------------------|:----------------|--:|------:|---------:|----------:|---------:|
+|100% Jangkos          |Jumlah.petiole   | 10|   5.70|  3.973524|  1.2565385|  2.842487|
+|100% Jangkos          |Jumlah.petiqlule | 10|  61.60| 43.244011| 13.6749568| 30.934902|
+|100% Jangkos          |Tinggi.tanaman   | 10|  14.53| 10.110286|  3.1971532|  7.232463|
+|100% Kompos           |Jumlah.petiole   | 10|   2.60|  2.366432|  0.7483315|  1.692843|
+|100% Kompos           |Jumlah.petiqlule | 10|  21.20| 21.399896|  6.7672414| 15.308563|
+|100% Kompos           |Tinggi.tanaman   | 10|   8.23|  7.251827|  2.2932292|  5.187645|
+|100% Tanah            |Jumlah.petiole   | 10|   6.60|  4.695151|  1.4847372|  3.358709|
+|100% Tanah            |Jumlah.petiqlule | 10|  61.20| 43.330256| 13.7022302| 30.996598|
+|100% Tanah            |Tinggi.tanaman   | 10|  17.10| 12.174290|  3.8498485|  8.708962|
+|50% Tanah 50% Jangkos |Jumlah.petiole   | 10|  11.90|  9.480389|  2.9979623|  6.781862|
+|50% Tanah 50% Jangkos |Jumlah.petiqlule | 10| 112.70| 72.366429| 22.8842741| 51.767825|
+|50% Tanah 50% Jangkos |Tinggi.tanaman   | 10|  23.13|  9.448933|  2.9880149|  6.759359|
+|50% Tanah 50% Kompos  |Jumlah.petiole   | 10|   7.70|  5.578729|  1.7641491|  3.990783|
+|50% Tanah 50% Kompos  |Jumlah.petiqlule | 10|  69.80| 52.615587| 16.6385095| 37.638924|
+|50% Tanah 50% Kompos  |Tinggi.tanaman   | 10|  21.63| 15.295319|  4.8368045| 10.941612|
 
 ### **Create relative frequency**
 *note: .(variable) for quoting*
@@ -413,43 +405,28 @@ dat <- ddply(summary,.(variable),transform, rel_freq = round(value/sum(value),2)
 dat <- dat[order(dat$variable,-dat$value),]
 dat["notasi"] <- c("a","ab","ab","ab","b","a","ab","ab","ab","b","a","ab","ab","ab","b") #notation from post hoc test
 rownames(dat) <- seq_len(nrow(dat))
-print(dat)
+kable(dat,format = "pipe")
 ```
 
-```
-##                    Media         variable  N  value        sd         se
-## 1  50% Tanah 50% Jangkos   Jumlah.petiole 10  11.90  9.480389  2.9979623
-## 2   50% Tanah 50% Kompos   Jumlah.petiole 10   7.70  5.578729  1.7641491
-## 3             100% Tanah   Jumlah.petiole 10   6.60  4.695151  1.4847372
-## 4           100% Jangkos   Jumlah.petiole 10   5.70  3.973523  1.2565385
-## 5            100% Kompos   Jumlah.petiole 10   2.60  2.366432  0.7483315
-## 6  50% Tanah 50% Jangkos Jumlah.petiqlule 10 112.70 72.366429 22.8842741
-## 7   50% Tanah 50% Kompos Jumlah.petiqlule 10  69.80 52.615587 16.6385095
-## 8           100% Jangkos Jumlah.petiqlule 10  61.60 43.244011 13.6749568
-## 9             100% Tanah Jumlah.petiqlule 10  61.20 43.330256 13.7022302
-## 10           100% Kompos Jumlah.petiqlule 10  21.20 21.399896  6.7672414
-## 11 50% Tanah 50% Jangkos   Tinggi.tanaman 10  23.13  9.448933  2.9880149
-## 12  50% Tanah 50% Kompos   Tinggi.tanaman 10  21.63 15.295319  4.8368045
-## 13            100% Tanah   Tinggi.tanaman 10  17.10 12.174290  3.8498485
-## 14          100% Jangkos   Tinggi.tanaman 10  14.53 10.110286  3.1971532
-## 15           100% Kompos   Tinggi.tanaman 10   8.23  7.251827  2.2932292
-##           ci rel_freq    se_freq notasi
-## 1   6.781862     0.34 0.08689746      a
-## 2   3.990783     0.22 0.05113476     ab
-## 3   3.358709     0.19 0.04303586     ab
-## 4   2.842487     0.17 0.03642140     ab
-## 5   1.692843     0.08 0.02169077      b
-## 6  51.767825     0.35 0.07008966      a
-## 7  37.638924     0.21 0.05096021     ab
-## 8  30.934902     0.19 0.04188348     ab
-## 9  30.996598     0.19 0.04196701     ab
-## 10 15.308564     0.06 0.02072662      b
-## 11  6.759359     0.27 0.03531098      a
-## 12 10.941612     0.26 0.05715912     ab
-## 13  8.708962     0.20 0.04549573     ab
-## 14  7.232463     0.17 0.03778248     ab
-## 15  5.187645     0.10 0.02710032      b
-```
+
+
+|Media                 |variable         |  N|  value|        sd|         se|        ci| rel_freq|   se_freq|notasi |
+|:---------------------|:----------------|--:|------:|---------:|----------:|---------:|--------:|---------:|:------|
+|50% Tanah 50% Jangkos |Jumlah.petiole   | 10|  11.90|  9.480389|  2.9979623|  6.781862|     0.34| 0.0868975|a      |
+|50% Tanah 50% Kompos  |Jumlah.petiole   | 10|   7.70|  5.578729|  1.7641491|  3.990783|     0.22| 0.0511348|ab     |
+|100% Tanah            |Jumlah.petiole   | 10|   6.60|  4.695151|  1.4847372|  3.358709|     0.19| 0.0430359|ab     |
+|100% Jangkos          |Jumlah.petiole   | 10|   5.70|  3.973524|  1.2565385|  2.842487|     0.17| 0.0364214|ab     |
+|100% Kompos           |Jumlah.petiole   | 10|   2.60|  2.366432|  0.7483315|  1.692843|     0.08| 0.0216908|b      |
+|50% Tanah 50% Jangkos |Jumlah.petiqlule | 10| 112.70| 72.366429| 22.8842741| 51.767825|     0.35| 0.0700897|a      |
+|50% Tanah 50% Kompos  |Jumlah.petiqlule | 10|  69.80| 52.615587| 16.6385095| 37.638924|     0.21| 0.0509602|ab     |
+|100% Jangkos          |Jumlah.petiqlule | 10|  61.60| 43.244011| 13.6749568| 30.934902|     0.19| 0.0418835|ab     |
+|100% Tanah            |Jumlah.petiqlule | 10|  61.20| 43.330256| 13.7022302| 30.996598|     0.19| 0.0419670|ab     |
+|100% Kompos           |Jumlah.petiqlule | 10|  21.20| 21.399896|  6.7672414| 15.308563|     0.06| 0.0207266|b      |
+|50% Tanah 50% Jangkos |Tinggi.tanaman   | 10|  23.13|  9.448933|  2.9880149|  6.759359|     0.27| 0.0353110|a      |
+|50% Tanah 50% Kompos  |Tinggi.tanaman   | 10|  21.63| 15.295319|  4.8368045| 10.941612|     0.26| 0.0571591|ab     |
+|100% Tanah            |Tinggi.tanaman   | 10|  17.10| 12.174290|  3.8498485|  8.708962|     0.20| 0.0454957|ab     |
+|100% Jangkos          |Tinggi.tanaman   | 10|  14.53| 10.110286|  3.1971532|  7.232463|     0.17| 0.0377825|ab     |
+|100% Kompos           |Tinggi.tanaman   | 10|   8.23|  7.251827|  2.2932292|  5.187645|     0.10| 0.0271003|b      |
 
 ### **Sorting x axis variables fill**
 
@@ -487,5 +464,5 @@ grafik <- ggplot(dat, aes(x = reorder(Media,-rel_freq), y = rel_freq, fill = var
 print(grafik)
 ```
 
-![](multiple_var_bargraph_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](multiple_var_bargraph_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
