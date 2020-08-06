@@ -347,27 +347,19 @@ attach(df)
 
 ```r
 longdata <- pivot_longer(df,c(Tinggi.tanaman, Jumlah.petiole, Jumlah.petiqlule), names_to = "variable")
-kable(head(longdata), format = "latex")
+kable(head(longdata), format = "pipe")
 ```
 
 
-\begin{tabular}{l|l|r}
-\hline
-Media & variable & value\\
-\hline
-100\% Tanah & Tinggi.tanaman & 22.3\\
-\hline
-100\% Tanah & Jumlah.petiole & 8.0\\
-\hline
-100\% Tanah & Jumlah.petiqlule & 68.0\\
-\hline
-100\% Tanah & Tinggi.tanaman & 0.0\\
-\hline
-100\% Tanah & Jumlah.petiole & 0.0\\
-\hline
-100\% Tanah & Jumlah.petiqlule & 0.0\\
-\hline
-\end{tabular}
+
+|Media      |variable         | value|
+|:----------|:----------------|-----:|
+|100% Tanah |Tinggi.tanaman   |  22.3|
+|100% Tanah |Jumlah.petiole   |   8.0|
+|100% Tanah |Jumlah.petiqlule |  68.0|
+|100% Tanah |Tinggi.tanaman   |   0.0|
+|100% Tanah |Jumlah.petiole   |   0.0|
+|100% Tanah |Jumlah.petiqlule |   0.0|
 
 ### **Create summary statistics**
 
@@ -464,5 +456,5 @@ grafik <- ggplot(dat, aes(x = reorder(Media,-rel_freq), y = rel_freq, fill = var
 print(grafik)
 ```
 
-![](multiple_var_bargraph_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](multiple_var_bargraph_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
