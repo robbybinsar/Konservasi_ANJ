@@ -22,18 +22,322 @@ library(ggplot2)
 
 ```r
 df <- read.delim("Trembesi_summary.txt")
-head(df)
+kable(df, format = "html")
 ```
 
-```
-##        Media Tinggi.tanaman Jumlah.petiole Jumlah.petiqlule
-## 1 100% Tanah           22.3              8               68
-## 2 100% Tanah            0.0              0                0
-## 3 100% Tanah            0.0              0                0
-## 4 100% Tanah            0.0              0                0
-## 5 100% Tanah           28.0             12              100
-## 6 100% Tanah           23.0              9               90
-```
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Media </th>
+   <th style="text-align:right;"> Tinggi.tanaman </th>
+   <th style="text-align:right;"> Jumlah.petiole </th>
+   <th style="text-align:right;"> Jumlah.petiqlule </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 22.3 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 68 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 28.0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 100 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 23.0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 23.9 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 26.4 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 18.4 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 29.0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 28.0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 25.0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 33.0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 156 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 38.0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 88 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 32.0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 30.0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 102 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 30.3 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 15.8 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 10.3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 12.8 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 13.1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 14.7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 15.6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 64 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 16.5 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 25.0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 24.0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 94 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 23.5 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 88 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 31.1 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 290 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 21.8 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 135 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 29.0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 124 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 27.0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 120 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 33.4 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 19.0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 76 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 21.0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 19.1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 88 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 20.0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 23.2 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 104 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 22.4 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 20.6 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 80 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
 
 ```r
 attach(df)
@@ -66,22 +370,38 @@ print(summary)
 ```
 
 ```
-##                    Media         variable  N  value        sd         se        ci
-## 1           100% Jangkos   Jumlah.petiole 10   5.70  3.973523  1.2565385  2.842487
-## 2           100% Jangkos Jumlah.petiqlule 10  61.60 43.244011 13.6749568 30.934902
-## 3           100% Jangkos   Tinggi.tanaman 10  14.53 10.110286  3.1971532  7.232463
-## 4            100% Kompos   Jumlah.petiole 10   2.60  2.366432  0.7483315  1.692843
-## 5            100% Kompos Jumlah.petiqlule 10  21.20 21.399896  6.7672414 15.308564
-## 6            100% Kompos   Tinggi.tanaman 10   8.23  7.251827  2.2932292  5.187645
-## 7             100% Tanah   Jumlah.petiole 10   6.60  4.695151  1.4847372  3.358709
-## 8             100% Tanah Jumlah.petiqlule 10  61.20 43.330256 13.7022302 30.996598
-## 9             100% Tanah   Tinggi.tanaman 10  17.10 12.174290  3.8498485  8.708962
-## 10 50% Tanah 50% Jangkos   Jumlah.petiole 10  11.90  9.480389  2.9979623  6.781862
-## 11 50% Tanah 50% Jangkos Jumlah.petiqlule 10 112.70 72.366429 22.8842741 51.767825
-## 12 50% Tanah 50% Jangkos   Tinggi.tanaman 10  23.13  9.448933  2.9880149  6.759359
-## 13  50% Tanah 50% Kompos   Jumlah.petiole 10   7.70  5.578729  1.7641491  3.990783
-## 14  50% Tanah 50% Kompos Jumlah.petiqlule 10  69.80 52.615587 16.6385095 37.638924
-## 15  50% Tanah 50% Kompos   Tinggi.tanaman 10  21.63 15.295319  4.8368045 10.941612
+##                    Media         variable  N  value        sd         se
+## 1           100% Jangkos   Jumlah.petiole 10   5.70  3.973523  1.2565385
+## 2           100% Jangkos Jumlah.petiqlule 10  61.60 43.244011 13.6749568
+## 3           100% Jangkos   Tinggi.tanaman 10  14.53 10.110286  3.1971532
+## 4            100% Kompos   Jumlah.petiole 10   2.60  2.366432  0.7483315
+## 5            100% Kompos Jumlah.petiqlule 10  21.20 21.399896  6.7672414
+## 6            100% Kompos   Tinggi.tanaman 10   8.23  7.251827  2.2932292
+## 7             100% Tanah   Jumlah.petiole 10   6.60  4.695151  1.4847372
+## 8             100% Tanah Jumlah.petiqlule 10  61.20 43.330256 13.7022302
+## 9             100% Tanah   Tinggi.tanaman 10  17.10 12.174290  3.8498485
+## 10 50% Tanah 50% Jangkos   Jumlah.petiole 10  11.90  9.480389  2.9979623
+## 11 50% Tanah 50% Jangkos Jumlah.petiqlule 10 112.70 72.366429 22.8842741
+## 12 50% Tanah 50% Jangkos   Tinggi.tanaman 10  23.13  9.448933  2.9880149
+## 13  50% Tanah 50% Kompos   Jumlah.petiole 10   7.70  5.578729  1.7641491
+## 14  50% Tanah 50% Kompos Jumlah.petiqlule 10  69.80 52.615587 16.6385095
+## 15  50% Tanah 50% Kompos   Tinggi.tanaman 10  21.63 15.295319  4.8368045
+##           ci
+## 1   2.842487
+## 2  30.934902
+## 3   7.232463
+## 4   1.692843
+## 5  15.308564
+## 6   5.187645
+## 7   3.358709
+## 8  30.996598
+## 9   8.708962
+## 10  6.781862
+## 11 51.767825
+## 12  6.759359
+## 13  3.990783
+## 14 37.638924
+## 15 10.941612
 ```
 
 ### **Create relative frequency**
@@ -97,38 +417,38 @@ print(dat)
 ```
 
 ```
-##                    Media         variable  N  value        sd         se        ci rel_freq
-## 1  50% Tanah 50% Jangkos   Jumlah.petiole 10  11.90  9.480389  2.9979623  6.781862     0.34
-## 2   50% Tanah 50% Kompos   Jumlah.petiole 10   7.70  5.578729  1.7641491  3.990783     0.22
-## 3             100% Tanah   Jumlah.petiole 10   6.60  4.695151  1.4847372  3.358709     0.19
-## 4           100% Jangkos   Jumlah.petiole 10   5.70  3.973523  1.2565385  2.842487     0.17
-## 5            100% Kompos   Jumlah.petiole 10   2.60  2.366432  0.7483315  1.692843     0.08
-## 6  50% Tanah 50% Jangkos Jumlah.petiqlule 10 112.70 72.366429 22.8842741 51.767825     0.35
-## 7   50% Tanah 50% Kompos Jumlah.petiqlule 10  69.80 52.615587 16.6385095 37.638924     0.21
-## 8           100% Jangkos Jumlah.petiqlule 10  61.60 43.244011 13.6749568 30.934902     0.19
-## 9             100% Tanah Jumlah.petiqlule 10  61.20 43.330256 13.7022302 30.996598     0.19
-## 10           100% Kompos Jumlah.petiqlule 10  21.20 21.399896  6.7672414 15.308564     0.06
-## 11 50% Tanah 50% Jangkos   Tinggi.tanaman 10  23.13  9.448933  2.9880149  6.759359     0.27
-## 12  50% Tanah 50% Kompos   Tinggi.tanaman 10  21.63 15.295319  4.8368045 10.941612     0.26
-## 13            100% Tanah   Tinggi.tanaman 10  17.10 12.174290  3.8498485  8.708962     0.20
-## 14          100% Jangkos   Tinggi.tanaman 10  14.53 10.110286  3.1971532  7.232463     0.17
-## 15           100% Kompos   Tinggi.tanaman 10   8.23  7.251827  2.2932292  5.187645     0.10
-##       se_freq notasi
-## 1  0.08689746      a
-## 2  0.05113476     ab
-## 3  0.04303586     ab
-## 4  0.03642140     ab
-## 5  0.02169077      b
-## 6  0.07008966      a
-## 7  0.05096021     ab
-## 8  0.04188348     ab
-## 9  0.04196701     ab
-## 10 0.02072662      b
-## 11 0.03531098      a
-## 12 0.05715912     ab
-## 13 0.04549573     ab
-## 14 0.03778248     ab
-## 15 0.02710032      b
+##                    Media         variable  N  value        sd         se
+## 1  50% Tanah 50% Jangkos   Jumlah.petiole 10  11.90  9.480389  2.9979623
+## 2   50% Tanah 50% Kompos   Jumlah.petiole 10   7.70  5.578729  1.7641491
+## 3             100% Tanah   Jumlah.petiole 10   6.60  4.695151  1.4847372
+## 4           100% Jangkos   Jumlah.petiole 10   5.70  3.973523  1.2565385
+## 5            100% Kompos   Jumlah.petiole 10   2.60  2.366432  0.7483315
+## 6  50% Tanah 50% Jangkos Jumlah.petiqlule 10 112.70 72.366429 22.8842741
+## 7   50% Tanah 50% Kompos Jumlah.petiqlule 10  69.80 52.615587 16.6385095
+## 8           100% Jangkos Jumlah.petiqlule 10  61.60 43.244011 13.6749568
+## 9             100% Tanah Jumlah.petiqlule 10  61.20 43.330256 13.7022302
+## 10           100% Kompos Jumlah.petiqlule 10  21.20 21.399896  6.7672414
+## 11 50% Tanah 50% Jangkos   Tinggi.tanaman 10  23.13  9.448933  2.9880149
+## 12  50% Tanah 50% Kompos   Tinggi.tanaman 10  21.63 15.295319  4.8368045
+## 13            100% Tanah   Tinggi.tanaman 10  17.10 12.174290  3.8498485
+## 14          100% Jangkos   Tinggi.tanaman 10  14.53 10.110286  3.1971532
+## 15           100% Kompos   Tinggi.tanaman 10   8.23  7.251827  2.2932292
+##           ci rel_freq    se_freq notasi
+## 1   6.781862     0.34 0.08689746      a
+## 2   3.990783     0.22 0.05113476     ab
+## 3   3.358709     0.19 0.04303586     ab
+## 4   2.842487     0.17 0.03642140     ab
+## 5   1.692843     0.08 0.02169077      b
+## 6  51.767825     0.35 0.07008966      a
+## 7  37.638924     0.21 0.05096021     ab
+## 8  30.934902     0.19 0.04188348     ab
+## 9  30.996598     0.19 0.04196701     ab
+## 10 15.308564     0.06 0.02072662      b
+## 11  6.759359     0.27 0.03531098      a
+## 12 10.941612     0.26 0.05715912     ab
+## 13  8.708962     0.20 0.04549573     ab
+## 14  7.232463     0.17 0.03778248     ab
+## 15  5.187645     0.10 0.02710032      b
 ```
 
 ### **Sorting x axis variables fill**
@@ -167,5 +487,5 @@ grafik <- ggplot(dat, aes(x = reorder(Media,-rel_freq), y = rel_freq, fill = var
 print(grafik)
 ```
 
-![](multiple_var_bargraph_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](multiple_var_bargraph_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
