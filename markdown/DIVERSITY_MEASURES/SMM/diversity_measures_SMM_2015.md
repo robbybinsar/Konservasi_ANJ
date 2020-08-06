@@ -1,6 +1,6 @@
 ---
 title: "Diversity Measures (alpha and beta)"
-subtitle: "PT SMM 2020"
+subtitle: "PT SMM 2015"
 author: "Robby B"
 date: "8/4/2020"
 output: 
