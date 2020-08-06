@@ -24,18 +24,64 @@ library(FSA)
 
 ```r
 df <- read.delim("Sengon jml petiqlule.txt")
-head(df)
+kable(df, format = "pipe")
 ```
 
-```
-##        Media Jumlah.petiqlule
-## 1 100% Tanah               94
-## 2 100% Tanah               78
-## 3 100% Tanah               82
-## 4 100% Tanah               88
-## 5 100% Tanah               58
-## 6 100% Tanah               74
-```
+
+
+|Media                 | Jumlah.petiqlule|
+|:---------------------|----------------:|
+|100% Tanah            |               94|
+|100% Tanah            |               78|
+|100% Tanah            |               82|
+|100% Tanah            |               88|
+|100% Tanah            |               58|
+|100% Tanah            |               74|
+|100% Tanah            |               84|
+|100% Tanah            |               80|
+|100% Tanah            |               76|
+|100% Tanah            |               96|
+|50% Tanah 50% Kompos  |               90|
+|50% Tanah 50% Kompos  |               66|
+|50% Tanah 50% Kompos  |               86|
+|50% Tanah 50% Kompos  |               90|
+|50% Tanah 50% Kompos  |               80|
+|50% Tanah 50% Kompos  |              126|
+|50% Tanah 50% Kompos  |               92|
+|50% Tanah 50% Kompos  |              102|
+|50% Tanah 50% Kompos  |               78|
+|50% Tanah 50% Kompos  |               90|
+|100% Kompos           |               20|
+|100% Kompos           |               22|
+|100% Kompos           |               18|
+|100% Kompos           |               24|
+|100% Kompos           |               18|
+|100% Kompos           |               16|
+|100% Kompos           |               88|
+|100% Kompos           |               78|
+|100% Kompos           |               72|
+|100% Kompos           |               78|
+|50% Tanah 50% Jangkos |               78|
+|50% Tanah 50% Jangkos |               84|
+|50% Tanah 50% Jangkos |               76|
+|50% Tanah 50% Jangkos |               68|
+|50% Tanah 50% Jangkos |               82|
+|50% Tanah 50% Jangkos |               78|
+|50% Tanah 50% Jangkos |               72|
+|50% Tanah 50% Jangkos |              102|
+|50% Tanah 50% Jangkos |               92|
+|50% Tanah 50% Jangkos |               74|
+|100% Jangkos          |               64|
+|100% Jangkos          |               74|
+|100% Jangkos          |               80|
+|100% Jangkos          |               86|
+|100% Jangkos          |               74|
+|100% Jangkos          |               86|
+|100% Jangkos          |               70|
+|100% Jangkos          |                0|
+|100% Jangkos          |               76|
+|100% Jangkos          |               74|
+
 
 ```r
 attach(df)
@@ -90,10 +136,10 @@ print(list(wilcox_pairwise = wilcox, wilcox3))
 ## P value adjustment method: BH 
 ## 
 ## [[2]]
-##          100% Jangkos           100% Kompos            100% Tanah 50% Tanah 50% Jangkos 
-##                  "ab"                   "a"                  "bc"                 "abc" 
-##  50% Tanah 50% Kompos 
-##                   "c"
+##          100% Jangkos           100% Kompos            100% Tanah 
+##                  "ab"                   "a"                  "bc" 
+## 50% Tanah 50% Jangkos  50% Tanah 50% Kompos 
+##                 "abc"                   "c"
 ```
 
 
@@ -101,6 +147,13 @@ print(list(wilcox_pairwise = wilcox, wilcox3))
 
 ```r
 Dunn <- dunnTest(Jumlah.petiqlule ~ Media, method = "bh")
+```
+
+```
+## Warning: Media was coerced to a factor.
+```
+
+```r
 Dunn1 <- Dunn$res
 Dunn2 <- cldList(comparison = Dunn1$Comparison, p.value = Dunn1$P.adj, threshold = 0.05)
 print(list(Dunn = Dunn, Dunn2))
@@ -119,17 +172,28 @@ print(list(Dunn = Dunn, Dunn2))
 ```
 
 ```
-##                                      Comparison         Z      P.unadj       P.adj
-## 1                    100% Jangkos - 100% Kompos  1.029663 0.3031681386 0.336853487
-## 2                     100% Jangkos - 100% Tanah -1.582915 0.1134408255 0.226881651
-## 3                      100% Kompos - 100% Tanah -2.612578 0.0089862117 0.029954039
-## 4          100% Jangkos - 50% Tanah 50% Jangkos -1.160292 0.2459298967 0.351328424
-## 5           100% Kompos - 50% Tanah 50% Jangkos -2.189955 0.0285274786 0.071318697
-## 6            100% Tanah - 50% Tanah 50% Jangkos  0.422623 0.6725703772 0.672570377
-## 7           100% Jangkos - 50% Tanah 50% Kompos -2.666367 0.0076676023 0.038338011
-## 8            100% Kompos - 50% Tanah 50% Kompos -3.696030 0.0002189973 0.002189973
-## 9             100% Tanah - 50% Tanah 50% Kompos -1.083452 0.2786080358 0.348260045
-## 10 50% Tanah 50% Jangkos - 50% Tanah 50% Kompos -1.506075 0.1320480437 0.220080073
+##                                      Comparison         Z      P.unadj
+## 1                    100% Jangkos - 100% Kompos  1.029663 0.3031681386
+## 2                     100% Jangkos - 100% Tanah -1.582915 0.1134408255
+## 3                      100% Kompos - 100% Tanah -2.612578 0.0089862117
+## 4          100% Jangkos - 50% Tanah 50% Jangkos -1.160292 0.2459298967
+## 5           100% Kompos - 50% Tanah 50% Jangkos -2.189955 0.0285274786
+## 6            100% Tanah - 50% Tanah 50% Jangkos  0.422623 0.6725703772
+## 7           100% Jangkos - 50% Tanah 50% Kompos -2.666367 0.0076676023
+## 8            100% Kompos - 50% Tanah 50% Kompos -3.696030 0.0002189973
+## 9             100% Tanah - 50% Tanah 50% Kompos -1.083452 0.2786080358
+## 10 50% Tanah 50% Jangkos - 50% Tanah 50% Kompos -1.506075 0.1320480437
+##          P.adj
+## 1  0.336853487
+## 2  0.226881651
+## 3  0.029954039
+## 4  0.351328424
+## 5  0.071318697
+## 6  0.672570377
+## 7  0.038338011
+## 8  0.002189973
+## 9  0.348260045
+## 10 0.220080073
 ## 
 ## [[2]]
 ##              Group Letter MonoLetter
