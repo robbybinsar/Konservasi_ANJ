@@ -25,18 +25,64 @@ library(ggplot2)
 ```r
 df <- read.delim("Anggrek Tanah (Tinggi).txt")
 satuan <- "(cm)"
-head(df)
+kable(df, format = "pipe")
 ```
 
-```
-##        Media Tinggi.Tanaman
-## 1 100% Tanah            4.2
-## 2 100% Tanah            4.4
-## 3 100% Tanah            4.5
-## 4 100% Tanah            4.8
-## 5 100% Tanah            2.5
-## 6 100% Tanah            4.2
-```
+
+
+|Media                 | Tinggi.Tanaman|
+|:---------------------|--------------:|
+|100% Tanah            |            4.2|
+|100% Tanah            |            4.4|
+|100% Tanah            |            4.5|
+|100% Tanah            |            4.8|
+|100% Tanah            |            2.5|
+|100% Tanah            |            4.2|
+|100% Tanah            |            3.8|
+|100% Tanah            |            3.0|
+|100% Tanah            |            4.6|
+|100% Tanah            |            5.5|
+|50% Tanah 50% Kompos  |            2.5|
+|50% Tanah 50% Kompos  |            4.4|
+|50% Tanah 50% Kompos  |            2.6|
+|50% Tanah 50% Kompos  |            2.2|
+|50% Tanah 50% Kompos  |            5.5|
+|50% Tanah 50% Kompos  |            4.0|
+|50% Tanah 50% Kompos  |            2.1|
+|50% Tanah 50% Kompos  |            3.2|
+|50% Tanah 50% Kompos  |            4.2|
+|50% Tanah 50% Kompos  |            5.3|
+|100% Kompos           |            4.1|
+|100% Kompos           |            3.2|
+|100% Kompos           |            1.9|
+|100% Kompos           |            3.4|
+|100% Kompos           |            2.5|
+|100% Kompos           |            0.6|
+|100% Kompos           |            1.3|
+|100% Kompos           |            3.0|
+|100% Kompos           |            0.6|
+|100% Kompos           |            3.5|
+|50% Tanah 50% Jangkos |            0.8|
+|50% Tanah 50% Jangkos |            6.5|
+|50% Tanah 50% Jangkos |            2.1|
+|50% Tanah 50% Jangkos |            1.8|
+|50% Tanah 50% Jangkos |            1.5|
+|50% Tanah 50% Jangkos |            1.6|
+|50% Tanah 50% Jangkos |            1.8|
+|50% Tanah 50% Jangkos |            1.6|
+|50% Tanah 50% Jangkos |            2.4|
+|50% Tanah 50% Jangkos |            2.4|
+|100% Jangkos          |            1.9|
+|100% Jangkos          |            4.5|
+|100% Jangkos          |            2.2|
+|100% Jangkos          |            3.0|
+|100% Jangkos          |            1.6|
+|100% Jangkos          |            1.8|
+|100% Jangkos          |            3.2|
+|100% Jangkos          |            1.6|
+|100% Jangkos          |            3.5|
+|100% Jangkos          |            1.2|
+
 
 ```r
 attach(df)
@@ -61,6 +107,8 @@ print(hasil_anova)
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
+
+*Note: If ANOVA's result is significant (p < 0.05) continue with post hoc test
 
 ### **Summary linear model**
 
@@ -98,7 +146,7 @@ print(summ)
 ```r
 independent <- colnames(df)[1]
 dependent <- colnames(df)[2]
-test_tukey <- HSD.test(model,kolom1, unbalanced = F)
+test_tukey <- HSD.test(model,colnames(df)[1], unbalanced = F)
 print(test_tukey)
 ```
 
