@@ -13,30 +13,6 @@ output:
 ```r
 library(FSA)
 library(car)
-```
-
-```
-## Loading required package: carData
-```
-
-```
-## 
-## Attaching package: 'car'
-```
-
-```
-## The following object is masked from 'package:FSA':
-## 
-##     bootCase
-```
-
-```
-## The following object is masked from 'package:DescTools':
-## 
-##     Recode
-```
-
-```r
 library(nortest)
 ```
 
@@ -45,63 +21,219 @@ library(nortest)
 
 ```r
 df <- read.delim("Anggrek Tanah (Tinggi).txt")
-kable(df, format = "pipe")
+kable(df, format = "html")
 ```
 
-
-
-|Media                 | Tinggi.Tanaman|
-|:---------------------|--------------:|
-|100% Tanah            |            4.2|
-|100% Tanah            |            4.4|
-|100% Tanah            |            4.5|
-|100% Tanah            |            4.8|
-|100% Tanah            |            2.5|
-|100% Tanah            |            4.2|
-|100% Tanah            |            3.8|
-|100% Tanah            |            3.0|
-|100% Tanah            |            4.6|
-|100% Tanah            |            5.5|
-|50% Tanah 50% Kompos  |            2.5|
-|50% Tanah 50% Kompos  |            4.4|
-|50% Tanah 50% Kompos  |            2.6|
-|50% Tanah 50% Kompos  |            2.2|
-|50% Tanah 50% Kompos  |            5.5|
-|50% Tanah 50% Kompos  |            4.0|
-|50% Tanah 50% Kompos  |            2.1|
-|50% Tanah 50% Kompos  |            3.2|
-|50% Tanah 50% Kompos  |            4.2|
-|50% Tanah 50% Kompos  |            5.3|
-|100% Kompos           |            4.1|
-|100% Kompos           |            3.2|
-|100% Kompos           |            1.9|
-|100% Kompos           |            3.4|
-|100% Kompos           |            2.5|
-|100% Kompos           |            0.6|
-|100% Kompos           |            1.3|
-|100% Kompos           |            3.0|
-|100% Kompos           |            0.6|
-|100% Kompos           |            3.5|
-|50% Tanah 50% Jangkos |            0.8|
-|50% Tanah 50% Jangkos |            6.5|
-|50% Tanah 50% Jangkos |            2.1|
-|50% Tanah 50% Jangkos |            1.8|
-|50% Tanah 50% Jangkos |            1.5|
-|50% Tanah 50% Jangkos |            1.6|
-|50% Tanah 50% Jangkos |            1.8|
-|50% Tanah 50% Jangkos |            1.6|
-|50% Tanah 50% Jangkos |            2.4|
-|50% Tanah 50% Jangkos |            2.4|
-|100% Jangkos          |            1.9|
-|100% Jangkos          |            4.5|
-|100% Jangkos          |            2.2|
-|100% Jangkos          |            3.0|
-|100% Jangkos          |            1.6|
-|100% Jangkos          |            1.8|
-|100% Jangkos          |            3.2|
-|100% Jangkos          |            1.6|
-|100% Jangkos          |            3.5|
-|100% Jangkos          |            1.2|
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Media </th>
+   <th style="text-align:right;"> Tinggi.Tanaman </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 4.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 4.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 4.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 4.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 2.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 4.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 3.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 3.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 4.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Tanah </td>
+   <td style="text-align:right;"> 5.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 2.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 4.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 2.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 2.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 5.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 4.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 2.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 3.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 4.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Kompos </td>
+   <td style="text-align:right;"> 5.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 4.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 3.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 1.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 3.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 2.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 0.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 1.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 3.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 0.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Kompos </td>
+   <td style="text-align:right;"> 3.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 0.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 6.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 2.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 1.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 1.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 1.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 1.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 1.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 2.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 50% Tanah 50% Jangkos </td>
+   <td style="text-align:right;"> 2.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 1.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 4.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 2.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 3.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 1.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 1.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 3.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 1.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 3.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 100% Jangkos </td>
+   <td style="text-align:right;"> 1.2 </td>
+  </tr>
+</tbody>
+</table>
 
 ```r
 dependent.var <- df[,2] #Column variabel dependent
