@@ -72,7 +72,6 @@ brainerd %>% plot_spot() + khroma::scale_colour_YlOrBr() +
             theme(axis.text = element_text(size = 12, face = "bold"))
 ```
 
-\newpage
 ### b. Jaccard index (similarity between assemblages)
 
 - **Qualitative** similarity measures (between samples)
@@ -111,7 +110,6 @@ jaccard %>% plot_spot() + khroma::scale_colour_BuRd() +
 #print(sim.types)
 ```
 
-\newpage
 ## B. Abundance Model
 
 Ranks vs abundance plot can be used for abundance models

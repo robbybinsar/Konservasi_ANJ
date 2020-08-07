@@ -80,7 +80,7 @@ plot(
     )
 ```
 
-![](Diversity Measures Beta and Abundance Jan - Jun 20_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](DIVERS~2/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 
 ```r
@@ -88,9 +88,8 @@ brainerd %>% plot_spot() + khroma::scale_colour_YlOrBr() +
             theme(axis.text = element_text(size = 12, face = "bold"))
 ```
 
-![](Diversity Measures Beta and Abundance Jan - Jun 20_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](DIVERS~2/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
-\newpage
 ### b. Jaccard index (similarity between assemblages)
 
 - **Qualitative** similarity measures (between samples)
@@ -110,7 +109,7 @@ plot(
     )
 ```
 
-![](Diversity Measures Beta and Abundance Jan - Jun 20_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](DIVERS~2/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 
 ```r
@@ -118,11 +117,10 @@ jaccard %>% plot_spot() + khroma::scale_colour_BuRd() +
     theme(axis.text = element_text(size = 12, face = "bold"))
 ```
 
-![](Diversity Measures Beta and Abundance Jan - Jun 20_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](DIVERS~2/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 
 
-\newpage
 ## B. Abundance Model
 
 Ranks vs abundance plot can be used for abundance models
@@ -135,6 +133,6 @@ abund.model <- df %>% as_count() %>%
 print(abund.model)
 ```
 
-![](Diversity Measures Beta and Abundance Jan - Jun 20_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](DIVERS~2/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 
