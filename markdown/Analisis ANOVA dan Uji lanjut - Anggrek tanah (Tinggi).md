@@ -1,5 +1,5 @@
 ---
-title: "ANOVA satu arah"
+title: "ANALISIS ANGGREK TANAH ANOVA DAN POST HOC"
 author: "Robby"
 date: "7/31/2020"
 output: 
