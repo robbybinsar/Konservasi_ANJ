@@ -1,0 +1,127 @@
+---
+title: "Diversity Measures (beta and abundance)"
+subtitle: "PT ANJ Jan - Jun 2020"
+author: "Robby B"
+date: "8/4/2020"
+output: 
+  pdf_document:
+    toc: TRUE
+    latex_engine: lualatex
+geometry: margin=1in
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Load packages**
+
+```{r message=FALSE, warning=FALSE}
+library(tabula)
+library(magrittr)
+library(khroma)
+library(ggplot2)
+library(openxlsx)
+library(RFLPtools)
+library(knitr)
+```
+
+**Reading and preparing data**
+
+```{r}
+dat <- "data_jml_spesies_ANJ.xlsx"
+df <- read.xlsx(paste0("C:/Users/rbbutar/Documents/R/Konservasi_ANJ/indeks_kehati/", dat), 
+                sheet = "grafik_beta", cols = 1:8)
+rownames(df) <- df[,1]
+df <- df[,-1]
+df <- t(df)
+
+#Dropping columns sum 0
+df <- as.data.frame(df)
+df <- df[,!sapply(df, function(x) sum(x))==0]
+#kable(df, caption = )
+```
+
+
+## A. Beta -diversity
+
+Beta diversity is a comparison of diversity between ecosystems, usually measured as the amount of species change between the ecosystem.
+
+### 1. Similarity
+
+Jaccard, Morisita-Horn and Sorenson indices provide a scale of similarity from 0-1 where 1 is perfect similarity and 0 is no similarity. The Brainerd-Robinson index is scaled between 0 and 200.
+
+### a. Brainerd-Robinson (similarity between assemblages)
+
+- **Quantitative** similarity measures (between samples)
+- Brainerd-Robinson quantitative index. This is a city-block metric of similarity between pairs of samples/cases.
+
+```{r}
+brainerd <- df %>% as_count %>% similarity(method = "brainerd")
+brainerddata <-sim2dist(brainerd@.Data, maxSim = 200)
+plot(
+    hclust(brainerddata),
+    hang = -1,
+    main = "Sites clustered by Brainerd similarity",
+    xlab = "Quantitative Index",
+    axes = FALSE, ylab = ""
+    )
+```
+
+```{r include = FALSE}
+brainerd %>% plot_spot() + khroma::scale_colour_YlOrBr() + 
+            theme(axis.text = element_text(size = 12, face = "bold"))
+```
+
+\newpage
+### b. Jaccard index (similarity between assemblages)
+
+- **Qualitative** similarity measures (between samples)
+-  This analysis includes presence/absence standardization using `decostand`
+
+```{r}
+jaccard <- df %>% as_count %>% similarity(method = "jaccard")
+jaccarddata <- sim2dist(jaccard@.Data, maxSim = 1)
+plot(
+    hclust(jaccarddata),
+    hang = -1,
+    main = "Sites clustered by Jaccard similarity",
+    xlab = "includes presence/absence standardization using `decostand`",
+    sub = "Qualitative index",
+    axes = FALSE, ylab = ""
+    )
+```
+
+```{r include=FALSE}
+jaccard %>% plot_spot() + khroma::scale_colour_BuRd() + 
+    theme(axis.text = element_text(size = 12, face = "bold"))
+```
+
+```{r, include=FALSE}
+### c. Binomial co-occurrence (similarity between types)
+
+#Binomial co-occurrence assessment. This assesses the degree of co-occurrence between taxa/types within a dataset. The strongest associations are shown by large positive numbers, the strongest segregations by large negative numbers.
+
+#- Similarity between pairs of taxa/types can be measured by assessing the degree of co-occurrence (binomial co-occurrence).
+#- The Binomial co-occurrence assessment approximates a Z-score.
+
+
+#sim.types <- df %>% as_count %>% similarity(method = "binomial") %>%
+           # plot_spot() + khroma::scale_colour_PRGn() +
+           # theme(axis.text = element_text(size = 5, face = "bold"))
+#print(sim.types)
+```
+
+\newpage
+## B. Abundance Model
+
+Ranks vs abundance plot can be used for abundance models
+
+```{r}
+abund.model <- df %>% as_count() %>% 
+            plot_rank(log = "xy", facet = FALSE) +
+            ggplot2::theme_bw() + khroma::scale_color_discreterainbow()
+print(abund.model)
+```
+
+

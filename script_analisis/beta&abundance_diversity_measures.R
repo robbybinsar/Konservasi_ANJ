@@ -4,7 +4,7 @@ library(khroma)
 library(tabula)
 library(magrittr)
 library(RFLPtools)
-
+library(openxlsx)
 
 # Reading and preparing data
 dat <- "data_jml_spesies_ANJ.xlsx"

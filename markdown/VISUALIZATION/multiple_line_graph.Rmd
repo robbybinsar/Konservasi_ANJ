@@ -1,6 +1,6 @@
 ---
 title: |
-    | Diversity Measures PT ANJ Reg 3 
+    | Diversity Measures PT ANJ Reg 1 dan 2 
     | January - June 2020
 author: |
     | Robby B
@@ -8,7 +8,6 @@ author: |
 date: "8/7/2020"
 output: 
     pdf_document: 
-      keep_md: TRUE
       toc: TRUE
       latex_engine: xelatex
 geometry: margin=1in
@@ -29,14 +28,14 @@ library(openxlsx)
 library(knitr)
 ```
 
-## A. Species Richness Index 
-
 ```{r b}
-subjek <- "Region 3"
+subjek <- "Region 1 dan 2"
 range_x <- "Jan - Jun 2020"
 filedata <- "data_jml_spesies_ANJ.xlsx"
 ```
 
+\newpage
+## A. Species Richness Index 
 
 ```{r c, echo=FALSE, message=FALSE, warning=FALSE}
 data <- read.xlsx(paste0(
@@ -45,8 +44,8 @@ data <- read.xlsx(paste0(
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = "Species Richness index Jan-June 2020")
 attach(data)
 ```
@@ -74,6 +73,7 @@ ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
         axis.text = element_text(face = "bold"))
 ```
 
+\newpage
 ## B. Diversity Index
 
 ```{r e, echo=FALSE, message=FALSE, warning=FALSE}
@@ -111,6 +111,7 @@ ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
         axis.text = element_text(face = "bold"))
 ```
 
+\newpage
 ## C. Evenness Index
 
 ```{r g, echo=FALSE, message=FALSE, warning=FALSE}
