@@ -1,0 +1,109 @@
+---
+title: "ANOVA satu arah"
+author: "Robby"
+date: "7/31/2020"
+output: 
+    html_document:
+        keep_md: TRUE
+        toc: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Use this analysis based on homogeneity and normality test results**
+
+```{r}
+library(Rmisc)
+library(agricolae)
+library(ggplot2)
+```
+
+
+### **Reading and preparing data**
+```{r}
+df <- read.delim("Anggrek Tanah (Tinggi).txt")
+satuan <- "(cm)"
+kable(df, format = "pipe")
+```
+
+```{r message=FALSE, warning=FALSE}
+attach(df)
+```
+
+
+### **One-way ANOVA**
+```{r}
+model <- lm(Tinggi.Tanaman ~ Media)
+hasil_anova <- anova(model)
+print(hasil_anova)
+```
+
+*Note: If ANOVA's result is significant (p < 0.05) continue with post hoc test
+
+### **Summary linear model**
+```{r}
+summ <- summary(model)
+print(summ)
+```
+
+### **Post Hoc: Tukey's HSD**
+```{r}
+independent <- colnames(df)[1]
+dependent <- colnames(df)[2]
+test_tukey <- HSD.test(model,colnames(df)[1], unbalanced = F)
+print(test_tukey)
+notasi <- test_tukey$groups[order(test_tukey$groups[,1]),]
+notasi <- notasi[,2]
+```
+
+### **Summarizes data**
+*Gives count, mean, standard deviation, standard error of the mean, and confidence interval (default 95%).*
+```{r}
+dat <- summarySE(data = df,dependent,groupvars = independent,conf.interval = 0.95)
+dat <- dat[order(dat[,3]),]
+print(dat)
+```
+
+### **ggPlot**
+```{r}
+##offset.v:kode instruksi untuk pengaturan posisi vertikal huruf hasil uji lanjut di atas nilai SE
+offset.v = -0.8
+##offset.h:kode instruksi untuk pengaturan posisi horizontal huruf hasil uji lanjut di atas nilai SE
+offset.h = -0.8
+#ggplot: kode instruksi untuk penyusunan grafik
+#geom_bar: kode untuk pengaturan diagram batang)
+#geom_errorbar: kode untuk pembubuhan SE di diagram batang)
+#geom_text: kode untuk pembubuhan huruf, kata, frase atau kalimat di grafik)
+#labs: kode untuk pengaturan nama judul sumbu x dan y)
+#them_bw: kode pengaturan grafik hitam putih
+#theme: kode pengaturan latar grafik, ukuran huruf, tipe huruf, dll)
+variable <- dat[,3]
+treatment <- dat[,1]
+grafik <- ggplot(dat,
+            aes(x= reorder(treatment,variable), y= variable),ymax=8,ymin=0.0)+
+            geom_bar(stat="identity", fill="white",colour="black",width = 0.6)+
+            geom_errorbar(aes(ymin=variable-se,
+                    ymax=variable+se),width=0.1,size=0.6,colour="black") +
+            geom_text(aes(label= notasi,hjust=offset.h, vjust=offset.v),size=4) +
+            geom_text(aes(label=variable),position = position_dodge(width = 0.4),
+                    vjust = -0.25, hjust = 1.1,size = 4)+
+            labs(x = independent, y = paste(dependent,satuan), 
+                    title = paste("Pengaruh",independent, "terhadap", dependent), 
+                    subtitle = "Analysis of Variance \nPost Hoc Analysis: Tukey's Test") +
+            theme_bw() +
+            theme(panel.background = element_blank(),
+                panel.grid.major = element_blank(),
+                panel.grid.minor = element_blank(),
+                panel.border = element_blank(),
+                plot.title = element_text(size = rel(1.5),face = "bold",hjust=0),
+                plot.subtitle = element_text(size = rel(1), hjust = 0),
+                axis.title = element_text(face="bold",size = 11),
+                axis.title.y = element_text(vjust = 4,size = 11),
+                axis.title.x = element_text(vjust=-2, size=11),
+                axis.line = element_line(colour="black"),
+                axis.text = element_text(size = 10,color = "black"))
+print(grafik)
+```
+

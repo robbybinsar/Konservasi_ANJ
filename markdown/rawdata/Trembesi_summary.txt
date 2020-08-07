@@ -1,0 +1,51 @@
+Media	Tinggi.tanaman	Jumlah.petiole	Jumlah.petiqlule
+100% Tanah	22.3	8	68
+100% Tanah	0.0	0	0
+100% Tanah	0.0	0	0
+100% Tanah	0.0	0	0
+100% Tanah	28.0	12	100
+100% Tanah	23.0	9	90
+100% Tanah	23.9	10	96
+100% Tanah	26.4	8	78
+100% Tanah	18.4	9	82
+100% Tanah	29.0	10	98
+50% Tanah 50% Kompos	28.0	9	98
+50% Tanah 50% Kompos	25.0	9	82
+50% Tanah 50% Kompos	33.0	15	156
+50% Tanah 50% Kompos	38.0	11	88
+50% Tanah 50% Kompos	0.0	0	0
+50% Tanah 50% Kompos	32.0	10	82
+50% Tanah 50% Kompos	30.0	12	102
+50% Tanah 50% Kompos	30.3	11	90
+50% Tanah 50% Kompos	0.0	0	0
+50% Tanah 50% Kompos	0.0	0	0
+100% Kompos	0.0	0	0
+100% Kompos	15.8	4	28
+100% Kompos	10.3	3	22
+100% Kompos	12.8	4	28
+100% Kompos	0.0	0	0
+100% Kompos	13.1	5	38
+100% Kompos	0.0	0	0
+100% Kompos	0.0	0	0
+100% Kompos	14.7	4	32
+100% Kompos	15.6	6	64
+50% Tanah 50% Jangkos	16.5	9	98
+50% Tanah 50% Jangkos	25.0	9	86
+50% Tanah 50% Jangkos	24.0	10	94
+50% Tanah 50% Jangkos	23.5	8	88
+50% Tanah 50% Jangkos	0.0	0	0
+50% Tanah 50% Jangkos	31.1	37	290
+50% Tanah 50% Jangkos	21.8	12	135
+50% Tanah 50% Jangkos	29.0	12	124
+50% Tanah 50% Jangkos	27.0	11	120
+50% Tanah 50% Jangkos	33.4	11	92
+100% Jangkos	19.0	8	76
+100% Jangkos	21.0	8	82
+100% Jangkos	19.1	8	88
+100% Jangkos	20.0	9	96
+100% Jangkos	0.0	0	0
+100% Jangkos	23.2	9	104
+100% Jangkos	0.0	0	0
+100% Jangkos	22.4	8	90
+100% Jangkos	20.6	7	80
+100% Jangkos	0.0	0	0

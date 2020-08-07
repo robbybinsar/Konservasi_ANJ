@@ -1,0 +1,88 @@
+---
+title: "Homogeneity and normality"
+author: "Robby"
+date: "7/31/2020"
+output: 
+    html_document:
+        keep_md: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(FSA)
+library(car)
+library(nortest)
+
+```
+
+
+### **Reading and preparing data**
+```{r}
+df <- read.delim("Anggrek Tanah (Tinggi).txt")
+kable(df, format = "html")
+dependent.var <- df[,2] #Column variabel dependent
+independent.var <- df[,1]#Column variabel independent
+satuan <- "(cm)"
+```
+
+### **Data descriptive summary**
+```{r message=FALSE, warning=FALSE}
+attach(df)
+```
+
+```{r}
+df_summary <- data.frame(Summarize(Tinggi.Tanaman ~ Media, digits = 1))
+kable(df_summary, format = "pipe")
+```
+
+### **Homogeneity test**
+
+#### Levene's test for homogeneity of variance.
+*if p > 0.05 assumption of homogeneity fulfilled*
+```{r}
+levene <- suppressWarnings(leveneTest(Tinggi.Tanaman ~ Media, data = df))
+print(levene)
+```
+
+### **Normality test**
+*if p > 0.05 assumption of normal distribution fulfilled*
+
+#### Shapiro-Wilk Normality Test
+```{r}
+normalitas <- shapiro.test(Tinggi.Tanaman)
+print(normalitas)
+```
+
+#### Kolmogorov-Smirnov Tests
+```{r}
+uji_ks <- suppressWarnings(ks.test(Tinggi.Tanaman,"pnorm",mean = mean(Tinggi.Tanaman), 
+                            sd = sd(Tinggi.Tanaman)))
+print(uji_ks)
+```
+
+#### Lilliefors (Kolmogorov-Smirnov) test for normality
+Although the test statistic obtained from lillie.test(x) is the same as that obtained from ks.test(x, "pnorm", mean(x), sd(x)), it is not correct to use the p-value from the latter for the composite hypothesis of normality (mean and variance unknown), since the distribution of the test statistic is different when the parameters are estimated.
+
+```{r}
+lillie <- lillie.test(Tinggi.Tanaman)
+print(lillie)
+```
+
+### **Q-Q Plot**
+A Q-Q plot is a scatterplot created by plotting two sets of quantiles against one another. If both sets of quantiles came from the same distribution, we should see the points forming a line that’s roughly straight.
+```{r}
+kol2 <- colnames(df)[2]
+QQplot <- qqPlot(Tinggi.Tanaman, id = F, ylab = kol2, main = "Quantile - Quantile Plot")
+```
+
+### **Box-and-whisker plot**
+```{r fig.align='left'}
+box_whisker <- boxplot(Tinggi.Tanaman ~ Media, 
+                        xlab = paste(kol2,satuan), ylab = "", col = "orange", border = 
+                        "brown", horizontal = TRUE, las = 1, par(mar = c(8,13,1,1)))
+```
+
+

@@ -1,0 +1,88 @@
+---
+title: "Multiple Variable Bar Graph"
+author: "Robby"
+date: "8/1/2020"
+output: 
+    html_document:
+        keep_md: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(tidyr)
+library(Rmisc)
+library(plyr)
+library(ggplot2)
+```
+
+
+### **Reading and Preparing data**
+```{r}
+df <- read.delim("Trembesi_summary.txt")
+kable(df, format = "html")
+```
+
+```{r message=FALSE, warning=FALSE}
+attach(df)
+```
+
+**Gather the data to 'long' format so the variables are all in one column**
+```{r}
+longdata <- pivot_longer(df,c(Tinggi.tanaman, Jumlah.petiole, Jumlah.petiqlule), names_to = "variable")
+kable(head(longdata), format = "pipe")
+```
+
+### **Create summary statistics**
+```{r}
+summary <- longdata %>% summarySE(measurevar = "value", groupvars = c("Media","variable"))
+kable(summary, format = "pipe")
+```
+
+### **Create relative frequency**
+*note: .(variable) for quoting*
+```{r}
+dat <- ddply(summary,.(variable),transform, rel_freq = round(value/sum(value),2),
+             se_freq = se/value*(value/sum(value)))
+dat <- dat[order(dat$variable,-dat$value),]
+dat["notasi"] <- c("a","ab","ab","ab","b","a","ab","ab","ab","b","a","ab","ab","ab","b") #notation from post hoc test
+rownames(dat) <- seq_len(nrow(dat))
+kable(dat,format = "pipe")
+```
+
+### **Sorting x axis variables fill**
+```{r}
+dat$variable <- factor(dat$variable, levels = c("Tinggi.tanaman", "Jumlah.petiole", "Jumlah.petiqlule"))
+```
+
+### **Grafik ggplot**
+```{r}
+kolom1 <- colnames(df)[1]
+grafik <- ggplot(dat, aes(x = reorder(Media,-rel_freq), y = rel_freq, fill = variable)) + 
+    geom_bar(stat = 'identity', position = position_dodge(), width = 0.9) +
+    geom_errorbar(aes(ymin = rel_freq - se_freq, ymax = rel_freq + se_freq), 
+                  width = 0.2,position = position_dodge(0.9))+
+    scale_fill_manual("Variable", values = c("dark blue","orange","yellow"))+ 
+    geom_text(aes(label =rel_freq), size = 2.5, position = position_dodge(width = 0.9), 
+              vjust = -0.5, hjust = -0.1)+
+    geom_text(aes(label= notasi),hjust=1.4, vjust=3,size=3, 
+              position = position_dodge(1), color = "red")+
+    labs(x = kolom1, y = "Frekuensi Relatif Rata-Rata", title = paste("Pengaruh",kolom1, "terhadap", "Tanaman Trembesi"))+
+    theme_bw() +
+    theme(panel.background = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_blank(),
+          plot.title = element_text(size = rel(1),face = "bold",hjust=0),
+          axis.title = element_text(face="bold"),
+          axis.title.y = element_text(vjust = 3,size = 8),
+          axis.title.x = element_text(vjust=-1, size=8),
+          axis.line = element_line(colour="black"),
+          axis.text = element_text(size = 6,color = "black", face = "bold"),
+          legend.text = element_text(size=6),
+          legend.title = element_text(size = 8))
+print(grafik)
+```
+

@@ -1,0 +1,77 @@
+---
+title: "Non-Parametric Statistical Test"
+author: "Robby"
+date: "7/31/2020"
+output: 
+    html_document:
+        keep_md: TRUE
+        toc: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This test is used when normality assumption of a dataset is not achieved.
+
+```{r message=FALSE, warning=FALSE}
+library(rcompanion)
+library(multcompView)
+library(DescTools)
+library(FSA)
+```
+
+### **Reading and preparing data**
+```{r}
+df <- read.delim("Sengon jml petiqlule.txt")
+kable(df, format = "pipe")
+```
+
+```{r message=FALSE, warning=FALSE}
+attach(df)
+```
+
+### **Kruskal-Wallis Rank Sum Test**
+```{r}
+kruskalw <- kruskal.test(Jumlah.petiqlule ~ Media)
+print(kruskalw)
+```
+
+*Note: If Kruskal-Wallis test result is significant (p < 0.05) conitnue with post hoc test.
+
+### **Post Hoc Tests**
+*Test for several post hoc methods for comparison*
+
+#### Pairwise Wilcoxon Rank Sum Tests
+```{r}
+wilcox <- pairwise.wilcox.test(Jumlah.petiqlule,Media,
+                               p.adjust.method = "BH", exact = FALSE)
+#p.adjust.method: Returns p-values adjusted using Benjamini & Hochberg (1995) method ("BH")
+wilcox1 <- wilcox$p.value
+wilcox2 <- fullPTable(wilcox1)
+wilcox3 <- multcompLetters(wilcox2,compare = "<", threshold = 0.05, 
+                           Letters = letters,reversed = FALSE)
+print(list(wilcox_pairwise = wilcox, wilcox3))
+```
+
+
+#### Dunn's Kruskal-Wallis Multiple Comparisons.
+```{r}
+Dunn <- dunnTest(Jumlah.petiqlule ~ Media, method = "bh")
+Dunn1 <- Dunn$res
+Dunn2 <- cldList(comparison = Dunn1$Comparison, p.value = Dunn1$P.adj, threshold = 0.05)
+print(list(Dunn = Dunn, Dunn2))
+```
+
+#### Nemenyi Test
+```{r}
+Media <- as.factor(Media)
+nemenyi <- NemenyiTest(x = Jumlah.petiqlule, g = Media, dist = "tukey")
+print(nemenyi)
+```
+
+**An error from cldList() indicate that there's no significant differences**
+```{r}
+try(cldList(comparison = nemenyi$Comparison, p.value = nemenyi$P.adj, threshold = 0.05))
+```
+

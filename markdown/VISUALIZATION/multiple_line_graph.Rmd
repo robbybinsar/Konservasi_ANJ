@@ -1,0 +1,149 @@
+---
+title: |
+    | Diversity Measures PT ANJ Reg 3 
+    | January - June 2020
+author: |
+    | Robby B
+    | Conservation Data Staff
+date: "8/7/2020"
+output: 
+    pdf_document: 
+      keep_md: TRUE
+      toc: TRUE
+      latex_engine: xelatex
+geometry: margin=1in
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Load packages**
+
+```{r a, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(hrbrthemes)
+library(openxlsx)
+library(knitr)
+```
+
+## A. Species Richness Index 
+
+```{r b}
+subjek <- "Region 3"
+range_x <- "Jan - Jun 2020"
+filedata <- "data_jml_spesies_ANJ.xlsx"
+```
+
+
+```{r c, echo=FALSE, message=FALSE, warning=FALSE}
+data <- read.xlsx(paste0(
+    "C:/Users/rbbutar/Documents/R/Konservasi_ANJ/indeks_kehati/",
+    filedata), sheet = "grafik_kekayaan",
+    detectDates = TRUE)
+data <- 
+    #data[!(data$sites!=subjek),]
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Species Richness index Jan-June 2020")
+attach(data)
+```
+
+
+```{r d, echo=FALSE, fig.width=8.5}
+ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
+    #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
+    #polynomial regression, adjust the poly degree to get a desired line of best fit.
+    stat_smooth(method = "lm", formula = y~poly(x, 2), size = 1.2, se = F)+ 
+    geom_point()+
+    geom_hline(yintercept=3.5, color="red", size=.5) +
+    geom_hline(yintercept = 5, color = "orange", size = .5)+
+    geom_text(aes(label = round(richness_index,2)), size = 3, 
+              position = position_dodge(width = 0), vjust = -0.5, hjust = 0) +
+    scale_y_continuous(breaks = seq(0,15,1))+
+    theme_bw() + 
+    labs(title = paste("Grafik Indeks Kekayaan Spesies", subjek, range_x), 
+         subtitle = "Method: Margalef \nPolynomial degree: 2")+
+    annotate(geom="text", x= as.Date("2020-01-30", "%Y-%m-%d"), y=3.4, 
+             label="3.5 = Batas indeks kekayaan kategori rendah",size = 3)+
+    annotate(geom="text", x = as.Date("2020-01-30", "%Y-%m-%d"), y=5.2, 
+             label="5 = Batas indeks kekayaan kategori tinggi", size = 3) +
+    theme(
+        axis.text = element_text(face = "bold"))
+```
+
+## B. Diversity Index
+
+```{r e, echo=FALSE, message=FALSE, warning=FALSE}
+data <- read.xlsx(paste0(
+    "C:/Users/rbbutar/Documents/R/Konservasi_ANJ/indeks_kehati/",
+    filedata), sheet = "grafik_keanekaragaman",
+    detectDates = TRUE)
+data <- 
+    #data[!(data$sites!=subjek),]
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Diversity index Jan-June 2020")
+attach(data)
+```
+
+```{r f, echo= FALSE, fig.width=8.5}
+ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
+    #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
+    #polynomial regression, adjust the poly degree to get a desired line of best fit.
+    stat_smooth(method = "lm", formula = y~poly(x, 2), size = 1.2, se = F)+ 
+    geom_point()+
+    geom_hline(yintercept=1, color="red", size=.5) +
+    geom_hline(yintercept =3.322, color = "orange", size = .5)+
+    geom_text(aes(label = round(diversity_index,2)), size = 3, 
+              position = position_dodge(width = 0), vjust = -0.5, hjust = 0) +
+    scale_y_continuous(breaks = seq(0,5,0.5))+
+    theme_bw() + 
+    labs(title = paste("Grafik Indeks Keanekaragaman", subjek, range_x), 
+         subtitle = "Method: Shannon-Wiener \nPolynomial degree: 2")+
+    annotate(geom="text", x= as.Date("2020-01-28", "%Y-%m-%d"), y= 0.95 , 
+             label="1 = Batas indeks keanekaragaman kategori rendah",size = 3)+
+    annotate(geom="text", x = as.Date("2020-02-01", "%Y-%m-%d"), y=3.4, 
+             label="3.322 = Batas indeks keanekaragaman kategori tinggi", size = 3) +
+    theme(
+        axis.text = element_text(face = "bold"))
+```
+
+## C. Evenness Index
+
+```{r g, echo=FALSE, message=FALSE, warning=FALSE}
+data <- read.xlsx(paste0(
+    "C:/Users/rbbutar/Documents/R/Konservasi_ANJ/indeks_kehati/",
+    filedata), sheet = "grafik_kemerataan",
+    detectDates = TRUE)
+data <- 
+    #data[!(data$sites!=subjek),]
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Evenness index Jan-June 2020")
+attach(data)
+```
+
+```{r h, echo = FALSE, fig.width=8}
+ggplot(data, aes(x=date, y=evenness_index, group = sites, color = sites )) +
+    #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
+    #polynomial regression, adjust the poly degree to get a desired line of best fit.
+    stat_smooth(method = "lm", formula = y~poly(x, 2), size = 1.2, se = F)+ 
+    geom_point()+
+    geom_hline(yintercept=0.5, color="red", size=.5) +
+    geom_hline(yintercept =0.75, color = "orange", size = .5)+
+    geom_text(aes(label = round(evenness_index,2)), size = 3, 
+              position = position_dodge(width = 0), vjust = -0.5, hjust = 0) +
+    scale_y_continuous(breaks = seq(0,1,0.1))+
+    theme_bw() + 
+    labs(title = paste("Grafik Indeks Kemerataan", subjek, range_x), 
+         subtitle = "Method: Shannon-Wiener \nPolynomial degree: 2")+
+    annotate(geom="text", x= as.Date("2020-04-29", "%Y-%m-%d"), y= 0.49 , 
+             label="0.5 = Batas indeks kemerataan kategori rendah",size = 3)+
+    annotate(geom="text", x = as.Date("2020-04-29", "%Y-%m-%d"), y=0.77, 
+             label="0.75 = Batas indeks kemerataan kategori tinggi", size = 3) +
+    theme(
+        axis.text = element_text(face = "bold"))
+```
