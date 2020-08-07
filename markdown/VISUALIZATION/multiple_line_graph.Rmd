@@ -83,8 +83,8 @@ data <- read.xlsx(paste0(
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = "Diversity index Jan-June 2020")
 attach(data)
 ```
@@ -121,8 +121,8 @@ data <- read.xlsx(paste0(
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = "Evenness index Jan-June 2020")
 attach(data)
 ```

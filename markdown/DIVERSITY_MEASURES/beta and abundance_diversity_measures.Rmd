@@ -2,12 +2,11 @@
 title: "Diversity Measures (beta and abundance)"
 subtitle: "PT ANJ Jan - Jun 2020"
 author: "Robby B"
-date: "8/4/2020"
+date: "8/7/2020"
 output: 
-  pdf_document:
+  html_document:
     toc: TRUE
-    latex_engine: lualatex
-geometry: margin=1in
+    keep_md: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -39,7 +38,7 @@ df <- t(df)
 #Dropping columns sum 0
 df <- as.data.frame(df)
 df <- df[,!sapply(df, function(x) sum(x))==0]
-#kable(df, caption = )
+kable(df, format = "pipe")
 ```
 
 
@@ -68,7 +67,7 @@ plot(
     )
 ```
 
-```{r include = FALSE}
+```{r}
 brainerd %>% plot_spot() + khroma::scale_colour_YlOrBr() + 
             theme(axis.text = element_text(size = 12, face = "bold"))
 ```
@@ -92,7 +91,7 @@ plot(
     )
 ```
 
-```{r include=FALSE}
+```{r }
 jaccard %>% plot_spot() + khroma::scale_colour_BuRd() + 
     theme(axis.text = element_text(size = 12, face = "bold"))
 ```
