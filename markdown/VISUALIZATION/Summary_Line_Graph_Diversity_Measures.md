@@ -106,7 +106,7 @@ ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
         axis.text = element_text(face = "bold"))
 ```
 
-![](Summary Line Graph Diversity Measures_files/figure-html/d-1.png)<!-- -->
+![](Summary_Line_Graph_Diversity_Measures_files/figure-html/d-1.png)<!-- -->
 
 
 ## B. Diversity Index
@@ -182,7 +182,7 @@ ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
         axis.text = element_text(face = "bold"))
 ```
 
-![](Summary Line Graph Diversity Measures_files/figure-html/f-1.png)<!-- -->
+![](Summary_Line_Graph_Diversity_Measures_files/figure-html/f-1.png)<!-- -->
 
 
 ## C. Evenness Index
@@ -258,4 +258,4 @@ ggplot(data, aes(x=date, y=evenness_index, group = sites, color = sites )) +
         axis.text = element_text(face = "bold"))
 ```
 
-![](Summary Line Graph Diversity Measures_files/figure-html/h-1.png)<!-- -->
+![](Summary_Line_Graph_Diversity_Measures_files/figure-html/h-1.png)<!-- -->
