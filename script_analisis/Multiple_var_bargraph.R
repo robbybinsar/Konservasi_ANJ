@@ -6,10 +6,10 @@ library(ggplot2)
 # Preparing data
 df <- read.delim("Trembesi_summary.txt")
 
-## Gather the data to 'long' format so the bodytemp, length and mass are all in one column
+## Gather the data to 'long' format so the variables are all in one column
 longdata <- pivot_longer(df,c(Tinggi.tanaman, Jumlah.petiole, Jumlah.petiqlule), names_to = "variable") ## alternatif kedua selain pakai gather
 
-# Create the summary statistics seperately for grouping variables (i.e. bodytemp, length and mass)
+# Create the summary statistics seperately for grouping variables
 summary <- longdata %>% summarySE(measurevar = "value", groupvars = c("Media","variable"))
 
 # buat jadi relative frequency
