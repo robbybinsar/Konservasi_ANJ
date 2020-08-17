@@ -1,5 +1,7 @@
 library(dplyr)
 
+# FAUNA
+
 # UPDATE SHEET ENTRY FAUNA
 added <- data.frame(matrix(nrow = 0,ncol = 0))
 readData <- function(UM, bulan) {
@@ -143,9 +145,9 @@ readData <- function(UM, bulan) {
     }
     dats <- "./pattern_match/pattern_match.xlsx"
     wb <- loadWorkbook(dats)
-    writeDataTable(wb,sheet = UM ,added , colNames = T, rowNames = F, startCol = 28, tableName = paste0("insert_to_entry_database_",UM,bulan))
+    writeDataTable(wb,sheet = UM ,added , colNames = T, rowNames = F, startCol = 13, tableName = paste0("insert_to_entry_database_",UM,bulan))
     saveWorkbook(wb,dats,overwrite = T)
-    .GlobalEnv$added <- added
+    .GlobalEnv$added_fauna <- added
 }
 
 # UPDATE SHEET DATABASE FAUNA
@@ -169,4 +171,95 @@ readdata2 <- function() {
         if (addmore == 2) break
     }
     .GlobalEnv$databaseFauna <- df
+}
+
+#FLORA
+added <- data.frame(matrix(nrow = 0,ncol = 0))
+readData <- function(UM, bulan) {
+    while(TRUE) {
+        #Kelompok
+        kelompok <- readline(prompt = 'Kelompok: \n Bambu \n Berkayu \n Epifit \n Herba \n Paku \n
+                             Jamur \n Liana \n Palem \n Pandan \n Perdu \n Pohon \n
+                             Semak \n Tidak berkayu \n Un')
+        while (sum(c("Bambu", "Berkayu","Epifit", "Herba", "Paku",
+                     "Jamur", "Liana", "Palem", "Pandan", "Perdu" , "Pohon",
+                     "Semak", "Tidak berkayu", "Un") %in% kelompok) == 0) {
+            kelompok <- readline(prompt = 'Kelompok: \n Bambu \n Berkayu \n Epifit \n Herba \n Paku \n
+                             Jamur \n Liana \n Palem \n Pandan \n Perdu \n Pohon \n
+                             Semak \n Tidak berkayu \n Un')
+        }
+        
+        #ANJ ID
+        dat <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
+        dataFora <- read.xlsx(dat, sheet = "ENTRY FLORA")
+        ANJ.ID <- paste0(toupper(substr(kelompok,1,3)),"-",sum(dataFlora$Group == kelompok)+1)
+        
+        # Family
+        familyname <- readline(prompt = "Family: ")
+        while(familyname == "") {
+            familyname <- readline(prompt = "Family: ")
+        }
+        
+        #nama latin
+        NamaLatin <- readline(prompt = "Nama Latin: ")
+        while(NamaLatin == "") {
+            NamaLatin <- readline(prompt = "Nama Latin: ")
+        }
+        
+        # English name
+        EnglishName <- readline(prompt = "English Name: ")
+        if (EnglishName == "") {EnglishName <- NA}
+        
+        #Indonesian name
+        IndonesianName <- readline(prompt = "Nama Indonesia: ")
+        if (IndonesianName == "") {IndonesianName <- NA}
+        
+        #CITES
+        CITES <- readline(prompt = "CITES Appendix: ")
+        if(sum(c("I","II","III") %in% CITES)== 0) {CITES <- NA}
+        
+        #IUCN
+        IUCN <- readline(prompt = "IUCN redlist: ")
+        if(sum(c("DD","LC","NT","VU","EN","CR","EX") %in% IUCN)==0) {IUCN <- NA}
+        
+        #PPRI 1999
+        PPRI <- readline(prompt = 'PP/RI: \n 1. Dilindungi \n 2. Tidak Dilindungi')
+        while(PPRI != 1 & PPRI != 2){
+            PPRI <- readline(prompt = 'PP/RI: \n 1. Dilindungi \n 2. Tidak Dilindungi')
+        }    
+        if (PPRI == 1){PPRI <- "Dilindungi"}
+        else if(PPRI == 2){PPRI <- "Tidak Dilindungi"}
+        
+        #Permenlhk 2018
+        permenlhk2018 <- readline(prompt = 'PERMENLHK 2018: \n 1. Dilindungi \n 2. Tidak Dilindungi')
+        while(permenlhk2018 != 1 & permenlhk2018 != 2){
+            permenlhk2018 <- readline(prompt = 'PERMENLHK 2018: \n 1. Dilindungi \n 2. Tidak Dilindungi')
+        }
+        if (permenlhk2018 == 1){permenlhk2018 <- "Dilindungi"}
+        else if(permenlhk2018 == 2){permenlhk2018 <- "Tidak Dilindungi"}
+        
+        #Endemism
+        endemism <- readline(prompt = 'Status Endemisme: \n 1. Endemik \n 2. Tidak Endemik \n 3. Data Deficient')
+        while(endemism != 1 & endemism != 2 & endemism != 3){
+            endemism <- readline(prompt = 'Status Endemisme: \n 1. Endemik \n 2. Tidak Endemik \n 3. Data Deficient')
+        }
+        if (endemism == 1){endemism <- "Endemik"}
+        else if(endemism == 2){endemism <- "Tidak Endemik"}
+        else if(endemism == 3){endemism <- "Data Deficient"}
+        
+        output <- data.frame(ID = c(ANJ.ID), Group = c(kelompok), Family = c(familyname), Latin.name = c(NamaLatin), 
+                             English.name = c(EnglishName), Indonesian.name = c(IndonesianName), 
+                             CITES=c(CITES), IUCN = c(IUCN), PPRI = c(PPRI), Permenlhk.106= c(permenlhk2018), Endemism = c(endemism),
+                             )
+        added <- bind_rows(added, output)
+        
+        #Addmore entry Q
+        addmore <- readline(prompt = 'Add more entry? \n 1.Press Enter to add more entry \n 2.Type 2 to finish')
+        if (addmore == 2) break
+    }
+    dats <- "./pattern_match/pattern_match_flora.xlsx"
+    wb <- loadWorkbook(dats)
+    writeDataTable(wb,sheet = UM ,added , colNames = T, rowNames = F, startCol = 13, tableName = paste0("insert_to_entry_database_",UM,bulan))
+    saveWorkbook(wb,dats,overwrite = T)
+    .GlobalEnv$added_flora <- added
 }

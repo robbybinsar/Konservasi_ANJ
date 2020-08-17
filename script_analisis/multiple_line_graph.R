@@ -16,7 +16,7 @@ attach(data)
 
 # plot
 
-# Richness Index
+#  Index
 ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
     #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
     
