@@ -3,8 +3,8 @@ library(dplyr)
 # FAUNA
 
 # UPDATE SHEET ENTRY FAUNA
-added <- data.frame(matrix(nrow = 0,ncol = 0))
-readData <- function(UM, bulan) {
+added_fauna <- data.frame(matrix(nrow = 0,ncol = 0))
+readData_fauna <- function(UM, bulan) {
     while(TRUE) {
         #Kelas
         kelas <- readline(prompt = 'Kelas: \n 1. Aves \n 2. Mamalia \n 3. Reptil \n 4. Insekta \n 5. Pisces')
@@ -137,7 +137,7 @@ readData <- function(UM, bulan) {
                              Seasonality.Reg12 = c(Seasonality.Reg12), Presence.Reg3 = c(Presence.Reg3),
                              Origin.Reg3 = c(Origin.Reg3), Seasonality.Reg3 = c(Seasonality.Reg3), 
                              Habitat.lv1 = c(Habitat.lv1))
-        added <- bind_rows(added, output)
+        added_fauna <- bind_rows(added_fauna, output)
         
         #Addmore entry Q
         addmore <- readline(prompt = 'Add more entry? \n 1.Press Enter to add more entry \n 2.Type 2 to finish')
@@ -145,9 +145,9 @@ readData <- function(UM, bulan) {
     }
     dats <- "./pattern_match/pattern_match.xlsx"
     wb <- loadWorkbook(dats)
-    writeDataTable(wb,sheet = UM ,added , colNames = T, rowNames = F, startCol = 13, tableName = paste0("insert_to_entry_database_",UM,bulan))
+    writeDataTable(wb,sheet = UM ,added_fauna , colNames = T, rowNames = F, startCol = 13, tableName = paste0("insert_to_entry_database_",UM,bulan))
     saveWorkbook(wb,dats,overwrite = T)
-    .GlobalEnv$added_fauna <- added
+    .GlobalEnv$added_fauna <- added_fauna
 }
 
 # UPDATE SHEET DATABASE FAUNA
@@ -174,13 +174,13 @@ readdata2 <- function() {
 }
 
 #FLORA
-added <- data.frame(matrix(nrow = 0,ncol = 0))
-readData <- function(UM, bulan) {
+added_flora <- data.frame(matrix(nrow = 0,ncol = 0))
+readData_flora <- function(UM, bulan) {
     while(TRUE) {
         #Kelompok
-        kelompok <- readline(prompt = 'Kelompok: \n Bambu \n Berkayu \n Epifit \n Herba \n Paku \n
-                             Jamur \n Liana \n Palem \n Pandan \n Perdu \n Pohon \n
-                             Semak \n Tidak berkayu \n Un')
+        kelompok <- readline(prompt = 'Kelompok: \n Bambu \n Berkayu \n Epifit \n Herba \n Paku 
+                             \n Jamur \n Liana \n Palem \n Pandan \n Perdu \n Pohon 
+                             \n Semak \n Tidak berkayu \n Un')
         while (sum(c("Bambu", "Berkayu","Epifit", "Herba", "Paku",
                      "Jamur", "Liana", "Palem", "Pandan", "Perdu" , "Pohon",
                      "Semak", "Tidak berkayu", "Un") %in% kelompok) == 0) {
@@ -191,7 +191,7 @@ readData <- function(UM, bulan) {
         
         #ANJ ID
         dat <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
-        dataFora <- read.xlsx(dat, sheet = "ENTRY FLORA")
+        dataFlora <- read.xlsx(dat, sheet = "ENTRY FLORA")
         ANJ.ID <- paste0(toupper(substr(kelompok,1,3)),"-",sum(dataFlora$Group == kelompok)+1)
         
         # Family
@@ -249,9 +249,9 @@ readData <- function(UM, bulan) {
         
         output <- data.frame(ID = c(ANJ.ID), Group = c(kelompok), Family = c(familyname), Latin.name = c(NamaLatin), 
                              English.name = c(EnglishName), Indonesian.name = c(IndonesianName), 
-                             CITES=c(CITES), IUCN = c(IUCN), PPRI = c(PPRI), Permenlhk.106= c(permenlhk2018), Endemism = c(endemism),
+                             CITES=c(CITES), IUCN = c(IUCN), PPRI = c(PPRI), Permenlhk.106= c(permenlhk2018), Endemism = c(endemism)
                              )
-        added <- bind_rows(added, output)
+        added_flora <- bind_rows(added_flora, output)
         
         #Addmore entry Q
         addmore <- readline(prompt = 'Add more entry? \n 1.Press Enter to add more entry \n 2.Type 2 to finish')
@@ -259,7 +259,7 @@ readData <- function(UM, bulan) {
     }
     dats <- "./pattern_match/pattern_match_flora.xlsx"
     wb <- loadWorkbook(dats)
-    writeDataTable(wb,sheet = UM ,added , colNames = T, rowNames = F, startCol = 13, tableName = paste0("insert_to_entry_database_",UM,bulan))
+    writeDataTable(wb,sheet = UM ,added_flora , colNames = T, rowNames = F, startCol = 13, tableName = paste0("insert_to_entry_database_",UM,bulan))
     saveWorkbook(wb,dats,overwrite = T)
-    .GlobalEnv$added_flora <- added
+    .GlobalEnv$added_flora <- added_flora
 }
