@@ -47,28 +47,51 @@ readData_fauna <- function(UM, bulan) {
             if (PrimaryDiet == "") {PrimaryDiet <- NA}
         
         #CITES
-        CITES <- readline(prompt = "CITES Appendix: ")
-            if(sum(c("I","II","III") %in% CITES)== 0) {CITES <- NA}
+        pathcites <- "D:/DATABASE/DOKUMEN/CITES/Index_of_CITES_Species_2020-08-19 05_48.csv"
+        CITESLookup <- read.csv(pathcites)
+        CITESvect <- CITESLookup$FullName
+        CITESlist <- CITESLookup$CurrentListing
+        splitcites <- strsplit(NamaLatin, " ")[[1]][1]
+        hitung <- stringsim(NamaLatin, CITESvect)
+        if (max(hitung) >= 0.9) {
+            value <- CITESvect[match(max(hitung),hitung)]
+            CITES <- CITESlist[match(value, CITESvect)]
+        } else if (max(stringsim(splitcites, CITESvect)) >= 0.95) {
+            value <- CITESvect[match(max(stringsim(splitcites, CITESvect)),stringsim(splitcites, CITESvect))]
+            CITES <- CITESlist[match(value, CITESvect)]
+        } else if (max(stringsim(familyname, CITESvect)) >= 0.95) {
+            value <- CITESvect[match(max(stringsim(familyname, CITESvect)),stringsim(familyname, CITESvect))]
+            CITES <- CITESlist[match(value, CITESvect)]
+        } else {
+            CITES <- NA
+        }
         
         #IUCN
         IUCN <- readline(prompt = "IUCN redlist: ")
             if(sum(c("DD","LC","NT","VU","EN","CR","EX") %in% IUCN)==0) {IUCN <- NA}
         
         #PPRI 1999
-        PPRI <- readline(prompt = 'PP/RI: \n 1. Dilindungi \n 2. Tidak Dilindungi')
-            while(PPRI != 1 & PPRI != 2){
-                PPRI <- readline(prompt = 'PP/RI: \n 1. Dilindungi \n 2. Tidak Dilindungi')
-            }    
-            if (PPRI == 1){PPRI <- "Dilindungi"}
-            else if(PPRI == 2){PPRI <- "Tidak Dilindungi"}
+        dat <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
+        PPRILookup <- read.xlsx(dat, sheet = "LHK dan PP", cols = 9, startRow = 5)
+        split1 <- strsplit(NamaLatin," ")[[1]][1] ; split1 <- paste(split1, "spp.") 
+        if (max(stringsim(NamaLatin, PPRILookup$Nama.Latin), na.rm = T) >= 0.9) {
+            PPRI <- "Dilindungi"
+        } else if(max(stringsim(split1, PPRILookup$Nama.Latin), na.rm = T) >= 0.9) {
+            PPRI <- "Dilindungi"
+        } else {
+            PPRI <- "Tidak Dilindungi"
+        }
         
         #Permenlhk 2018
-        permenlhk2018 <- readline(prompt = 'PERMENLHK 2018: \n 1. Dilindungi \n 2. Tidak Dilindungi')
-            while(permenlhk2018 != 1 & permenlhk2018 != 2){
-                permenlhk2018 <- readline(prompt = 'PERMENLHK 2018: \n 1. Dilindungi \n 2. Tidak Dilindungi')
-            }
-            if (permenlhk2018 == 1){permenlhk2018 <- "Dilindungi"}
-            else if(permenlhk2018 == 2){permenlhk2018 <- "Tidak Dilindungi"}
+        permenlhk2018array <- read.xlsx(dat, sheet = "LHK dan PP", cols = 3, startRow = 5)
+        split2 <-  strsplit(NamaLatin," ")[[1]][1] ; split2 <- paste(split2, "spp.")
+        if (max(stringsim(NamaLatin, permenlhk2018array$Nama.Latin), na.rm = T) >= 0.9) {
+            permenlhk2018 <- "Dilindungi"
+        } else if(max(stringsim(split1, permenlhk2018array$Nama.Latin), na.rm = T) >= 0.9) {
+            permenlhk2018 <- "Dilindungi"
+        } else {
+            permenlhk2018 <- "Tidak Dilindungi"
+        }
         
         #Endemism
         endemism <- readline(prompt = 'Status Endemisme: \n 1. Endemik \n 2. Tidak Endemik \n 3. Data Deficient')
@@ -215,28 +238,51 @@ readData_flora <- function(UM, bulan) {
         if (IndonesianName == "") {IndonesianName <- NA}
         
         #CITES
-        CITES <- readline(prompt = "CITES Appendix: ")
-        if(sum(c("I","II","III") %in% CITES)== 0) {CITES <- NA}
+        pathcites <- "D:/DATABASE/DOKUMEN/CITES/Index_of_CITES_Species_2020-08-19 05_48.csv"
+        CITESLookup <- read.csv(pathcites)
+        CITESvect <- CITESLookup$FullName
+        CITESlist <- CITESLookup$CurrentListing
+        splitcites <- strsplit(NamaLatin, " ")[[1]][1]
+        hitung <- stringsim(NamaLatin, CITESvect)
+        if (max(hitung) >= 0.9) {
+            value <- CITESvect[match(max(hitung),hitung)]
+            CITES <- CITESlist[match(value, CITESvect)]
+        } else if (max(stringsim(splitcites, CITESvect)) >= 0.95) {
+            value <- CITESvect[match(max(stringsim(splitcites, CITESvect)),stringsim(splitcites, CITESvect))]
+            CITES <- CITESlist[match(value, CITESvect)]
+        } else if (max(stringsim(familyname, CITESvect)) >= 0.95) {
+            value <- CITESvect[match(max(stringsim(familyname, CITESvect)),stringsim(familyname, CITESvect))]
+            CITES <- CITESlist[match(value, CITESvect)]
+        } else {
+            CITES <- NA
+        }
         
         #IUCN
         IUCN <- readline(prompt = "IUCN redlist: ")
         if(sum(c("DD","LC","NT","VU","EN","CR","EX") %in% IUCN)==0) {IUCN <- NA}
         
         #PPRI 1999
-        PPRI <- readline(prompt = 'PP/RI: \n 1. Dilindungi \n 2. Tidak Dilindungi')
-        while(PPRI != 1 & PPRI != 2){
-            PPRI <- readline(prompt = 'PP/RI: \n 1. Dilindungi \n 2. Tidak Dilindungi')
-        }    
-        if (PPRI == 1){PPRI <- "Dilindungi"}
-        else if(PPRI == 2){PPRI <- "Tidak Dilindungi"}
+        dat <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
+        PPRILookup <- read.xlsx(dat, sheet = "LHK dan PP", cols = 9, startRow = 5)
+        split1 <- strsplit(NamaLatin," ")[[1]][1] ; split1 <- paste(split1, "spp.") 
+        if (max(stringsim(NamaLatin, PPRILookup$Nama.Latin), na.rm = T) >= 0.9) {
+            PPRI <- "Dilindungi"
+        } else if(max(stringsim(split1, PPRILookup$Nama.Latin), na.rm = T) >= 0.9) {
+            PPRI <- "Dilindungi"
+        } else {
+            PPRI <- "Tidak Dilindungi"
+        }
         
         #Permenlhk 2018
-        permenlhk2018 <- readline(prompt = 'PERMENLHK 2018: \n 1. Dilindungi \n 2. Tidak Dilindungi')
-        while(permenlhk2018 != 1 & permenlhk2018 != 2){
-            permenlhk2018 <- readline(prompt = 'PERMENLHK 2018: \n 1. Dilindungi \n 2. Tidak Dilindungi')
+        permenlhk2018array <- read.xlsx(dat, sheet = "LHK dan PP", cols = 3, startRow = 5)
+        split2 <-  strsplit(NamaLatin," ")[[1]][1] ; split2 <- paste(split2, "spp.")
+        if (max(stringsim(NamaLatin, permenlhk2018array$Nama.Latin), na.rm = T) >= 0.9) {
+            permenlhk2018 <- "Dilindungi"
+        } else if(max(stringsim(split1, permenlhk2018array$Nama.Latin), na.rm = T) >= 0.9) {
+            permenlhk2018 <- "Dilindungi"
+        } else {
+            permenlhk2018 <- "Tidak Dilindungi"
         }
-        if (permenlhk2018 == 1){permenlhk2018 <- "Dilindungi"}
-        else if(permenlhk2018 == 2){permenlhk2018 <- "Tidak Dilindungi"}
         
         #Endemism
         endemism <- readline(prompt = 'Status Endemisme: \n 1. Endemik \n 2. Tidak Endemik \n 3. Data Deficient')
