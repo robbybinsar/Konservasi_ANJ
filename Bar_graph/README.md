@@ -16,7 +16,7 @@ output:
 
 ### 1. `Multiple_var_bargraph.R` (R script)
 
-The bar graph from the `Multiple_var_bargraph.R` script will create a bar plot using ggplot from observation research of Trembesi plant with 5 testing independent variables of planting medium they are as follows:  
+The `Multiple_var_bargraph.R` script will create a bar plot using ggplot from observation research of Trembesi plant with 5 = independent variables of planting medium they are as follows:  
 a. 100% tanah  
 b. 50% tanah 50% kompos  
 c. 100% kompos  
