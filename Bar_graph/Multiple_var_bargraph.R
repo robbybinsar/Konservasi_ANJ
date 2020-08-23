@@ -4,7 +4,7 @@ library(plyr)
 library(ggplot2)
 
 # Preparing data
-df <- read.delim("Trembesi_summary.txt")
+df <- read.delim("./rawdata/Trembesi_summary.txt")
 
 ## Gather the data to 'long' format so the variables are all in one column
 longdata <- pivot_longer(df,c(Tinggi.tanaman, Jumlah.petiole, Jumlah.petiqlule), names_to = "variable") ## alternatif kedua selain pakai gather
@@ -47,7 +47,7 @@ grafik <- ggplot(dat, aes(x = reorder(Media,-rel_freq), y = rel_freq, fill = var
           legend.title = element_text(size = 21),
           plot.margin = unit(c(1,2,1,2), "cm"))
 
-png("summary_multiplebar.png",width = 1500, height = 800)
+png("./Bar_graph/summary_multiplebar_Trembesi.png",width = 1500, height = 800)
 print(grafik)
 dev.off()
 print(grafik)
