@@ -1,0 +1,151 @@
+---
+title: "Biological Diversity in R"
+author: "Robby Butarbutar"
+date: "7/30/2020"
+output:
+  pdf_document: 
+    fig_width: 7
+    fig_height: 6
+    fig_caption: yes
+    latex_engine: xelatex
+  word_document: default
+subtitle: 'Reference: Dan Flynn, Brenda Lin, and Daniel Bunker. Columbia University'
+documentclass: article
+geometry: margin=1in
+fontsize: 10pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(vegan)
+```
+
+### Reading data
+```{r}
+df <- read.csv("bird_contoh.csv")
+rownames(df) <- df[,1]
+df <- df[,-1]
+df <- t(df)
+head(df[,1:6])
+```
+
+### Species richness
+```{r paged.print=TRUE}
+spec.rich <- specnumber(df, MARGIN = 1)
+print(spec.rich)
+```
+
+### Diversity Indices
+```{r}
+diversity <- diversity(df, index = "shannon", MARGIN = 1)
+print(diversity)
+```
+
+### Plot
+```{r}
+make.sorted.plot <- function(x){
+    ordered <- sort(x, T)
+    plot(
+        ordered,
+        col = terrain.colors(10),
+        xaxt = "n", pch = 16, cex = 2,
+        ylim = c(min(ordered)*0.5, max(ordered)),
+        xlim = c(0, length(x)+1),
+        ylab = "Diversity measure", xlab = "Sites",
+        main = substitute(x))
+    text(ordered,
+         names(ordered),
+         srt = -75,
+         pos = 4)
+}
+```
+
+##### Plot for species richness
+```{r fig.align='left'}
+make.sorted.plot(spec.rich)
+```
+
+
+##### Plot for Diversity indices
+```{r fig.align='left'}
+make.sorted.plot(diversity)
+```
+
+
+### Dissimilarity
+
+To look at how close each pair of sites is to one another, we can use a metric like the Jaccard distance. This just summarizes how much two sets of species overlap, and is the number of species shared between two sites divided by the total number of species in both sites.
+
+> vegdist {vegan} R Doc: Dissimilarity Indices for Community Ecologists
+ > The function computes dissimilarity indices that are useful for or popular with community ecologists. All indices use quantitative data, although they would be named by the corresponding binary index, but you can calculate the binary index using an appropriate argument. 
+ > Gower, Bray–Curtis, Jaccard and Kulczynski indices are good in detecting underlying ecological gradients (Faith et al. 1987). Morisita, Horn–Morisita, Binomial, Cao and Chao indices should be able to handle different sample sizes (Wolda 1981, Krebs 1999, Anderson & Millar 2004), and Mountford (1962) and Raup-Crick indices for presence–absence data should be able to handle unknown (and variable) sample sizes. Most of these indices are discussed by Krebs (1999) and Legendre & Legendre (2012), and their properties further compared by Wolda (1981) and Legendre & De Cáceres (2012).
+
+```{r}
+dissimilarity <- vegdist(df, method = "jaccard")
+print(dissimilarity)
+```
+
+
+### Sites Dendrogram
+A useful way to examine this result is to build a "tree" from it. Here, a tree (actually a
+dendrogram) is a way to cluster the sites together based on how "far apart" they are in
+species composition; sites which have very similar species compositions will group
+together on the tree:
+```{r}
+plot(
+    hclust(dissimilarity),
+    hang = -1,
+    main = "Sites clustered by Jaccard similarity",
+    axes = FALSE, ylab = ""
+    )
+```
+
+### Additional
+
+* Note: This analysis can be done if we have the 'management index' of a particular area whether for agricultural, mining, or infrastructure development. In this case for palm oil company I think it's possible to use HCV index for each of the cluster area or (HVC areas) and compare them in linear model with diversity indices *
+
+Example:
+
+How does coffee plantation management intensity affect bird diversity? Now that we
+have our two diversity measures for the sites, and here we can add the last piece of the
+puzzle, the actual information about how intensively these different sites were managed.
+
+```{r}
+management <- read.csv("managementindex.csv")
+print(management)
+```
+
+
+Now we can directly look at the relationship between the Shannon diversity index values
+and the management intensity. Management intensity is a summary of the management
+system, where high values mean more agricultural inputs, lower tree cover, and fewer
+species of trees:
+
+```{r}
+attach(management)
+plot(diversity ~ Management.index)
+```
+
+
+It looks like there is a downward trend, where more intensive management decreases
+bird species diversity. Is this relationship important? A linear regression will answer the question for us. Use the lm() command to do a regression ("linear model"):
+
+```{r}
+regression.result <- lm(diversity ~ Management.index)
+summary(regression.result)
+```
+
+
+The trend, while negative, is not significant (p = 0.444). So according to this species
+diversity metric, more intensive management does not decrease bird diversity.
+
+Finally, add the linear regression to our plot using "a b-line":
+
+```{r}
+plot(diversity ~ Management.index)
+abline(lm(diversity ~ Management.index), lty = 2) ## lty = line type; 2 = dashed
+```
+
+

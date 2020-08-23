@@ -1,0 +1,51 @@
+Media	tinggi	lebar
+100% Tanah	4.20	0.267
+100% Tanah	4.40	0.033
+100% Tanah	4.50	0.067
+100% Tanah	4.80	0.167
+100% Tanah	2.50	0.06
+100% Tanah	4.20	0.1
+100% Tanah	3.80	0.167
+100% Tanah	3.00	0.233
+100% Tanah	4.60	0.1
+100% Tanah	5.50	0.1
+50% Tanah 50% Kompos	2.50	0.1
+50% Tanah 50% Kompos	4.40	0.2
+50% Tanah 50% Kompos	2.60	0.2
+50% Tanah 50% Kompos	2.20	0.3
+50% Tanah 50% Kompos	5.50	0.125
+50% Tanah 50% Kompos	4.00	0.033
+50% Tanah 50% Kompos	2.10	0.133
+50% Tanah 50% Kompos	3.20	0.067
+50% Tanah 50% Kompos	4.20	0.067
+50% Tanah 50% Kompos	5.30	0.167
+100% Kompos	4.10	0
+100% Kompos	3.20	0.133
+100% Kompos	1.90	0.05
+100% Kompos	3.40	0.2
+100% Kompos	2.50	0.1
+100% Kompos	0.60	0.04
+100% Kompos	1.30	0
+100% Kompos	3.00	0.15
+100% Kompos	0.60	0.05
+100% Kompos	3.50	0.1
+50% Tanah 50% Jangkos	0.80	0.15
+50% Tanah 50% Jangkos	6.50	0.15
+50% Tanah 50% Jangkos	2.10	0.233
+50% Tanah 50% Jangkos	1.80	0.075
+50% Tanah 50% Jangkos	1.50	0.2
+50% Tanah 50% Jangkos	1.60	0.08
+50% Tanah 50% Jangkos	1.80	0.2
+50% Tanah 50% Jangkos	1.60	0.2
+50% Tanah 50% Jangkos	2.40	0.175
+50% Tanah 50% Jangkos	2.40	0.25
+100% Jangkos	1.90	0.1
+100% Jangkos	4.50	0.233
+100% Jangkos	2.20	0.1
+100% Jangkos	3.00	0.2
+100% Jangkos	1.60	0.1
+100% Jangkos	1.80	0.1
+100% Jangkos	3.20	0.167
+100% Jangkos	1.60	0.1
+100% Jangkos	3.50	0.15
+100% Jangkos	1.20	0.1

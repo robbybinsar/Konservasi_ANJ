@@ -1,0 +1,6 @@
+
+	Lilliefors (Kolmogorov-Smirnov) normality test
+
+data:  dependent.var
+D = 0.21823, p-value = 2.686e-06
+

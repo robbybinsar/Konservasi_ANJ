@@ -1,0 +1,6 @@
+
+	Shapiro-Wilk normality test
+
+data:  dependent.var
+W = 0.81959, p-value = 2.556e-06
+

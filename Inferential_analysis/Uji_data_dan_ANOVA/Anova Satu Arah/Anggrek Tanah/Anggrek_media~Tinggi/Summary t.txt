@@ -1,0 +1,22 @@
+
+Call:
+lm(formula = dependent ~ independent, data = df2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.8100 -0.8250 -0.0500  0.6375  4.2500 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                        2.4500     0.3862   6.345  9.6e-08 ***
+independent100% Kompos            -0.0400     0.5461  -0.073  0.94194    
+independent100% Tanah              1.7000     0.5461   3.113  0.00322 ** 
+independent50% Tanah 50% Jangkos  -0.2000     0.5461  -0.366  0.71591    
+independent50% Tanah 50% Kompos    1.1500     0.5461   2.106  0.04083 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.221 on 45 degrees of freedom
+Multiple R-squared:  0.3012,	Adjusted R-squared:  0.239 
+F-statistic: 4.848 on 4 and 45 DF,  p-value: 0.002451
+

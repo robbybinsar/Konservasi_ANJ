@@ -1,0 +1,17 @@
+
+ Nemenyi's test of multiple comparisons for independent samples (tukey)  
+
+                                           mean.rank.diff   pval    
+100% Kompos-100% Jangkos                            -6.70 0.8426    
+100% Tanah-100% Jangkos                             10.30 0.5103    
+50% Tanah 50% Jangkos-100% Jangkos                   7.55 0.7752    
+50% Tanah 50% Kompos-100% Jangkos                   17.35 0.0598 .  
+100% Tanah-100% Kompos                              17.00 0.0689 .  
+50% Tanah 50% Jangkos-100% Kompos                   14.25 0.1850    
+50% Tanah 50% Kompos-100% Kompos                    24.05 0.0021 ** 
+50% Tanah 50% Jangkos-100% Tanah                    -2.75 0.9934    
+50% Tanah 50% Kompos-100% Tanah                      7.05 0.8162    
+50% Tanah 50% Kompos-50% Tanah 50% Jangkos           9.80 0.5603    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+

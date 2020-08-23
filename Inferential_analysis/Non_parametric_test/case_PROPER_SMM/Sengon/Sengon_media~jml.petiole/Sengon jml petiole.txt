@@ -1,0 +1,51 @@
+Media	Jumlah.petiole
+100% Tanah	13
+100% Tanah	11
+100% Tanah	13
+100% Tanah	12
+100% Tanah	8
+100% Tanah	10
+100% Tanah	10
+100% Tanah	9
+100% Tanah	9
+100% Tanah	10
+50% Tanah 50% Kompos	12
+50% Tanah 50% Kompos	9
+50% Tanah 50% Kompos	10
+50% Tanah 50% Kompos	11
+50% Tanah 50% Kompos	10
+50% Tanah 50% Kompos	13
+50% Tanah 50% Kompos	10
+50% Tanah 50% Kompos	12
+50% Tanah 50% Kompos	9
+50% Tanah 50% Kompos	10
+100% Kompos	6
+100% Kompos	5
+100% Kompos	5
+100% Kompos	6
+100% Kompos	4
+100% Kompos	3
+100% Kompos	12
+100% Kompos	10
+100% Kompos	9
+100% Kompos	9
+50% Tanah 50% Jangkos	10
+50% Tanah 50% Jangkos	11
+50% Tanah 50% Jangkos	9
+50% Tanah 50% Jangkos	8
+50% Tanah 50% Jangkos	11
+50% Tanah 50% Jangkos	9
+50% Tanah 50% Jangkos	13
+50% Tanah 50% Jangkos	10
+50% Tanah 50% Jangkos	12
+50% Tanah 50% Jangkos	9
+100% Jangkos	8
+100% Jangkos	9
+100% Jangkos	10
+100% Jangkos	10
+100% Jangkos	9
+100% Jangkos	11
+100% Jangkos	9
+100% Jangkos	0
+100% Jangkos	10
+100% Jangkos	10

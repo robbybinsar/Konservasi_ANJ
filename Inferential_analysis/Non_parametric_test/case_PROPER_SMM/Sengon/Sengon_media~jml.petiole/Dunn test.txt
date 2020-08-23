@@ -1,0 +1,17 @@
+                                     Comparison          Z     P.unadj      P.adj
+1                    100% Jangkos - 100% Kompos  1.2982470 0.194202459 0.32367076
+2                     100% Jangkos - 100% Tanah -1.4703039 0.141479472 0.28295894
+3                      100% Kompos - 100% Tanah -2.7685509 0.005630619 0.02815309
+4          100% Jangkos - 50% Tanah 50% Jangkos -1.1183694 0.263409242 0.37629892
+5           100% Kompos - 50% Tanah 50% Jangkos -2.4166165 0.015665513 0.05221838
+6            100% Tanah - 50% Tanah 50% Jangkos  0.3519344 0.724887431 0.80543048
+7           100% Jangkos - 50% Tanah 50% Kompos -1.7205684 0.085329178 0.21332294
+8            100% Kompos - 50% Tanah 50% Kompos -3.0188154 0.002537651 0.02537651
+9             100% Tanah - 50% Tanah 50% Kompos -0.2502645 0.802382816 0.80238282
+10 50% Tanah 50% Jangkos - 50% Tanah 50% Kompos -0.6021989 0.547041729 0.68380216
+             Group Letter MonoLetter
+1        1%Jangkos     ab         ab
+2         1%Kompos      a         a 
+3          1%Tanah      b          b
+4 5%Tanah5%Jangkos     ab         ab
+5  5%Tanah5%Kompos      b          b

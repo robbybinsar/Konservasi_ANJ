@@ -1,0 +1,51 @@
+Media	Tinggi.tanaman
+100% Tanah	21.5
+100% Tanah	19.5
+100% Tanah	46.3
+100% Tanah	40.7
+100% Tanah	30.3
+100% Tanah	31.6
+100% Tanah	18.7
+100% Tanah	23.4
+100% Tanah	15.8
+100% Tanah	30.5
+50% Tanah 50% Kompos	16.3
+50% Tanah 50% Kompos	22.3
+50% Tanah 50% Kompos	29.4
+50% Tanah 50% Kompos	37.1
+50% Tanah 50% Kompos	32.0
+50% Tanah 50% Kompos	34.7
+50% Tanah 50% Kompos	34.8
+50% Tanah 50% Kompos	30.7
+50% Tanah 50% Kompos	27.2
+50% Tanah 50% Kompos	33.3
+100% Kompos	6.5
+100% Kompos	3.5
+100% Kompos	6.0
+100% Kompos	4.5
+100% Kompos	5.2
+100% Kompos	5.2
+100% Kompos	23.2
+100% Kompos	19.9
+100% Kompos	24.0
+100% Kompos	17.9
+50% Tanah 50% Jangkos	15.5
+50% Tanah 50% Jangkos	17.8
+50% Tanah 50% Jangkos	21.6
+50% Tanah 50% Jangkos	22.0
+50% Tanah 50% Jangkos	30.0
+50% Tanah 50% Jangkos	33.4
+50% Tanah 50% Jangkos	19.7
+50% Tanah 50% Jangkos	23.4
+50% Tanah 50% Jangkos	21.5
+50% Tanah 50% Jangkos	27.7
+100% Jangkos	15.4
+100% Jangkos	16.5
+100% Jangkos	14.0
+100% Jangkos	14.3
+100% Jangkos	16.3
+100% Jangkos	13.0
+100% Jangkos	15.6
+100% Jangkos	0.0
+100% Jangkos	11.2
+100% Jangkos	15.5

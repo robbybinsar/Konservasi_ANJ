@@ -1,0 +1,14 @@
+$Letters
+         100% Jangkos           100% Kompos            100% Tanah 
+                  "a"                   "a"                   "a" 
+50% Tanah 50% Jangkos  50% Tanah 50% Kompos 
+                  "a"                   "a" 
+
+$LetterMatrix
+                         a
+100% Jangkos          TRUE
+100% Kompos           TRUE
+100% Tanah            TRUE
+50% Tanah 50% Jangkos TRUE
+50% Tanah 50% Kompos  TRUE
+

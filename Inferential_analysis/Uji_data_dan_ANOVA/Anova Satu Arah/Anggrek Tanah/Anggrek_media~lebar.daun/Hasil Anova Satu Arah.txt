@@ -1,0 +1,8 @@
+Analysis of Variance Table
+
+Response: dependent
+          Df   Sum Sq   Mean Sq F value  Pr(>F)  
+Media      4 0.040806 0.0102015  2.2605 0.07742 .
+Residuals 45 0.203080 0.0045129                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

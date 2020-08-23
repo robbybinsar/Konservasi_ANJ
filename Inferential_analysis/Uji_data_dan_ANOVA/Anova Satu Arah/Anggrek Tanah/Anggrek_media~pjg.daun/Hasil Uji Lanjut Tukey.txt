@@ -1,0 +1,29 @@
+$statistics
+   MSerror Df    Mean       CV       MSD
+  0.490046 45 1.05356 66.44452 0.8895563
+
+$parameters
+   test      name.t ntr StudentizedRange alpha
+  Tukey independent   5         4.018417  0.05
+
+$means
+                      Panjang.daun       std  r Min   Max     Q25    Q50     Q75
+100% Jangkos                1.0934 0.5541079 10 0.2 1.967 0.76225 0.9835 1.32525
+100% Kompos                 0.8883 0.6869433 10 0.1 2.200 0.41250 0.6750 1.39575
+100% Tanah                  0.9719 0.6786903 10 0.2 2.167 0.50025 0.8800 1.02925
+50% Tanah 50% Jangkos       1.4300 0.7230145 10 0.1 2.550 1.11250 1.3625 1.91875
+50% Tanah 50% Kompos        0.8842 0.8294172 10 0.2 2.750 0.30000 0.5170 1.16875
+
+$comparison
+NULL
+
+$groups
+                      Panjang.daun groups
+50% Tanah 50% Jangkos       1.4300      a
+100% Jangkos                1.0934      a
+100% Tanah                  0.9719      a
+100% Kompos                 0.8883      a
+50% Tanah 50% Kompos        0.8842      a
+
+attr(,"class")
+[1] "group"

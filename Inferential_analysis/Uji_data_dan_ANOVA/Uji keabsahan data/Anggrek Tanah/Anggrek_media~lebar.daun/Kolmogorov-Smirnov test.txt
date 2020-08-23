@@ -1,0 +1,7 @@
+
+	One-sample Kolmogorov-Smirnov test
+
+data:  dependent.var
+D = 0.17207, p-value = 0.1035
+alternative hypothesis: two-sided
+

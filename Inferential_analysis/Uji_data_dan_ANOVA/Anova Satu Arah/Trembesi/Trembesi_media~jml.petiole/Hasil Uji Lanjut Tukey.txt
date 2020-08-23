@@ -1,0 +1,29 @@
+$statistics
+   MSerror Df Mean       CV      MSD
+  32.88667 45  6.9 83.11145 7.287271
+
+$parameters
+   test      name.t ntr StudentizedRange alpha
+  Tukey independent   5         4.018417  0.05
+
+$means
+                      Jumlah.petiole      std  r Min Max  Q25  Q50   Q75
+100% Jangkos                     5.7 3.973523 10   0   9 1.75  8.0  8.00
+100% Kompos                      2.6 2.366432 10   0   6 0.00  3.5  4.00
+100% Tanah                       6.6 4.695151 10   0  12 2.00  8.5  9.75
+50% Tanah 50% Jangkos           11.9 9.480389 10   0  37 9.00 10.5 11.75
+50% Tanah 50% Kompos             7.7 5.578729 10   0  15 2.25  9.5 11.00
+
+$comparison
+NULL
+
+$groups
+                      Jumlah.petiole groups
+50% Tanah 50% Jangkos           11.9      a
+50% Tanah 50% Kompos             7.7     ab
+100% Tanah                       6.6     ab
+100% Jangkos                     5.7     ab
+100% Kompos                      2.6      b
+
+attr(,"class")
+[1] "group"

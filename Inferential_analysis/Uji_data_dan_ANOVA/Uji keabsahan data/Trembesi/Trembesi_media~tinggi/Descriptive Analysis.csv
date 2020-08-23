@@ -1,0 +1,14 @@
+,Media,n,mean,sd,min,Q1,median,Q3,max,percZero
+1,100% Jangkos,10,14.5,10.1,0,4.8,19.6,20.9,23.2,30
+2,100% Kompos,10,8.2,7.3,0,0,11.6,14.3,15.8,40
+3,100% Tanah,10,17.1,12.2,0,4.6,22.6,25.8,29,30
+4,50% Tanah 50% Jangkos,10,23.1,9.4,0,22.2,24.5,28.5,33.4,10
+5,50% Tanah 50% Kompos,10,21.6,15.3,0,6.2,29,31.6,38,30
+,,,,,,,,,,
+,,,,,,,,,,
+No,Media,mean,Pairwise Wilcoxon rank sum test,Dunn test,,,,,,
+1,50% Tanah 50% Jangkos,23.1,b,b,,,,,,
+2,50% Tanah 50% Kompos,21.6,ab,b,,,,,,
+3,100% Tanah,17.1,ab,ab,,,,,,
+4,100% Jangkos,14.5,ab,ab,,,,,,
+5,100% Kompos,8.2,a,a,,,,,,

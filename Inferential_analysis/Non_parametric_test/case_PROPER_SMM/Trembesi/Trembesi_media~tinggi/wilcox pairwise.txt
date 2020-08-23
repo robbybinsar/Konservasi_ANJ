@@ -1,0 +1,16 @@
+
+	Pairwise comparisons using Wilcoxon rank sum test with continuity correction 
+
+data:  df2$dependent and df2$independent 
+
+                      100% Jangkos 100% Kompos 100% Tanah 50% Tanah 50% Jangkos
+100% Kompos           0.098        -           -          -                    
+100% Tanah            0.315        0.098       -          -                    
+50% Tanah 50% Jangkos 0.076        0.016       0.299      -                    
+50% Tanah 50% Kompos  0.110        0.098       0.193      0.569                
+
+P value adjustment method: BH 
+         100% Jangkos           100% Kompos            100% Tanah 
+                 "ab"                   "a"                  "ab" 
+50% Tanah 50% Jangkos  50% Tanah 50% Kompos 
+                  "b"                  "ab" 

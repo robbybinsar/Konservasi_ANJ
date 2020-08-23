@@ -1,0 +1,51 @@
+Media	Panjang.daun
+100% Tanah	2.133
+100% Tanah	0.600
+100% Tanah	0.200
+100% Tanah	0.967
+100% Tanah	0.860
+100% Tanah	1.050
+100% Tanah	0.900
+100% Tanah	2.167
+100% Tanah	0.467
+100% Tanah	0.375
+50% Tanah 50% Kompos	0.300
+50% Tanah 50% Kompos	2.750
+50% Tanah 50% Kompos	1.700
+50% Tanah 50% Kompos	1.150
+50% Tanah 50% Kompos	1.175
+50% Tanah 50% Kompos	0.367
+50% Tanah 50% Kompos	0.667
+50% Tanah 50% Kompos	0.300
+50% Tanah 50% Kompos	0.233
+50% Tanah 50% Kompos	0.200
+100% Kompos	0.100
+100% Kompos	1.500
+100% Kompos	0.900
+100% Kompos	2.200
+100% Kompos	1.233
+100% Kompos	0.400
+100% Kompos	0.450
+100% Kompos	1.450
+100% Kompos	0.200
+100% Kompos	0.450
+50% Tanah 50% Jangkos	0.100
+50% Tanah 50% Jangkos	1.375
+50% Tanah 50% Jangkos	2.000
+50% Tanah 50% Jangkos	1.050
+50% Tanah 50% Jangkos	1.350
+50% Tanah 50% Jangkos	0.700
+50% Tanah 50% Jangkos	2.200
+50% Tanah 50% Jangkos	1.300
+50% Tanah 50% Jangkos	1.675
+50% Tanah 50% Jangkos	2.550
+100% Jangkos	1.200
+100% Jangkos	1.967
+100% Jangkos	0.200
+100% Jangkos	0.900
+100% Jangkos	0.733
+100% Jangkos	1.067
+100% Jangkos	1.367
+100% Jangkos	0.850
+100% Jangkos	1.950
+100% Jangkos	0.700

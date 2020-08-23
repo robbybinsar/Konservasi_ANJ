@@ -1,0 +1,6 @@
+
+	Kruskal-Wallis rank sum test
+
+data:  dependent by independent
+Kruskal-Wallis chi-squared = 14.175, df = 4, p-value = 0.006758
+

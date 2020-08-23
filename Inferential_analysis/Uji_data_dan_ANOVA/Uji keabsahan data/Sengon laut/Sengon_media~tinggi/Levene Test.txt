@@ -1,0 +1,4 @@
+Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(>F)
+group  4  1.6915 0.1686
+      45               

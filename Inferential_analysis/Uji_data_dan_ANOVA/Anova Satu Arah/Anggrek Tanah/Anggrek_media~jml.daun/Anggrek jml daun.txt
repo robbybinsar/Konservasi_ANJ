@@ -1,0 +1,51 @@
+Media	Jumlah.daun
+100% Tanah	1
+100% Tanah	0
+100% Tanah	0
+100% Tanah	1
+100% Tanah	2
+100% Tanah	0
+100% Tanah	1
+100% Tanah	2
+100% Tanah	0
+100% Tanah	0
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	1
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	1
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	1
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	1
+50% Tanah 50% Kompos	0
+100% Kompos	0
+100% Kompos	2
+100% Kompos	1
+100% Kompos	1
+100% Kompos	1
+100% Kompos	1
+100% Kompos	0
+100% Kompos	0
+100% Kompos	0
+100% Kompos	1
+50% Tanah 50% Jangkos	0
+50% Tanah 50% Jangkos	1
+50% Tanah 50% Jangkos	2
+50% Tanah 50% Jangkos	1
+50% Tanah 50% Jangkos	1
+50% Tanah 50% Jangkos	0
+50% Tanah 50% Jangkos	1
+50% Tanah 50% Jangkos	0
+50% Tanah 50% Jangkos	2
+50% Tanah 50% Jangkos	1
+100% Jangkos	0
+100% Jangkos	2
+100% Jangkos	0
+100% Jangkos	2
+100% Jangkos	1
+100% Jangkos	0
+100% Jangkos	0
+100% Jangkos	1
+100% Jangkos	1
+100% Jangkos	0

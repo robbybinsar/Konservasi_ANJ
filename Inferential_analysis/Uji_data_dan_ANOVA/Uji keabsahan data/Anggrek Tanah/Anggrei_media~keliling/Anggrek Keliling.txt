@@ -1,0 +1,51 @@
+Media	Keliling.batang
+100% Tanah	0.1
+100% Tanah	0.1
+100% Tanah	0
+100% Tanah	0.2
+100% Tanah	0.1
+100% Tanah	0.3
+100% Tanah	0.2
+100% Tanah	0.2
+100% Tanah	0
+100% Tanah	0.1
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	0.2
+50% Tanah 50% Kompos	0.3
+50% Tanah 50% Kompos	0.4
+50% Tanah 50% Kompos	0.2
+50% Tanah 50% Kompos	0.2
+50% Tanah 50% Kompos	0.2
+50% Tanah 50% Kompos	0
+100% Kompos	0.2
+100% Kompos	0.2
+100% Kompos	0.2
+100% Kompos	0
+100% Kompos	0.1
+100% Kompos	0.1
+100% Kompos	0.2
+100% Kompos	0.1
+100% Kompos	0.2
+100% Kompos	0.1
+50% Tanah 50% Jangkos	0.1
+50% Tanah 50% Jangkos	0.2
+50% Tanah 50% Jangkos	0.2
+50% Tanah 50% Jangkos	0.2
+50% Tanah 50% Jangkos	0.1
+50% Tanah 50% Jangkos	0.4
+50% Tanah 50% Jangkos	0.2
+50% Tanah 50% Jangkos	0.3
+50% Tanah 50% Jangkos	0.1
+50% Tanah 50% Jangkos	0.1
+100% Jangkos	0.3
+100% Jangkos	0.1
+100% Jangkos	0.1
+100% Jangkos	0.2
+100% Jangkos	0.2
+100% Jangkos	0.2
+100% Jangkos	0.2
+100% Jangkos	0.2
+100% Jangkos	0
+100% Jangkos	0.1

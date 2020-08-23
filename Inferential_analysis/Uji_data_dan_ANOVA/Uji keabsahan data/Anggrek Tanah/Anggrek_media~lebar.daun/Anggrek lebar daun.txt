@@ -1,0 +1,51 @@
+Media	Lebar.daun
+100% Tanah	0.267
+100% Tanah	0.033
+100% Tanah	0.067
+100% Tanah	0.167
+100% Tanah	0.060
+100% Tanah	0.100
+100% Tanah	0.167
+100% Tanah	0.233
+100% Tanah	0.100
+100% Tanah	0.100
+50% Tanah 50% Kompos	0.100
+50% Tanah 50% Kompos	0.200
+50% Tanah 50% Kompos	0.200
+50% Tanah 50% Kompos	0.300
+50% Tanah 50% Kompos	0.125
+50% Tanah 50% Kompos	0.033
+50% Tanah 50% Kompos	0.133
+50% Tanah 50% Kompos	0.067
+50% Tanah 50% Kompos	0.067
+50% Tanah 50% Kompos	0.167
+100% Kompos	0.000
+100% Kompos	0.133
+100% Kompos	0.050
+100% Kompos	0.200
+100% Kompos	0.100
+100% Kompos	0.040
+100% Kompos	0.000
+100% Kompos	0.150
+100% Kompos	0.050
+100% Kompos	0.100
+50% Tanah 50% Jangkos	0.150
+50% Tanah 50% Jangkos	0.150
+50% Tanah 50% Jangkos	0.233
+50% Tanah 50% Jangkos	0.075
+50% Tanah 50% Jangkos	0.200
+50% Tanah 50% Jangkos	0.080
+50% Tanah 50% Jangkos	0.200
+50% Tanah 50% Jangkos	0.200
+50% Tanah 50% Jangkos	0.175
+50% Tanah 50% Jangkos	0.250
+100% Jangkos	0.100
+100% Jangkos	0.233
+100% Jangkos	0.100
+100% Jangkos	0.200
+100% Jangkos	0.100
+100% Jangkos	0.100
+100% Jangkos	0.167
+100% Jangkos	0.100
+100% Jangkos	0.150
+100% Jangkos	0.100

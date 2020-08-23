@@ -1,0 +1,51 @@
+Media	Jumlah.petiqlule
+100% Tanah	68
+100% Tanah	0
+100% Tanah	0
+100% Tanah	0
+100% Tanah	100
+100% Tanah	90
+100% Tanah	96
+100% Tanah	78
+100% Tanah	82
+100% Tanah	98
+50% Tanah 50% Kompos	98
+50% Tanah 50% Kompos	82
+50% Tanah 50% Kompos	156
+50% Tanah 50% Kompos	88
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	82
+50% Tanah 50% Kompos	102
+50% Tanah 50% Kompos	90
+50% Tanah 50% Kompos	0
+50% Tanah 50% Kompos	0
+100% Kompos	0
+100% Kompos	28
+100% Kompos	22
+100% Kompos	28
+100% Kompos	0
+100% Kompos	38
+100% Kompos	0
+100% Kompos	0
+100% Kompos	32
+100% Kompos	64
+50% Tanah 50% Jangkos	98
+50% Tanah 50% Jangkos	86
+50% Tanah 50% Jangkos	94
+50% Tanah 50% Jangkos	88
+50% Tanah 50% Jangkos	0
+50% Tanah 50% Jangkos	290
+50% Tanah 50% Jangkos	135
+50% Tanah 50% Jangkos	124
+50% Tanah 50% Jangkos	120
+50% Tanah 50% Jangkos	92
+100% Jangkos	76
+100% Jangkos	82
+100% Jangkos	88
+100% Jangkos	96
+100% Jangkos	0
+100% Jangkos	104
+100% Jangkos	0
+100% Jangkos	90
+100% Jangkos	80
+100% Jangkos	0
