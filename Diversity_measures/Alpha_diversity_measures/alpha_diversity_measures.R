@@ -6,7 +6,8 @@ library(dplyr)
 
 
 alfa_diversity <- function(dat, nama_sheet) {
-
+# dat = file directory contains of individuals count
+    
 # Reading and preparing data
 df <- read.xlsx(dat, sheet = nama_sheet, cols = 1:8)
 rownames(df) <- df[,1]
