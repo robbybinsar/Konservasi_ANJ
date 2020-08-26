@@ -16,7 +16,7 @@ Alpha diversity is the diversity within a praticular area or ecosystem.
 `alpha_diversity_measure.R` is an R script that consists of several ecological analysis for alpha diversity measures.  
 The function in `alpha_diversity_measure.R` made up of 2 arguments `alpha_diversity <- function (dat, nama_sheet)`:
 
-  i. `dat` : this argument is the file directory to the species count data (.csv)
+  i. `dat` : this argument is the file directory to the species count data (.csv)  
   ii. `nama_sheet` : the name of the desired sheet to be analyzed usually a sheet of a particular date (Month, year, or a duration on a certain time)
   
 The output are calculations of :  
