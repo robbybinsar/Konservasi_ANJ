@@ -5,7 +5,7 @@ library(openxlsx)
 library(dplyr)
 
 
-alfa_diversity <- function(dat, nama_sheet) {
+alpha_diversity <- function(dat, nama_sheet) {
 # dat = file directory contains of individuals count
     
 # Reading and preparing data

@@ -1,13 +1,17 @@
 ---
-title: "| Diversity Measures PT ANJ Reg 1 dan 2 \n| January - June 2020\n"
+title: "| Diversity Measures PT ANJ Reg 3 \n| January - July 2020\n"
 author: |
   | Robby B
   | Conservation Data Staff
-date: "8/7/2020"
+date: "8/25/2020"
 output:
-  html_document:
+  pdf_document: 
     toc: yes
-    keep_md: yes
+    latex_engine: lualatex
+header-includes:
+  - \usepackage{pdflscape}
+  - \newcommand{\blandscape}{\begin{landscape}}
+  - \newcommand{\elandscape}{\end{landscape}}
 ---
 
 ```{r setup, include=FALSE}
@@ -26,29 +30,29 @@ library(knitr)
 ```
 
 ```{r b}
-subjek <- "Region 1 dan 2"
-range_x <- "Jan - Jun 2020"
-filedata <- "data_jml_spesies_ANJ.xlsx"
+subjek <- "Region 3"
+range_x <- "Jan - Jul 2020"
+filedata <- "C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/indeks_kehati/data_jml_spesies_ANJ.xlsx"
 ```
 
-
+\newpage
 ## A. Species Richness Index 
 
-```{r c, message=FALSE, warning=FALSE}
-data <- read.xlsx(paste0(
-    "C:/Users/rbbutar/Documents/R/Konservasi_ANJ/indeks_kehati/",
-    filedata), sheet = "grafik_kekayaan",
+```{r c, message=FALSE, warning=FALSE, echo=FALSE}
+data <- read.xlsx(filedata, sheet = "grafik_kekayaan",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
-kable(data, format = "pipe", caption = "Species Richness index Jan-June 2020")
+   #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Species Richness index Jan-July 2020")
 attach(data)
 ```
 
+\newpage
+\blandscape
 
-```{r d, fig.width=8.5}
+```{r d, fig.width=9, echo= FALSE, fig.align='center'}
 ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
     #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
     #polynomial regression, adjust the poly degree to get a desired line of best fit.
@@ -58,35 +62,38 @@ ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
     geom_hline(yintercept = 5, color = "orange", size = .5)+
     geom_text(aes(label = round(richness_index,2)), size = 3, 
               position = position_dodge(width = 0), vjust = -0.5, hjust = 0) +
-    scale_y_continuous(breaks = seq(0,15,1))+
+    scale_y_continuous(breaks = seq(0,20,1))+
+    scale_x_date(date_labels = "%b", breaks = "1 month") +
     theme_bw() + 
     labs(title = paste("Grafik Indeks Kekayaan Spesies", subjek, range_x), 
          subtitle = "Method: Margalef \nPolynomial degree: 2")+
-    annotate(geom="text", x= as.Date("2020-01-30", "%Y-%m-%d"), y=3.4, 
+    annotate(geom="text", x= as.Date("2020-03-30", "%Y-%m-%d"), y=3.4, 
              label="3.5 = Batas indeks kekayaan kategori rendah",size = 3)+
-    annotate(geom="text", x = as.Date("2020-01-30", "%Y-%m-%d"), y=5.2, 
+    annotate(geom="text", x = as.Date("2020-03-30", "%Y-%m-%d"), y=5.2, 
              label="5 = Batas indeks kekayaan kategori tinggi", size = 3) +
     theme(
         axis.text = element_text(face = "bold"))
 ```
 
+\elandscape
 
+\newpage
 ## B. Diversity Index
 
-```{r e, message=FALSE, warning=FALSE}
-data <- read.xlsx(paste0(
-    "C:/Users/rbbutar/Documents/R/Konservasi_ANJ/indeks_kehati/",
-    filedata), sheet = "grafik_keanekaragaman",
+```{r e, message=FALSE, warning=FALSE, echo=FALSE}
+data <- read.xlsx(filedata, sheet = "grafik_keanekaragaman",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
-kable(data, format = "pipe", caption = "Diversity index Jan-June 2020")
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Diversity index Jan-July 2020")
 attach(data)
 ```
+\newpage
+\blandscape
 
-```{r f, fig.width=8.5}
+```{r f, fig.width=9, echo=FALSE, fig.align='center'}
 ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
     #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
     #polynomial regression, adjust the poly degree to get a desired line of best fit.
@@ -97,34 +104,37 @@ ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
     geom_text(aes(label = round(diversity_index,2)), size = 3, 
               position = position_dodge(width = 0), vjust = -0.5, hjust = 0) +
     scale_y_continuous(breaks = seq(0,5,0.5))+
+    scale_x_date(date_labels = "%b", breaks = "1 month")+
     theme_bw() + 
     labs(title = paste("Grafik Indeks Keanekaragaman", subjek, range_x), 
          subtitle = "Method: Shannon-Wiener \nPolynomial degree: 2")+
-    annotate(geom="text", x= as.Date("2020-01-28", "%Y-%m-%d"), y= 0.95 , 
+    annotate(geom="text", x= as.Date("2020-02-05", "%Y-%m-%d"), y= 0.95 , 
              label="1 = Batas indeks keanekaragaman kategori rendah",size = 3)+
-    annotate(geom="text", x = as.Date("2020-02-01", "%Y-%m-%d"), y=3.4, 
+    annotate(geom="text", x = as.Date("2020-02-04", "%Y-%m-%d"), y=3.4, 
              label="3.322 = Batas indeks keanekaragaman kategori tinggi", size = 3) +
     theme(
         axis.text = element_text(face = "bold"))
 ```
 
+\elandscape
 
+\newpage
 ## C. Evenness Index
 
-```{r g, message=FALSE, warning=FALSE}
-data <- read.xlsx(paste0(
-    "C:/Users/rbbutar/Documents/R/Konservasi_ANJ/indeks_kehati/",
-    filedata), sheet = "grafik_kemerataan",
+```{r g, message=FALSE, warning=FALSE, echo=FALSE}
+data <- read.xlsx(filedata, sheet = "grafik_kemerataan",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
-kable(data, format = "pipe", caption = "Evenness index Jan-June 2020")
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Evenness index Jan-July 2020")
 attach(data)
 ```
+\newpage
+\blandscape
 
-```{r h, fig.width=8}
+```{r h, fig.width=9, echo=FALSE, fig.align='center'}
 ggplot(data, aes(x=date, y=evenness_index, group = sites, color = sites )) +
     #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
     #polynomial regression, adjust the poly degree to get a desired line of best fit.
@@ -135,13 +145,16 @@ ggplot(data, aes(x=date, y=evenness_index, group = sites, color = sites )) +
     geom_text(aes(label = round(evenness_index,2)), size = 3, 
               position = position_dodge(width = 0), vjust = -0.5, hjust = 0) +
     scale_y_continuous(breaks = seq(0,1,0.1))+
+    scale_x_date(date_labels = "%b", breaks = "1 month") +
     theme_bw() + 
     labs(title = paste("Grafik Indeks Kemerataan", subjek, range_x), 
          subtitle = "Method: Shannon-Wiener \nPolynomial degree: 2")+
-    annotate(geom="text", x= as.Date("2020-04-29", "%Y-%m-%d"), y= 0.49 , 
+    annotate(geom="text", x= as.Date("2020-02-29", "%Y-%m-%d"), y= 0.49 , 
              label="0.5 = Batas indeks kemerataan kategori rendah",size = 3)+
-    annotate(geom="text", x = as.Date("2020-04-29", "%Y-%m-%d"), y=0.77, 
+    annotate(geom="text", x = as.Date("2020-02-29", "%Y-%m-%d"), y=0.77, 
              label="0.75 = Batas indeks kemerataan kategori tinggi", size = 3) +
     theme(
         axis.text = element_text(face = "bold"))
 ```
+
+\elandscape

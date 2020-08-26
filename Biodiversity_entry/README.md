@@ -12,7 +12,7 @@ output:
 
 ## Update Baseline Kehati
 
-`update_baseline_kehati.R` is a R script that have the function as readline prompt to interactively insert biodiversity data with R console. The output of the data inserted will be exported to a designated xlsx file.
+`update_baseline_kehati.R` is an R script that have the function as readline prompt to interactively insert biodiversity data with R console. The output of the data inserted will be exported to a designated xlsx file.
 
 
 1. `readData_fauna <- function(UM, bulan)` and `readData_flora <- function(UM, bulan)`these function require 2 arguments:  
