@@ -17,7 +17,7 @@ df[is.na(df)] <- 0 # ubah kolom 'nama latin' menjadi Nama.Latin
 xt <- df %>% group_by(Kelas, Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(Jumlah))
 y <- unique(df$Nama.Latin)
 
-dats1 <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
+dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
 teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 17:19, startRow = 3)
 teladan <- mutate(teladan, Jumlah = NA)
 
@@ -42,7 +42,7 @@ for (i in y) {
 }
 stopifnot(nrow(dataf) != 0)
 #PATTERN MATCH BASELINE UM
-dat <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Fauna ANJ.xlsx"
+dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Fauna ANJ.xlsx"
 dataFaunaUM <- read.xlsx(dat, sheet = "DATABASE FAUNA", cols = 1:34)
 
 # Filter UM only
@@ -113,7 +113,7 @@ matching_flora <- function(unitmanajemen, bulan){
     xt <- df %>% group_by(Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(Jumlah))
     y <- unique(df$Nama.Latin)
     
-    dats1 <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
+    dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
     teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 36:37, startRow = 3)
     teladan <- mutate(teladan, Jumlah = NA)
     
@@ -137,7 +137,7 @@ matching_flora <- function(unitmanajemen, bulan){
     }
     stopifnot(nrow(dataf) != 0)
     #PATTERN MATCH BASELINE UM
-    dat <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
+    dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
     dataFloraUM <- read.xlsx(dat, sheet = "DATABASE FLORA", cols = 1:26)
     
     # Filter UM only
@@ -205,7 +205,7 @@ citizen_science <- function(UM, bulan) {
     df[is.na(df)] <- 0
     y <- unique(df$Pengamat) #Nama kolom pengamat bisa dinamis
     
-    datlook <- "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.xlsx"
+    datlook <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.xlsx"
     dflook <- read.xlsx(datlook, sheet = UM, startRow = 3, cols = 1:14)
     
     #matching
@@ -229,7 +229,7 @@ citizen_science <- function(UM, bulan) {
     # Write and save wb
     dflook[is.na(dflook)] <- 0
     dflook <- select(dflook, Bulan.Mulai, Nama, closest.match, Jan:Des)
-    write.csv(dflook, file = "D:/DATA ONEDRIVE/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.csv",
+    write.csv(dflook, file = "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.csv",
               row.names = F)
     .GlobalEnv$dflook <- dflook
     .GlobalEnv$Pengamat <- y
