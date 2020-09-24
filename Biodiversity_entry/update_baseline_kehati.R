@@ -11,13 +11,14 @@ library(rredlist)
 # FAUNA
 
 added_fauna <- data.frame(matrix(nrow = 0,ncol = 0))
+  #data fauna for ID
+  dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Fauna ANJ.xlsx"
+  dataFauna <- read.xlsx(dat, sheet = "ENTRY FAUNA")
+  colnames(dataFauna)[c(12,14,16,17,18,19,20,21,22)] <- c("PPRI","Endemism","Presence.Reg12","Origin.Reg12","Seasonality.Reg12",
+                                                          "Presence.Reg3","Origin.Reg3","Seasonality.Reg3","Habitat.lv1")
+  ID_all <- select(dataFauna, ANJ.ID, Group)
+
 readData_fauna <- function(UM, bulan) {
-    #data fauna foyr ID
-    dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Fauna ANJ.xlsx"
-    dataFauna <- read.xlsx(dat, sheet = "ENTRY FAUNA")
-    colnames(dataFauna)[c(12,14,16,17,18,19,20,21,22)] <- c("PPRI","Endemism","Presence.Reg12","Origin.Reg12","Seasonality.Reg12",
-                                                            "Presence.Reg3","Origin.Reg3","Seasonality.Reg3","Habitat.lv1")
-    ID_all <- select(dataFauna, ANJ.ID, Group)
     
     while(TRUE) {
         #nama latin
@@ -35,7 +36,7 @@ readData_fauna <- function(UM, bulan) {
                 if(max(hitung) >= 0.90) {
                     backbone <- name_backbone(name = suggestion_vect[match(max(hitung),hitung)], 
                                               rank = "species")
-                    NamaLatin_rev <- backbone$species[1]
+                    NamaLatin_rev <- backbone$canonicalName[1]
                     if(identical(NamaLatin, NamaLatin_rev)) {
                         print(paste("Nama Latin tersedia di database GBIF"))
                     } else {
@@ -61,14 +62,14 @@ readData_fauna <- function(UM, bulan) {
             } else {
                 #using name_backbone_verbose
                 backbone <- name_backbone_verbose(name = NamaLatin)
-                if((ncol(backbone$data) != 3 & length(backbone[["data"]][["canonicalName"]])==0) | nrow(backbone$alternatives) != 0) {
+                if((ncol(backbone$data) != 3 & length(backbone[["data"]][["canonicalName"]])!=0) | nrow(backbone$alternatives) != 0) {
                     if (ncol(backbone$data) > 3) {
                         backbone <- backbone$data
-                        NamaLatin <- backbone[["species"]]
+                        NamaLatin <- backbone[["canonicalName"]]
                         print(paste("Latin name is revised to", NamaLatin))
                     } else if (backbone$alternatives[[6]] > 0.75){
                         backbone <- backbone$alternatives
-                        NamaLatin <- backbone[["species"]]
+                        NamaLatin <- backbone[["canonicalName"]]
                         print(paste("Latin name is revised to", NamaLatin))
                     }
                     
@@ -121,6 +122,10 @@ readData_fauna <- function(UM, bulan) {
           ID_all <- ID_all %>% add_row(ANJ.ID = ANJ.ID, Group = kelas)
         }
         
+        #NCBI ID
+        NCBI_id <- get_ids(NamaLatin, db = c("ncbi"))
+        NCBI_id <- NCBI_id[["ncbi"]][[1]]
+        print(paste("NCBI ID:", NCBI_id))
         
         # Family
         if (nrow(backbone) > 0) {
@@ -133,15 +138,6 @@ readData_fauna <- function(UM, bulan) {
             }
         }
             
-        # English name
-        toCommon <- sci2comm(NamaLatin)
-        if (length(toCommon[[1]]) > 0) {
-            EnglishName <- toCommon[[1]]
-            print(paste("Common name retrieved from database:", EnglishName))
-        } else {
-            EnglishName <- readline(prompt = "English Name: ")
-                if (EnglishName == "") {EnglishName <- NA}
-        }
         
         # Conservation status
             #CITES
@@ -166,12 +162,8 @@ readData_fauna <- function(UM, bulan) {
             print(paste("CITES:",CITES))
             
             #IUCN
-            IUCN_dat <- rl_search(NamaLatin)$result
-            if (length(IUCN_dat) > 0) {
-              IUCN <- IUCN_dat$category[1]
-            } else {
-              IUCN <- NA
-              }
+            IUCN_dat <- iucn_summary(NamaLatin)
+            IUCN <- iucn_status(IUCN_dat)[[1]]
             print (paste("IUCN Redlist Category:", IUCN))
             
             #PPRI 1999
@@ -200,7 +192,7 @@ readData_fauna <- function(UM, bulan) {
             print(paste("PERMENLHK:", permenlhk2018))
             
             #Habitat
-            if(length(IUCN_dat)>0) {
+            if(!is.na(IUCN)) {
                 Habitat.lv1 <- rl_narrative(NamaLatin)$result$habitat
                 print(paste("Habitat:", Habitat.lv1))
             } else {
@@ -227,6 +219,21 @@ readData_fauna <- function(UM, bulan) {
                 print("CMS: Spesies tidak ada dalam appendix CMS")
             }
             
+        #IUCN Browse
+        if (!is.na(IUCN)) {
+           iucn_url <- as.data.frame(get_iucn(NamaLatin))$uri
+           browseURL(iucn_url)
+         }
+        
+        # English name
+         toCommon <- sci2comm(NamaLatin)
+        if (length(toCommon[[1]]) > 0) {
+          EnglishName <- toCommon[[1]]
+          print(paste("Common name retrieved from database:", EnglishName))
+        } else {
+           EnglishName <- readline(prompt = "English Name: ")
+          if (EnglishName == "") {EnglishName <- NA}
+        }    
         
         #Indonesian name
         IndonesianName <- readline(prompt = "Nama Indonesia: ")
@@ -281,7 +288,7 @@ readData_fauna <- function(UM, bulan) {
         Seasonality.Reg3 <- readline(prompt = 'Seasonality status Regional 3: \n Res (Resident) \n Br (Breeding) \n NB (Non breeding) \n Unknown')
             if(Seasonality.Reg3 == "") {Seasonality.Reg3 <- NA}
         
-        output <- data.frame(ANJ.ID = c(ANJ.ID), Group = c(kelas), Family = c(familyname), Latin.name = c(NamaLatin), 
+        output <- data.frame(ANJ.ID = c(ANJ.ID), NCBI.ID = c(NCBI_id),Group = c(kelas), Family = c(familyname), Latin.name = c(NamaLatin), 
                              English.name = c(EnglishName), Indonesian.name = c(IndonesianName), 
                              Primary.Diet = c(PrimaryDiet), CITES=c(CITES), IUCN = c(IUCN), 
                              PPRI = c(PPRI), Permenlhk.106= c(permenlhk2018), Endemism = c(endemism),
@@ -291,6 +298,7 @@ readData_fauna <- function(UM, bulan) {
                              Habitat.lv1 = c(Habitat.lv1))
         added_fauna <- bind_rows(added_fauna, output)
         .GlobalEnv$added_fauna <- added_fauna
+        .GlobalEnv$ID_all <- ID_all
         
         #Addmore entry Q
         addmore <- readline(prompt = 'Add more entry? \n 1.Press Enter to add more entry \n 2.Type 2 to finish')
@@ -298,20 +306,20 @@ readData_fauna <- function(UM, bulan) {
     }
     dats <- "./pattern_match/pattern_match.xlsx"
     wb <- loadWorkbook(dats)
-    writeDataTable(wb,sheet = UM ,added_fauna , colNames = T, rowNames = F, startCol = 10, tableName = paste0("insert_to_entry_database_",UM,bulan))
+    writeDataTable(wb,sheet = UM ,added_fauna , colNames = T, rowNames = F, startCol = 13, tableName = paste0("insert_to_entry_database_",UM,bulan))
     saveWorkbook(wb,dats,overwrite = T)
 }
 
 
 #FLORA
 added_flora <- data.frame(matrix(nrow = 0,ncol = 0))
+
+  # Data flora for creating ID
+  dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
+  dataFlora <- read.xlsx(dat, sheet = "ENTRY FLORA")
+  ID_all <- select(dataFlora, ID, Class)
+
 readData_flora <- function(UM, bulan) {
-    
-    # Data flora for creating ID
-    dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
-    dataFlora <- read.xlsx(dat, sheet = "ENTRY FLORA")
-    ID_all <- select(dataFlora, ID, Class)
-    
     while(TRUE) {
       
         #nama latin
@@ -355,14 +363,17 @@ readData_flora <- function(UM, bulan) {
         } else {
             #using name_backbone_verbose
             backbone <- name_backbone_verbose(name = NamaLatin)
-            if((ncol(backbone$data) != 3 & length(backbone[["data"]][["canonicalName"]])==0) | nrow(backbone$alternatives) != 0) {
+            if((ncol(backbone$data) != 3 & length(backbone[["data"]][["canonicalName"]])!= 0 ) | nrow(backbone$alternatives) != 0) {
                 if (ncol(backbone$data) > 3) {
                     backbone <- backbone$data
-                    NamaLatin <- backbone[["species"]]
+                    NamaLatin <- backbone[["canonicalName"]]
                     print(paste("Latin name is revised to", NamaLatin))
                 } else if (backbone$alternatives[[6]] > 0.75){
                     backbone <- backbone$alternatives
-                    NamaLatin <- backbone[["species"]]
+                    uni <- unique(backbone[["canonicalName"]])
+                    hitung <- stringsim(NamaLatin, uni)
+                    value <- uni[match(max(hitung), hitung)]
+                    NamaLatin <- value
                     print(paste("Latin name is revised to", NamaLatin))
                 }
                 
@@ -425,17 +436,6 @@ readData_flora <- function(UM, bulan) {
             }
         }
         
-        
-        # English name
-        toCommon <- sci2comm(NamaLatin)
-        if (length(toCommon[[1]]) > 0) {
-            EnglishName <- toCommon[[1]]
-            print(paste("Common name retrieved from database:", EnglishName))
-        } else {
-            EnglishName <- readline(prompt = "English Name: ")
-            if (EnglishName == "") {EnglishName <- NA}
-        }
-        
         # Conservation status
             #CITES
             pathcites <- "C:/Users/robby/Documents/ANJ/DATABASE/DOKUMEN/CITES/Index_of_CITES_Species_2020-08-19 05_48.csv"
@@ -459,12 +459,8 @@ readData_flora <- function(UM, bulan) {
             print(paste("CITES:",CITES))
             
             #IUCN
-            IUCN_dat <- rl_search(NamaLatin)$result
-            if (length(IUCN_dat) > 0) {
-              IUCN <- IUCN_dat$category[1]
-            } else {
-              IUCN <- NA
-              }
+            IUCN_dat <- iucn_summary(NamaLatin)
+            IUCN <- iucn_status(IUCN_dat)[[1]]
             print (paste("IUCN Redlist Category:", IUCN))
             
             #PPRI 1999
@@ -492,6 +488,22 @@ readData_flora <- function(UM, bulan) {
             }
             print(paste("PERMENLHK:", permenlhk2018))
             
+        #IUCN Browse
+        if (!is.na(IUCN)) {
+          iucn_url <- as.data.frame(get_iucn(NamaLatin))$uri
+          browseURL(iucn_url)
+        }
+        
+        # English name
+        toCommon <- sci2comm(NamaLatin)
+        if (length(toCommon[[1]]) > 0) {
+          EnglishName <- toCommon[[1]]
+          print(paste("Common name retrieved from database:", EnglishName))
+        } else {
+          EnglishName <- readline(prompt = "English Name: ")
+           if (EnglishName == "") {EnglishName <- NA}
+        }
+        
         #Indonesian name
         IndonesianName <- readline(prompt = "Nama Indonesia: ")
         if (IndonesianName == "") {IndonesianName <- NA}
@@ -512,6 +524,7 @@ readData_flora <- function(UM, bulan) {
                              )
         added_flora <- bind_rows(added_flora, output)
         .GlobalEnv$added_flora <- added_flora
+        .GlobalEnv$ID_all <- ID_all
         
         #Addmore entry Q
         addmore <- readline(prompt = 'Add more entry? \n 1.Press Enter to add more entry \n 2.Type 2 to finish')

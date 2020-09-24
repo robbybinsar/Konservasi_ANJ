@@ -18,7 +18,7 @@ xt <- df %>% group_by(Kelas, Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(
 y <- unique(df$Nama.Latin)
 
 dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
-teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 17:19, startRow = 3)
+teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 15:19, startRow = 3)
 teladan <- mutate(teladan, Jumlah = NA)
 
 
@@ -40,6 +40,8 @@ for (i in y) {
        teladan$Jumlah[match(value,x)] <- xt$Jumlah[match(i,xt$Nama.Latin)]
    }
 }
+teladan$Jumlah[is.na(teladan$Jumlah)] <- 0
+
 stopifnot(nrow(dataf) != 0)
 #PATTERN MATCH BASELINE UM
 dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Fauna ANJ.xlsx"
@@ -114,7 +116,7 @@ matching_flora <- function(unitmanajemen, bulan){
     y <- unique(df$Nama.Latin)
     
     dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
-    teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 36:37, startRow = 3)
+    teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 33:37, startRow = 3)
     teladan <- mutate(teladan, Jumlah = NA)
     
     
@@ -135,6 +137,8 @@ matching_flora <- function(unitmanajemen, bulan){
             teladan$Jumlah[match(value,x)] <- xt$Jumlah[match(i,xt$Nama.Latin)]
         }
     }
+    teladan$Jumlah[is.na(teladan$Jumlah)] <- 0
+    
     stopifnot(nrow(dataf) != 0)
     #PATTERN MATCH BASELINE UM
     dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"

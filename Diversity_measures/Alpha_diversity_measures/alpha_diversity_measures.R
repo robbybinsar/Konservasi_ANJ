@@ -4,10 +4,9 @@ library(magrittr)
 library(openxlsx)
 library(dplyr)
 
-
+# dat = file directory contains of individuals count data_jml_spesies_ANJ.xlsx
+# nama_sheet = bulan
 alpha_diversity <- function(dat, nama_sheet) {
-# dat = file directory contains of individuals count
-    
 # Reading and preparing data
 df <- read.xlsx(dat, sheet = nama_sheet, cols = 1:8)
 rownames(df) <- df[,1]

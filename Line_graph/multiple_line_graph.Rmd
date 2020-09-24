@@ -1,9 +1,9 @@
 ---
-title: "| Diversity Measures PT ANJ Reg 3 \n| January - July 2020\n"
+title: "| Diversity Measures PT ANJ Reg 1 dan 2 \n| January - August 2020\n"
 author: |
   | Robby B
   | Conservation Data Staff
-date: "8/25/2020"
+date: "9/18/2020"
 output:
   pdf_document: 
     toc: yes
@@ -30,8 +30,8 @@ library(knitr)
 ```
 
 ```{r b}
-subjek <- "Region 3"
-range_x <- "Jan - Jul 2020"
+subjek <- "Region 1 dan 2"
+range_x <- "Jan - Aug 2020"
 filedata <- "C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/indeks_kehati/data_jml_spesies_ANJ.xlsx"
 ```
 
@@ -43,9 +43,9 @@ data <- read.xlsx(filedata, sheet = "grafik_kekayaan",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-   #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
-kable(data, format = "pipe", caption = "Species Richness index Jan-July 2020")
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Species Richness index Jan-August 2020")
 attach(data)
 ```
 
@@ -85,9 +85,9 @@ data <- read.xlsx(filedata, sheet = "grafik_keanekaragaman",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
-kable(data, format = "pipe", caption = "Diversity index Jan-July 2020")
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Diversity index Jan- Aug 2020")
 attach(data)
 ```
 \newpage
@@ -110,7 +110,7 @@ ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
          subtitle = "Method: Shannon-Wiener \nPolynomial degree: 2")+
     annotate(geom="text", x= as.Date("2020-02-05", "%Y-%m-%d"), y= 0.95 , 
              label="1 = Batas indeks keanekaragaman kategori rendah",size = 3)+
-    annotate(geom="text", x = as.Date("2020-02-04", "%Y-%m-%d"), y=3.4, 
+    annotate(geom="text", x = as.Date("2020-02-08", "%Y-%m-%d"), y=3.4, 
              label="3.322 = Batas indeks keanekaragaman kategori tinggi", size = 3) +
     theme(
         axis.text = element_text(face = "bold"))
@@ -126,9 +126,9 @@ data <- read.xlsx(filedata, sheet = "grafik_kemerataan",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!=subjek),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
-kable(data, format = "pipe", caption = "Evenness index Jan-July 2020")
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Evenness index Jan-Aug 2020")
 attach(data)
 ```
 \newpage
