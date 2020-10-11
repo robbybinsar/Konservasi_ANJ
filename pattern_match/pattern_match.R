@@ -213,6 +213,7 @@ matching_flora <- function(unitmanajemen, bulan){
 
 #CITIZEN SCIENCE
 # Join with citizen 'pengamat' from Flora
+# if get an error from closest.match means that there's no new entry 
 citizen_science <- function(UM, bulan) {
     #load data
     dats <- "./pattern_match/pattern_match.xlsx"
