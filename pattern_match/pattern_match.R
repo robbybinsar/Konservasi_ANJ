@@ -90,6 +90,12 @@ mergeData1 <- mergeData1 %>% distinct(baru, .keep_all = T) %>%
     filter(baru != 0) %>% select(baru, closest.pendaki.detail,closest.All,
                                  statusUM:Jumlah,-Namalatin.fix)
 
+mrg <- bind_rows(hasil, mergeData1)
+teladan[is.na(teladan["Bulan"]), "Bulan"] <- bulan
+for(j in mrg$baru){
+    teladan$Database[match(j, teladan$Nama.Latin)] <- mrg$statusUM[match(j, mrg$baru)]
+}
+
 #Writing and saving wb
 wb <- loadWorkbook(dats)
 writeDataTable(wb,sheet = unitmanajemen,mergeData1, colNames = T, rowNames = F, 
@@ -185,6 +191,11 @@ matching_flora <- function(unitmanajemen, bulan){
         filter(baru != 0) %>% select(baru, closest.pendaki.detail,closest.All,
                                      statusUM:Jumlah,-Namalatin.fix)
     
+    mrg <- bind_rows(hasil, mergeData1)
+    teladan[is.na(teladan["Bulan"]), "Bulan"] <- bulan
+    for(j in mrg$baru){
+        teladan$Database[match(j, teladan$Nama.Latin)] <- mrg$statusUM[match(j, mrg$baru)]
+    }
     #Writing and saving wb
     wb <- loadWorkbook(dats)
     writeDataTable(wb,sheet = unitmanajemen,mergeData1, colNames = T, rowNames = F, 

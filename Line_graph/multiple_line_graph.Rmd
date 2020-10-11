@@ -1,17 +1,19 @@
 ---
-title: "| Diversity Measures PT ANJ Reg 1 dan 2 \n| January - August 2020\n"
+title: "| Diversity Measures PT PMP \n| January - August 2020\n"
 author: |
   | Robby B
   | Conservation Data Staff
-date: "9/18/2020"
+date: "10/3/2020"
 output:
-  pdf_document: 
+  word_document:
+    toc: yes
+  pdf_document:
     toc: yes
     latex_engine: lualatex
 header-includes:
-  - \usepackage{pdflscape}
-  - \newcommand{\blandscape}{\begin{landscape}}
-  - \newcommand{\elandscape}{\end{landscape}}
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
 ---
 
 ```{r setup, include=FALSE}
@@ -27,10 +29,14 @@ library(plotly)
 library(hrbrthemes)
 library(openxlsx)
 library(knitr)
+library(png)
+library(grid)
+library(cowplot)
+library(magick)
 ```
 
 ```{r b}
-subjek <- "Region 1 dan 2"
+subjek <- "PT PMP"
 range_x <- "Jan - Aug 2020"
 filedata <- "C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/indeks_kehati/data_jml_spesies_ANJ.xlsx"
 ```
@@ -42,8 +48,8 @@ filedata <- "C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/ind
 data <- read.xlsx(filedata, sheet = "grafik_kekayaan",
     detectDates = TRUE)
 data <- 
-    #data[!(data$sites!=subjek),]
-    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites!= "PMP"),]
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
     #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = "Species Richness index Jan-August 2020")
 attach(data)
@@ -53,7 +59,8 @@ attach(data)
 \blandscape
 
 ```{r d, fig.width=9, echo= FALSE, fig.align='center'}
-ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
+anj <- readPNG("anj.png")
+rch <- ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
     #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
     #polynomial regression, adjust the poly degree to get a desired line of best fit.
     stat_smooth(method = "lm", formula = y~poly(x, 2), size = 1.2, se = F)+ 
@@ -67,12 +74,17 @@ ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
     theme_bw() + 
     labs(title = paste("Grafik Indeks Kekayaan Spesies", subjek, range_x), 
          subtitle = "Method: Margalef \nPolynomial degree: 2")+
-    annotate(geom="text", x= as.Date("2020-03-30", "%Y-%m-%d"), y=3.4, 
+    annotate(geom="text", x= as.Date("2020-02-20", "%Y-%m-%d"), y=3.4, 
              label="3.5 = Batas indeks kekayaan kategori rendah",size = 3)+
-    annotate(geom="text", x = as.Date("2020-03-30", "%Y-%m-%d"), y=5.2, 
+    annotate(geom="text", x = as.Date("2020-02-20", "%Y-%m-%d"), y=5.2, 
              label="5 = Batas indeks kekayaan kategori tinggi", size = 3) +
     theme(
-        axis.text = element_text(face = "bold"))
+        axis.text = element_text(face = "bold"))+
+    xlab("Bulan") + ylab("Indeks Kekayaan")
+    
+ggdraw() + draw_plot(rch)+
+  draw_image("anj.png", scale = .15, x = 0.4, y=0.44)
+    
 ```
 
 \elandscape
@@ -84,8 +96,8 @@ ggplot(data, aes(x=date, y=richness_index, group = sites, color = sites )) +
 data <- read.xlsx(filedata, sheet = "grafik_keanekaragaman",
     detectDates = TRUE)
 data <- 
-    #data[!(data$sites!=subjek),]
-    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites!="PMP"),]
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
     #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = "Diversity index Jan- Aug 2020")
 attach(data)
@@ -94,7 +106,7 @@ attach(data)
 \blandscape
 
 ```{r f, fig.width=9, echo=FALSE, fig.align='center'}
-ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
+div <- ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
     #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
     #polynomial regression, adjust the poly degree to get a desired line of best fit.
     stat_smooth(method = "lm", formula = y~poly(x, 2), size = 1.2, se = F)+ 
@@ -108,12 +120,15 @@ ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
     theme_bw() + 
     labs(title = paste("Grafik Indeks Keanekaragaman", subjek, range_x), 
          subtitle = "Method: Shannon-Wiener \nPolynomial degree: 2")+
-    annotate(geom="text", x= as.Date("2020-02-05", "%Y-%m-%d"), y= 0.95 , 
+    annotate(geom="text", x= as.Date("2020-05-05", "%Y-%m-%d"), y= 0.95 , 
              label="1 = Batas indeks keanekaragaman kategori rendah",size = 3)+
-    annotate(geom="text", x = as.Date("2020-02-08", "%Y-%m-%d"), y=3.4, 
+    annotate(geom="text", x = as.Date("2020-05-08", "%Y-%m-%d"), y=3.4, 
              label="3.322 = Batas indeks keanekaragaman kategori tinggi", size = 3) +
     theme(
         axis.text = element_text(face = "bold"))
+
+ggdraw() + draw_plot(div) +
+  draw_image("anj.png", scale = .15, x = 0.4, y=0.44)
 ```
 
 \elandscape
@@ -125,8 +140,8 @@ ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites )) +
 data <- read.xlsx(filedata, sheet = "grafik_kemerataan",
     detectDates = TRUE)
 data <- 
-    #data[!(data$sites!=subjek),]
-    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    data[!(data$sites!= "PMP"),]
+    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
     #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = "Evenness index Jan-Aug 2020")
 attach(data)
@@ -135,7 +150,7 @@ attach(data)
 \blandscape
 
 ```{r h, fig.width=9, echo=FALSE, fig.align='center'}
-ggplot(data, aes(x=date, y=evenness_index, group = sites, color = sites )) +
+evenn <- ggplot(data, aes(x=date, y=evenness_index, group = sites, color = sites )) +
     #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
     #polynomial regression, adjust the poly degree to get a desired line of best fit.
     stat_smooth(method = "lm", formula = y~poly(x, 2), size = 1.2, se = F)+ 
@@ -155,6 +170,9 @@ ggplot(data, aes(x=date, y=evenness_index, group = sites, color = sites )) +
              label="0.75 = Batas indeks kemerataan kategori tinggi", size = 3) +
     theme(
         axis.text = element_text(face = "bold"))
+
+ggdraw() + draw_plot(evenn) +
+  draw_image("anj.png", scale = .15, x = 0.4, y=0.44)
 ```
 
 \elandscape
