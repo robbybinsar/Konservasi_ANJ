@@ -25,15 +25,15 @@ data_sarang <- read.xlsx(paste0(dir,"Tally Sheet_Survei Sarang OU_KAL_2020 - Cop
 #read KAL boundaries and HCV
   #method 1 using st_read : get sf class object good to use for ggplot
   #HGU
-  kal_shp1 <- st_read("./spatial_data_analysis/KAL/KAL SHP/HGU KAL.shp")
+  kal_shp1 <- st_read("./spatial_data_analysis/KAL/HGU_KAL/HGU KAL.shp")
   #HCV
-  kal_hcv <- st_read("./spatial_data_analysis/KAL/HCV/KAL_HCV_AREA.shp")
+  kal_hcv <- st_read("./spatial_data_analysis/KAL/HCV_KAL/KAL_HCV_AREA.shp")
   # method 2 using readOGR : get sp object for tmap
   library(rgdal)
   #HGU
-  kal_shp2 <- readOGR(dsn = "./spatial_data_analysis/KAL/KAL SHP", layer = "HGU KAL")  
+  kal_shp2 <- readOGR(dsn = "./spatial_data_analysis/KAL/HGU_KAL", layer = "HGU KAL")  
   #HCV
-  kal_hcv1 <- readOGR(dsn = "./spatial_data_analysis/KAL/HCV", layer = "KAL_HCV_AREA")
+  kal_hcv1 <- readOGR(dsn = "./spatial_data_analysis/KAL/HCV_KAL", layer = "KAL_HCV_AREA")
 
 #plot using ggplot2
   #Keseluruhan

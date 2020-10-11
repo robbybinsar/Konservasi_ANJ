@@ -10,19 +10,19 @@ ggmap(kal_base)
   #method 1 using st_read : get sf class object good to use for ggplot
   library(sf)
     #HGU
-    kal_shp1 <- st_read("./spatial_data_analysis/KAL/KAL SHP/HGU KAL.shp")
+    kal_shp1 <- st_read("./spatial_data_analysis/KAL/HGU_KAL/HGU KAL.shp")
     st_crs(kal_shp1)
     summary(kal_shp1)
     plot(kal_shp1)
     #HCV
-    kal_hcv <- st_read("./spatial_data_analysis/KAL/HCV/KAL_HCV_AREA.shp")
+    kal_hcv <- st_read("./spatial_data_analysis/KAL/HCV_KAL/KAL_HCV_AREA.shp")
   # method 2 using readOGR : get sp object for tmap
   library(rgdal)
     # HGU
-    kal_shp2 <- readOGR(dsn = "./spatial_data_analysis/KAL/KAL SHP", layer = "HGU KAL")  
+    kal_shp2 <- readOGR(dsn = "./spatial_data_analysis/KAL/HGU_KAL", layer = "HGU KAL")  
     plot(kal_shp2)
     #HCV
-    kal_hcv1 <- readOGR(dsn = "./spatial_data_analysis/KAL/HCV", layer = "KAL_HCV_AREA")
+    kal_hcv1 <- readOGR(dsn = "./spatial_data_analysis/KAL/HCV_KAL", layer = "KAL_HCV_AREA")
     
 # read data points for orang utan encounter
 orgutan <- read.csv("./spatial_data_analysis/KAL/ex_data_orangutan.csv")
