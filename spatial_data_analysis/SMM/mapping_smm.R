@@ -14,33 +14,29 @@ library(raster)
 library(rgdal)
 library(dplyr)
 
+#read SMM HCV shapefiles
+SMM_hcv <- st_read(dsn = "./spatial_data_analysis/SMM/20200428 - Peta Potensi Area HCV", layer = "20200428_HA_AREA_HCV_POTENSIAL")
+
 # read data points
 tarsius_coor <- read.csv("./spatial_data_analysis/SMM/tarsius_coordinates.csv")
 tarsius_coor$date <- as.Date(tarsius_coor$date, format = "%d-%b-%y")
 
-#read buffer 50m
-tar_buff <- readOGR(dsn = "./spatial_data_analysis/SMM/tarsius_smm/buffer", layer = "tar_buffer")
-tar_buff_sf <- st_read(dsn = "./spatial_data_analysis/SMM/tarsius_smm/buffer", layer = "tar_buffer")
-
-tar_buff_sf <- tar_buff_sf %>% relocate(spesies)
-
 # convert data points to sf/sp object
 tarsius_coor_sf <- st_as_sf(tarsius_coor, coords = c("lon","lat"), crs = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
-st_crs(tarsius_coor_sf)
-#sp class
-tarsius_coor_sp <- SpatialPointsDataFrame(tarsius_coor[,1:2], tarsius_coor)
-crs(tarsius_coor_sp) <- CRS('+init=EPSG:4326')
-
 tarsius_coor_sf <- tarsius_coor_sf %>% relocate(spesies)
+tarsius_coor_sf <- st_transform(tarsius_coor_sf, crs = crs(SMM_hcv, asText = TRUE))
+
+#create buffer 50 meters
+tars_buf <- st_buffer(tarsius_coor_sf, dist = 50)
 
 #map data points to interactive tmap
 tmap_mode("view")
 tm_basemap(server = providers$Esri.WorldImagery)+
-  tm_shape(tar_buff_sf) + tm_polygons(alpha = 0.3)+
-  tm_shape(tar_buff_sf) + tm_bubbles(col = "darkblue", size = 1, alpha =1) +
+  tm_shape(SMM_hcv) + tm_polygons(alpha = 0.6, border.col = "yellow", col = "NAMA_NKT", popup.vars = TRUE) +
+  tm_shape(tars_buf) + tm_polygons(alpha = 0.3)+
+  tm_shape(tarsius_coor_sf) + tm_dots(col = "darkblue") +
   tm_mouse_coordinates() + tm_scale_bar()
 
-#tm_shape(tarsius_coor_sf) + tm_bubbles(size = 24.9*50, alpha = 0.5, style = "fixed") + #24.9x/metric
 #map data points to static map
  #using ggmap and ggplot
   smm_base <- get_map(location = tarsius_coor[1,1:2], zoom = 17, scale = 1, maptype = "satellite", source = "google")

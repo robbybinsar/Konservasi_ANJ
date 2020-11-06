@@ -12,6 +12,8 @@ library(openxlsx)
 library(grid)
 library(gridExtra)
 
+anjpng <- png::readPNG("./spatial_data_analysis/anj.png")
+
 #read data points all for sarang orang utan
 dir <- "./spatial_data_analysis/KAL/sampling_16092020_23092020/"
 data_sarang <- read.xlsx(paste0(dir,"Tally Sheet_Survei Sarang OU_KAL_2020 - Copy.xlsx"), sheet = "Gabungan")
