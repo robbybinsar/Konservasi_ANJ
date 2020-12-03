@@ -4,7 +4,7 @@ library(dplyr)
 
 
 # funtion for stringsim
-# month in english
+# month in english (copy paste first the latin name from previous month in data_jml_spesies_ANJ.xlsx)
 lookupf <- function(month) {
     #my look up data reference
     teladan <- read.xlsx("C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/indeks_kehati/data_jml_spesies_ANJ.xlsx", 
@@ -21,12 +21,12 @@ lookupf <- function(month) {
             hitung <- stringsim(i, y)
             indeks <- match(max(hitung), hitung)
             value <- y[indeks]
-            if (max(hitung) != 1) {
+            if (max(hitung) < 1 & max(hitung) > 0.75) {
                 mydf <- data.frame(Nama.Latin = c(i), closestMatch = c(value))
                 teladan <- bind_rows(teladan, mydf)
             }
         }
-        teladan <- merge(teladan, mydata, by = "Nama.Latin", all.x = T)
+        teladan <- merge(teladan, mydata, by = "Nama.Latin", all = T)
         .GlobalEnv$teladan <- teladan
     }
     teladan[is.na(teladan)] <- 0
@@ -34,6 +34,10 @@ lookupf <- function(month) {
 }
 
 #export into csv file"
-save <- function(NamaFile) {
+saveme <- function(NamaFile) {
     write.csv(teladan, paste0("C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/indeks_kehati/",NamaFile))
 }
+
+#checking duplicate entry
+duplikat <- duplicated(teladan$Nama.Latin)
+teladan[duplikat,]

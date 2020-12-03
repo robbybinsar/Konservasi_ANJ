@@ -40,10 +40,9 @@ set.seed(13)
 #pakan_sp <- SpatialPointsDataFrame(coords = pakan[,4:5], data = pakan, proj4string = CRS('+init=EPSG:4326'))
 
 pakan_sp <- readOGR(dsn = "./spatial_data_analysis/KAL/ex_pakan", layer = "ex_pakan_orgutan")
-pakan_sp_buffer <- readOGR(dsn = "./spatial_data_analysis/KAL/ex_pakan", layer = "ex_pakan_buffer")
 
 pakan_sf <- st_as_sf(pakan_sp)
-pakan_sf_buffer <- st_as_sf(pakan_sp_buffer)
+pakan_sf_buffer <- st_buffer(pakan_sf, dist = 250)
 
 #read in raster file
 library(raster)

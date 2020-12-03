@@ -1,3 +1,6 @@
+library(stringdist)
+library(dplyr)
+
 UM <- c("SMM", "ANJA", "ANJAS", "ANJAP", "PMP", "PPM", "KAL")
 
 for (i in UM) {
@@ -15,6 +18,13 @@ for (i in UM) {
     } 
   }
   kedua <- nrow(myarray)
-  write.csv(myarray, paste0("./cs/", i,".csv"))
+  write.csv(myarray, paste0("./cs_2019-2020Jul/", i,".csv"))
   print(paste(i, "bertambah", kedua-pertama))
+}
+
+# Total akumulasi
+output <- data.frame(matrix(nrow = 0, ncol = 0))
+for (i in UM) {
+  df <- read.csv(paste0("./cs_2019-2020Jul/",i,".csv"))
+  output <- bind_rows(output, df)
 }

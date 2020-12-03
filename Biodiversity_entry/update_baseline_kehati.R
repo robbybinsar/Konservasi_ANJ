@@ -8,6 +8,10 @@ library(taxize)
 library(rcites)
 library(rredlist)
 
+set_token("Fafh0Cn4SPZ5rI86BeH5fwtt")
+Sys.setenv(ENTREZ_KEY = "f7041649502ffe57baeb36b4be7acd695808")
+Sys.setenv(IUCN_REDLIST_KEY = "5abaac6464f1172201641c99a3357982c62423e69a08920925bc430d1753812b")
+
 # FAUNA
 
 added_fauna <- data.frame(matrix(nrow = 0,ncol = 0))

@@ -4,6 +4,7 @@ library(magrittr)
 library(openxlsx)
 library(dplyr)
 
+#run pattern_match_ind_count.R before calculating the alpha diversity_measures in order to get the individual counts
 # dat = file directory contains of individuals count data_jml_spesies_ANJ.xlsx
 # nama_sheet = bulan
 alpha_diversity <- function(dat, nama_sheet) {

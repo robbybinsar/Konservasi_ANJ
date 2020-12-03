@@ -244,7 +244,11 @@ citizen_science <- function(UM, bulan) {
     
     # Write and save wb
     dflook[is.na(dflook)] <- 0
-    dflook <- select(dflook, Bulan.Mulai, Nama, closest.match, Jan:Des)
+    if (ncol(dflook)==15) {
+        dflook <- select(dflook, Bulan.Mulai, Nama, closest.match, Jan:Des)
+    } else {
+        dflook <- select(dflook, Bulan.Mulai, Nama, Jan:Des)
+    }
     write.csv(dflook, file = "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.csv",
               row.names = F)
     .GlobalEnv$dflook <- dflook

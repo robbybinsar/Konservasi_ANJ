@@ -39,8 +39,10 @@ data_sarang <- read.xlsx(paste0(dir,"Tally Sheet_Survei Sarang OU_KAL_2020 - Cop
 
 #plot using ggplot2
   #Keseluruhan
-  kalcoor <- c(lon = 110.200, lat = -1.42)
-  kal_base <- get_map(location = kalcoor, zoom = 12, scale = 1, maptype = "terrain", source = "stamen")
+  kalcoor <- st_centroid(st_union(kal_shp1))
+  kalcoor <- st_transform(kalcoor, crs = 4326)
+  kalcoor[[1]]
+  kal_base <- get_map(location = c(110.2,-1.422455), zoom = 12, scale = 1, maptype = "terrain", source = "stamen")
   ggmap(kal_base, base_layer = ggplot(data = kal_shp1)) +
     geom_sf(color = "black",inherit.aes = F, alpha = 0.2, lwd = 0.3, show.legend = F, fill = "cornsilk") +
     xlab("Longitude") + ylab("Latitude") + 
@@ -63,8 +65,9 @@ data_sarang <- read.xlsx(paste0(dir,"Tally Sheet_Survei Sarang OU_KAL_2020 - Cop
     coord_sf(crs = st_crs(4326))
   #HCV 657
   data_sarang_sf$Kelas.Sarang <- factor(data_sarang_sf$Kelas.Sarang, levels = c("A","B","C","D"))
+  hcv657_bb <- st_bbox(kal_hcv[15,])
   tmap_mode("plot")
-  osm_kal <- read_osm(orgutan_sf, ext = 1.5, type = "esri-topo", xlim = c(-0.2, 1.6), ylim = c(-0.6,1.2), relative= T)
+  osm_kal <- read_osm(hcv657_bb, ext = 1.5, type = "esri-topo", relative= T)
   tm_shape(osm_kal) + tm_rgb() +
     tm_shape(kal_shp1, projection = 32749) + tm_polygons(alpha = 0.4, col = "cornsilk",legend.show = F) +
     tm_shape(kal_hcv[c(3,15),]) + tm_polygons(col = "ENG_NAME", alpha = 0.4, palette = "Dark2", area = "HECTARES", title = "Lokasi HCV",
@@ -87,7 +90,8 @@ data_sarang <- read.xlsx(paste0(dir,"Tally Sheet_Survei Sarang OU_KAL_2020 - Cop
     tm_logo("./spatial_data_analysis/anj.png", height = 1.5, position = c(-0.01,0.89))
   # HCV 2330
   tmap_mode("plot")
-  osm_kal <- read_osm(orgutan_sf, ext = 1.5, type = "esri-topo", xlim = c(0.6, 2.9), ylim = c(-3.7,-1.5), relative= T)
+  hcv_2330bb <- st_bbox(kal_hcv[12,])
+  osm_kal <- read_osm(hcv_2330bb, ext = 1.5, type = "esri-topo", relative= T)
   tm_shape(osm_kal) + tm_rgb() +
     tm_shape(kal_shp1, projection = 32749) + tm_polygons(alpha = 0.4, col = "cornsilk",legend.show = F) +
     tm_shape(kal_hcv[12,]) + tm_polygons(col = "ENG_NAME", alpha = 0.4, palette = "Dark2", area = "HECTARES", title = "Lokasi HCV",
