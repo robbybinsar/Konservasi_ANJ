@@ -19,9 +19,43 @@ output:
 
     - UM : unit manajemen which is the location of the in regards with the discoevery of species
     - bulan : Month in English, is the discovery month
+2.  The function runs both local database and an API-based function that collect data from the API-related server. Below is the list of the API server used:
 
-2. The output from the function is `added_fauna` for fauna species and `added_flora` for flora species that contains all inserted data.
+    - GBIF Database
+    - Open Tree of Life (OTL)
+    - The Integrated Taxonomic Information System (ITIS)
+    - Encyclopedia of Life (EOL)
+    - World Register of Marine Species (WORMS)
+    - National Center for Biotechnology Information (NCBI)
+    - Species+
+    - IUCN Redlist
+    - Convention on Migratory Species
+3. The output from the function is `added_fauna` for fauna species and `added_flora` for flora species that contains all inserted data. The output dataframe contains variables as follows:
+
+    - NCBI ID (Fauna, Flora)
+    - Class (Fauna, Flora)
+    - Family (Fauna, Flora)
+    - Latin name (Fauna, Flora)
+    - English Name (Fauna, Flora)
+    - Indonesian Name (Fauna, Flora)
+    - Primary Diet (Fauna)
+    - CITES Appendices (Fauna, Flora)
+    - IUCN Category (Fauna, Flora)
+    - Local conservation status (Government law) (Fauna, Flora)
+    - Endemism status (Fauna, Flora)
+    - CMS Appendices (Fauna)
+    - Species Existence (Presence, Origin, Seasonality) (Fauna)
+    - Habitat (Fauna)
   
-3. The designated file for exporting is located in `"./pattern_match/pattern_match.xlsx"`
+4. The designated file for exporting is located in `"./pattern_match/pattern_match.xlsx"`
+
+## Entry Kehati Site Version
+
+`entry_kehati_site_version.R` same with `update_baseline_kehati.R` only excluding
+
+    - Indonesian Name
+    - Primary Diet
+    - Endemism Status
+    - Species Existence (Presence, Origin, Seasonality)
 
 
