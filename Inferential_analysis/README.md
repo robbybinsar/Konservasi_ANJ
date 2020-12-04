@@ -1,0 +1,19 @@
+---
+title: "Inferential Statistics"
+author: "Robby"
+date: "12/4/2020"
+output: 
+  html_document:
+    keep_md: TRUE
+---
+
+
+
+Inferential statistics are often used to compare the differences between the treatment groups. Inferential statistics use measurements from the sample of subjects in the experiment to compare the treatment groups and make generalizations about the larger population of subjects.
+
+This topic currently contains analysis for parametric and non-parametric test, One way ANOVA, and post-hoc analysis  
+
+1. For non-parametric test please refer to folder **Non_parametric_test**
+
+2. For parametric test and one way ANOVA please refer to folder **Uji_data_dan_ANOVA**
+    
