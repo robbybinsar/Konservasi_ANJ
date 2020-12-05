@@ -1,7 +1,7 @@
 ---
 title: "Homogeneity, Normality, and One Way ANOVA"
 author: "Robby"
-date: "12/4/2020"
+date: "5/4/2020"
 output: 
   html_document:
     keep_md: TRUE
