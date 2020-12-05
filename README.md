@@ -15,18 +15,18 @@ There are 3 major sections in this repository, they are as follows:
 
 #### **1. Data collection and Manipulation:**
 
- * folder **Biodiversity_entry**
- * folder **pattern_match**
+ * folder [**Biodiversity_entry**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/Biodiversity_entry)
+ * folder [**pattern_match**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/pattern_match)
 
 #### **2. Data Analysis:**
 
-  * folder **Diversity_measures**
-  * folder **Inferential_analysis**
-  * folder **carbon_analysis**
-  * folder **spatial_data_analysis**
+  * folder [**Diversity_measures**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/Diversity_measures)
+  * folder [**Inferential_analysis**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/Inferential_analysis)
+  * folder [**carbon_analysis**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/carbon_analysis)
+  * folder [**spatial_data_analysis**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/spatial_data_analysis)
     
 #### **3. Data Visualization:**
 
-  * folder **Bar_graph**
-  * folder **Line_graph**
+  * folder [**Bar_graph**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/Bar_graph)
+  * folder [**Line_graph**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/Line_graph)
     
