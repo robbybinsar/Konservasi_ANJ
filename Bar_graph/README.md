@@ -15,9 +15,9 @@ output:
 
 The 3 main files in this folder related to basic bar graph with research data  
 
-  - `Multiple_var_bargraph.R` (R script)  
-  - `Summary_bar_graph_Trembesi_Analisis_statistik.md` (R markdown)  
-  - `summary_multiplebar_Trembesi.png` (Output)  
+  - [`Multiple_var_bargraph.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Bar_graph/Multiple_var_bargraph.R) (R script)  
+  - [`Summary_bar_graph_Trembesi_Analisis_statistik.md`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Bar_graph/Summary_bar_graph_Trembesi_Analisis_statistik.md) (R markdown)  
+  - [`summary_multiplebar_Trembesi.png`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Bar_graph/summary_multiplebar_Trembesi.png) (Output)  
 
 
 ### 1. `Multiple_var_bargraph.R` (R script)

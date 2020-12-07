@@ -13,7 +13,7 @@ output:
 
   Note that nonparametric tests are used as an alternative method to parametric tests, not as their substitutes. In other words, if the data meets the required assumptions for performing the parametric tests, the relevant parametric test must be applied. In addition, in some cases, even if the data do not meet the necessary assumptions but the sample size of the data is large enough, we can still apply the parametric tests instead of the non-parametric tests.
 
-> Below are functions used in the `non-parametric.R` script:
+> Below are functions used in the [`non-parametric.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Inferential_analysis/Non_parametric_test/non_parametric.R) script:
 
 ### Kruskall Wallis Test
 
@@ -34,4 +34,4 @@ In this analysis we use **Kruskall Wallis test** as an alternative instead of AN
 
 ### Example
 
-> Please refer to `non_parametrictest_on_Sengon_var.Petiqlule.md` on how I use the functions above. 
+> Please refer to [`non_parametrictest_on_Sengon_var.Petiqlule.md`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Inferential_analysis/Non_parametric_test/non_parametrictest_on_Sengon_var.%20Petiqlule.md) on how I use the functions above. 

@@ -13,7 +13,7 @@ Inferential statistics are often used to compare the differences between the tre
 
 This topic currently contains analysis for parametric and non-parametric test, One way ANOVA, and post-hoc analysis  
 
-1. For non-parametric test please refer to folder **Non_parametric_test**
+1. For non-parametric test please refer to folder [**Non_parametric_test**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/Inferential_analysis/Non_parametric_test)
 
-2. For parametric test and one way ANOVA please refer to folder **Uji_data_dan_ANOVA**
+2. For parametric test and one way ANOVA please refer to folder [**Uji_data_dan_ANOVA**](https://github.com/robbybinsar/Konservasi_ANJ/tree/master/Inferential_analysis/Uji_data_dan_ANOVA)
     

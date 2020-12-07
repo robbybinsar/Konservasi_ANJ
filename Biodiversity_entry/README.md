@@ -12,7 +12,7 @@ output:
 
 ## Update Baseline Kehati
 
-`update_baseline_kehati.R` is an R script that have the function as readline prompt to interactively insert biodiversity data with R console. The output of the data inserted will be exported to a designated xlsx file.
+[`update_baseline_kehati.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Biodiversity_entry/update_baseline_kehati.R) is an R script that have the function as readline prompt to interactively insert biodiversity data with R console. The output of the data inserted will be exported to a designated xlsx file.
 
 
 1. `readData_fauna <- function(UM, bulan)` and `readData_flora <- function(UM, bulan)`these function require 2 arguments:  
@@ -47,11 +47,11 @@ output:
     - Species Existence (Presence, Origin, Seasonality) (Fauna)
     - Habitat (Fauna)
   
-4. The designated file for exporting is located in `"./pattern_match/pattern_match.xlsx"`
+4. The designated file for exporting is located in [`"./pattern_match/pattern_match.xlsx"`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/pattern_match/pattern_match.xlsx)
 
 ## Entry Kehati Site Version
 
-`entry_kehati_site_version.R` same with `update_baseline_kehati.R` only excluding
+[`entry_kehati_site_version.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Biodiversity_entry/entry_kehati_site_version.R) same with `update_baseline_kehati.R` only excluding
 
     - Indonesian Name
     - Primary Diet

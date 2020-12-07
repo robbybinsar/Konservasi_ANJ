@@ -11,7 +11,7 @@ output:
 
 Parametric analysis with data validity using normality and homogeneity test before testing with One Way ANOVA. This analysis has been chosen as perceived suitable with the case provided.
 
-`Uji_Data_dan_ANOVA_Satu.Arah.R` is an R script that consists of **Homogeneity, Normality, One Way ANOVA, and Post-Hoc Tukey Test**
+[`Uji_Data_dan_ANOVA_Satu.Arah.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Inferential_analysis/Uji_data_dan_ANOVA/Uji_Data_dan_ANOVA_Satu.Arah.R) is an R script that consists of **Homogeneity, Normality, One Way ANOVA, and Post-Hoc Tukey Test**
 
 ### 1. Homogeneity
 
@@ -73,9 +73,9 @@ with `ggplot` function generates plot summarizes the mean of each treatment, SE,
 
 ### 6. Real case application
 
-> Please refer to `uji_normality_homogeneity.md` for normality and homogeneity test on a real case example
+> Please refer to [`uji_normality_homogeneity.md`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Inferential_analysis/Uji_data_dan_ANOVA/uji_normality_homogeneity.md) for normality and homogeneity test on a real case example
 
-> Pleasee refer to `Analisis_ANOVA_dan_Uji_lanjut-Anggrek_tanah_(Tinggi).md` fot one way ANOVA and post hoc test application on a real case example.
+> Pleasee refer to [`Analisis_ANOVA_dan_Uji_lanjut-Anggrek_tanah_(Tinggi).md`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Inferential_analysis/Uji_data_dan_ANOVA/Analisis_ANOVA_dan_Uji_lanjut-Anggrek_tanah_(Tinggi).md) for one way ANOVA and post hoc test application on a real case example.
 
 
   
