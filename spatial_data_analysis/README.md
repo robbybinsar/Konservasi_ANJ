@@ -1,7 +1,7 @@
 Spatial Data Analysis
 ================
 Robby Butarbutar
-5/4/2020
+12/4/2020
 
 This folder contains analysis for spatial data attributed to
 conservation surveys in PT Austindo Nusantara Jaya. For confidentiality,
