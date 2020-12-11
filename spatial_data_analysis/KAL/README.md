@@ -1,7 +1,7 @@
 PT KAL Spatial Data Analysis
 ================
 Robby Butarbutar
-5/4/2020
+11/5/2020
 
 #### R script: [mapping\_kal.R](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/spatial_data_analysis/KAL/mapping_kal.R)
 

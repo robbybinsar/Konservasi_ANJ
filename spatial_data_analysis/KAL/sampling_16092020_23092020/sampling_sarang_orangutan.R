@@ -11,6 +11,7 @@ library(dplyr)
 library(openxlsx)
 library(grid)
 library(gridExtra)
+library(png)
 
 anjpng <- png::readPNG("./spatial_data_analysis/anj.png")
 

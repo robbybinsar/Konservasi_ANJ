@@ -27,7 +27,7 @@ ggmap(kal_base)
 # read data points for orang utan encounter
 orgutan <- read.csv("./spatial_data_analysis/KAL/ex_data_orangutan.csv")
 set.seed(8)
-orgutan <- orgutan %>% relocate(spesies) %>% select(-X) %>% 
+orgutan <- orgutan %>% relocate(spesies) %>% dplyr::select(-X) %>% 
   mutate(date  = sample(seq(as.Date('2020/10/01'), as.Date('2020/12/28'), by="day"), 12)) %>%
   mutate(month = months(date)) %>% transform(lon = runif(12, min = 110.11327, max = 110.14557), 
                                              lat = runif(12, min = -1.40080, max = -1.35671))
@@ -42,11 +42,12 @@ set.seed(13)
 pakan_sp <- readOGR(dsn = "./spatial_data_analysis/KAL/ex_pakan", layer = "ex_pakan_orgutan")
 
 pakan_sf <- st_as_sf(pakan_sp)
+pakan_sf <- st_transform(pakan_sf, crs = crs(kal_hcv, asText = T))
 pakan_sf_buffer <- st_buffer(pakan_sf, dist = 250)
 
 #read in raster file
 library(raster)
-raster_kal <- raster("spatial_data_analysis/KAL/123/LC08_L1TP_121061_20190904_20190917_01_T1.tif")
+raster_kal <- raster("spatial_data_analysis/KAL/123/LC08_L1TP_121061_20190904_20190917_01_T1.tif") #optional
 
 # plot using ggmap + ggplot
   library(ggplot2)
@@ -122,7 +123,7 @@ raster_kal <- raster("spatial_data_analysis/KAL/123/LC08_L1TP_121061_20190904_20
                                                 "Hectares:" = "HECTARES"), border.col = "red")+
     tm_text(text = "HCV", size = 0.7, size.lowerbound = F) +
     tm_shape(kal_hcv1) + tm_borders(col = "red", group = "KAL HCV BORDERS")+
-    tm_shape(pakan_sp_buffer) + tm_polygons(alpha = 0.2, group = "BUFFER PAKAN r:250 m") +
+    tm_shape(pakan_sf_buffer) + tm_polygons(alpha = 0.2, group = "BUFFER PAKAN r:250 m")+ 
     tm_shape(orgutan_sp) + tm_dots(col = "month", size = "diameter_sarang_meter", scale = 0.3,
                                       popup.vars  = TRUE, palette = "Set1", group = "SARANG ORANG UTAN", title = "Bulan Observasi")+
     tm_shape(pakan_sp) + tm_dots(group = "TUMBUHAN PAKAN ORANGUTAN")+
