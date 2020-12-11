@@ -75,7 +75,7 @@ geometry type(s)
             behind this is that typically one keeps all the shapefiles
             for a project in one folder (directory).
 
-**5. Plot the spatial data**
+**6. Plot the spatial data**
 
   - Plot using **ggmap** + **ggplot** (method 1)
   - Plot using **tmap** + **tmaptools** (method 2)
