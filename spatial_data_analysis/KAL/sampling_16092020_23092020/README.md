@@ -28,9 +28,10 @@ Survey conducted on **16 - 23 September 2020**
 
 **3. Read coordinates for Orang utan nests across the transects**
 
-    * The geometries are read in the xlsx file format
-    * Use `st_as_sf` function to transform data frame containing geometries into simple feature object
-    * Use `SpatialPointsDataframe` function to read it in sp object
+  - The geometries are read in the xlsx file format
+  - Use `st_as_sf` function to transform data frame containing
+    geometries into simple feature object
+  - Use `SpatialPointsDataframe` function to read it in sp object
 
 **4. Import transects line (shapefile format) into R**
 
