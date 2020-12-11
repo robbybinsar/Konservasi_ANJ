@@ -3,7 +3,7 @@ PT SMM Spatial Data Analysis
 Robby Butarbutar
 12/4/2020
 
-### R script: [`mapping_priority_species.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/spatial_data_analysis/SMM/mapping_priority_species.R)
+## R script: [`mapping_priority_species.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/spatial_data_analysis/SMM/mapping_priority_species.R)
 
 This script contains code to visualize survey result of priority species
 such as *Tarsius bancanus spp. saltator* in PT SMM Conservation area.
@@ -53,7 +53,7 @@ layer-based, and easy to use approach to create thematic maps, such as
 choropleths and bubble maps. It is based on the grammar of graphics, and
 resembles the syntax of ggplot2.
 
-### R script: [`interactive_leaflet_GRTT.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/spatial_data_analysis/SMM/interactive_leaflet_GRTT.R)
+## R script: [`interactive_leaflet_GRTT.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/spatial_data_analysis/SMM/interactive_leaflet_GRTT.R)
 
 This R script contains code that viualize result of ground check for
 GRTT (Ganti Rugi Tanam Tumbuh) in PT SMM Concession and conservation
