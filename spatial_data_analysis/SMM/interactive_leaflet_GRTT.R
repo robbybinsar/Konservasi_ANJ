@@ -50,3 +50,6 @@ m <- leaflet() %>%
   addAwesomeMarkers(data = GRTT_LJE, popup = popupImage(img_LJE, src = "local", embed = T), label = lapply(labs_LJE, HTML), 
                     icon = awesomeIcons(markerColor = "blue", icon = "ios-close", iconColor = "black", library = "ion")) %>%
   addMouseCoordinates() %>% addScaleBar()
+
+# Save widget
+saveWidget(m, "test.html", selfcontained = T)

@@ -29,7 +29,7 @@ priority_sf <- st_as_sf(priority_species, coords = c("lon","lat"), crs = "+proj=
 priority_sf <- priority_sf %>% relocate(spesies)
 priority_sf <- st_transform(priority_sf, crs = crs(SMM_hcv, asText = TRUE))
 
-#create buffer 30 meters
+#create buffer 100 meters in diameter
 priority_buffer <- st_buffer(priority_sf, dist = 50, endCapStyle = "ROUND")
 
 #map data points to interactive tmap
