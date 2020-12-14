@@ -536,6 +536,6 @@ readData_flora <- function(UM, bulan) {
     }
     dats <- "./pattern_match/pattern_match_flora.xlsx"
     wb <- loadWorkbook(dats)
-    writeDataTable(wb,sheet = UM ,added_flora , colNames = T, rowNames = F, startCol = 10, tableName = paste0("insert_to_entry_database_",UM,bulan))
+    writeDataTable(wb,sheet = UM ,added_flora , colNames = T, rowNames = F, startCol = 14, tableName = paste0("insert_to_entry_database_",UM,bulan))
     saveWorkbook(wb,dats,overwrite = T)
 }

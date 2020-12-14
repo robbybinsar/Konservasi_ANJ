@@ -54,7 +54,7 @@ x <- dataFaunaUM$Latin.name
 y <- dataf$baru
 for (i in y) {
     hitung <- stringsim(i, x)
-    if (max(hitung) < 0.70) {
+    if (max(hitung) < 0.75) {
         dataf$statusUM[match(i,y)] <- "Baru"
     } else {
         dataf$statusUM[match(i,y)] <- 0
@@ -157,7 +157,7 @@ matching_flora <- function(unitmanajemen, bulan){
     y <- dataf$baru
     for (i in y) {
         hitung <- stringsim(i, x)
-        if (max(hitung) < 0.70) {
+        if (max(hitung) < 0.75) {
             dataf$statusUM[match(i,y)] <- "Baru"
         } else {
             dataf$statusUM[match(i,y)] <- 0
