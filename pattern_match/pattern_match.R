@@ -13,7 +13,7 @@ matching_fauna <- function(unitmanajemen, bulan){
 #load data
 dats <- "./pattern_match/pattern_match.xlsx"
 df <- read.xlsx(dats,sheet = "analisa")
-df[is.na(df)] <- 0 # ubah kolom 'nama latin' menjadi Nama.Latin
+df[is.na(df)] <- 0
 xt <- df %>% group_by(Kelas, Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(Jumlah))
 y <- unique(df$Nama.Latin)
 
@@ -88,7 +88,7 @@ baru <- filter(dataf, statusAll == "Baru")
 mergeData1 <- merge(baru, df, by.x = "baru", by.y = "Nama.Latin", all = F)
 mergeData1 <- mergeData1 %>% distinct(baru, .keep_all = T) %>%
     filter(baru != 0) %>% select(baru, closest.pendaki.detail,closest.All,
-                                 statusUM:Jumlah,-Namalatin.fix)
+                                 statusUM:Nama.Lokal,-Namalatin.fix)
 
 mrg <- bind_rows(hasil, mergeData1)
 teladan[is.na(teladan["Bulan"]), "Bulan"] <- bulan
@@ -189,7 +189,7 @@ matching_flora <- function(unitmanajemen, bulan){
     mergeData1 <- merge(baru, df, by.x = "baru", by.y = "Nama.Latin", all = F)
     mergeData1 <- mergeData1 %>% distinct(baru, .keep_all = T) %>%
         filter(baru != 0) %>% select(baru, closest.pendaki.detail,closest.All,
-                                     statusUM:Jumlah,-Namalatin.fix)
+                                     statusUM:Nama.Lokal,-Namalatin.fix)
     
     mrg <- bind_rows(hasil, mergeData1)
     teladan[is.na(teladan["Bulan"]), "Bulan"] <- bulan

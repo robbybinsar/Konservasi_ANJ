@@ -33,11 +33,13 @@ lookupf <- function(month) {
     .GlobalEnv$teladan <- teladan
 }
 
+#checking duplicate entry
+duplikat <- duplicated(teladan$Nama.Latin)
+teladan[duplikat,]
+
 #export into csv file"
 saveme <- function(NamaFile) {
     write.csv(teladan, paste0("C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/indeks_kehati/",NamaFile))
 }
 
-#checking duplicate entry
-duplikat <- duplicated(teladan$Nama.Latin)
-teladan[duplikat,]
+
