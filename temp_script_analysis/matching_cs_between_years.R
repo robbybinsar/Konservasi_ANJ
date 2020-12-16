@@ -1,5 +1,6 @@
 library(stringdist)
 library(dplyr)
+library(openxlsx)
 
 UM <- c("SMM", "ANJA", "ANJAS", "ANJAP", "PMP", "PPM", "KAL")
 
@@ -28,3 +29,4 @@ for (i in UM) {
   df <- read.csv(paste0("./cs_2019-2020Jul/",i,".csv"))
   output <- bind_rows(output, df)
 }
+
