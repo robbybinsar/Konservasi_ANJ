@@ -123,21 +123,9 @@ read_fauna <- function() {
     
     # Conservation status
     #CITES
-    pathcites <- "C:/Users/robby/Documents/ANJ/DATABASE/DOKUMEN/CITES/Index_of_CITES_Species_2020-08-19 05_48.csv"
-    CITESLookup <- read.csv(pathcites)
-    CITESvect <- CITESLookup$FullName
-    CITESlist <- CITESLookup$CurrentListing
-    splitcites <- strsplit(NamaLatin, " ")[[1]][1]
-    hitung <- stringsim(NamaLatin, CITESvect)
-    if (max(hitung) >= 0.9) {
-      value <- CITESvect[match(max(hitung),hitung)]
-      CITES <- CITESlist[match(value, CITESvect)]
-    } else if (max(stringsim(splitcites, CITESvect)) >= 0.95) {
-      value <- CITESvect[match(max(stringsim(splitcites, CITESvect)),stringsim(splitcites, CITESvect))]
-      CITES <- CITESlist[match(value, CITESvect)]
-    } else if (max(stringsim(familyname, CITESvect)) >= 0.95) {
-      value <- CITESvect[match(max(stringsim(familyname, CITESvect)),stringsim(familyname, CITESvect))]
-      CITES <- CITESlist[match(value, CITESvect)]
+    CITESLookup <- spp_taxonconcept(query_taxon = NamaLatin, taxonomy = "CITES")
+    if(length(CITESLookup) > 0) {
+      CITES <- CITESLookup[["general"]][["cites_listing"]]
     } else {
       CITES <- NA
     }
@@ -337,21 +325,9 @@ read_flora <- function() {
     
     # Conservation status
     #CITES
-    pathcites <- "C:/Users/robby/Documents/ANJ/DATABASE/DOKUMEN/CITES/Index_of_CITES_Species_2020-08-19 05_48.csv"
-    CITESLookup <- read.csv(pathcites)
-    CITESvect <- CITESLookup$FullName
-    CITESlist <- CITESLookup$CurrentListing
-    splitcites <- strsplit(NamaLatin, " ")[[1]][1]
-    hitung <- stringsim(NamaLatin, CITESvect)
-    if (max(hitung) >= 0.9) {
-      value <- CITESvect[match(max(hitung),hitung)]
-      CITES <- CITESlist[match(value, CITESvect)]
-    } else if (max(stringsim(splitcites, CITESvect)) >= 0.95) {
-      value <- CITESvect[match(max(stringsim(splitcites, CITESvect)),stringsim(splitcites, CITESvect))]
-      CITES <- CITESlist[match(value, CITESvect)]
-    } else if (max(stringsim(familyname, CITESvect)) >= 0.95) {
-      value <- CITESvect[match(max(stringsim(familyname, CITESvect)),stringsim(familyname, CITESvect))]
-      CITES <- CITESlist[match(value, CITESvect)]
+    CITESLookup <- spp_taxonconcept(query_taxon = NamaLatin, taxonomy = "CITES")
+    if(length(CITESLookup) > 0) {
+      CITES <- CITESLookup[["general"]][["cites_listing"]]
     } else {
       CITES <- NA
     }
