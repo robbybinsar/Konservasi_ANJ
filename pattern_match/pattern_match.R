@@ -17,7 +17,7 @@ df[is.na(df)] <- 0
 xt <- df %>% group_by(Kelas, Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(Jumlah))
 y <- unique(df$Nama.Latin)
 
-dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
+dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2021.xlsx"
 teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 15:19, startRow = 3)
 teladan <- mutate(teladan, Jumlah = NA)
 
@@ -121,7 +121,7 @@ matching_flora <- function(unitmanajemen, bulan){
     xt <- df %>% group_by(Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(Jumlah))
     y <- unique(df$Nama.Latin)
     
-    dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2020.xlsx"
+    dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2021.xlsx"
     teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 33:37, startRow = 3)
     teladan <- mutate(teladan, Jumlah = NA)
     
@@ -221,7 +221,7 @@ citizen_science <- function(UM, bulan) {
     df[is.na(df)] <- 0
     y <- unique(df$Pengamat) #Nama kolom pengamat bisa dinamis
     
-    datlook <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.xlsx"
+    datlook <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2021.xlsx"
     dflook <- read.xlsx(datlook, sheet = UM, startRow = 3, cols = 1:14)
     
     #matching
@@ -249,7 +249,7 @@ citizen_science <- function(UM, bulan) {
     } else {
         dflook <- select(dflook, Bulan.Mulai, Nama, Jan:Des)
     }
-    write.csv(dflook, file = "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.csv",
+    write.csv(dflook, file = "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2021.csv",
               row.names = F)
     .GlobalEnv$dflook <- dflook
     .GlobalEnv$Pengamat <- y

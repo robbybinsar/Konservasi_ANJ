@@ -215,6 +215,8 @@ readData_fauna <- function(UM, bulan) {
         if (!is.na(IUCN)) {
            iucn_url <- as.data.frame(get_iucn(NamaLatin))$uri
            browseURL(iucn_url)
+        } else {
+           IUCN <- "NE"
          }
         
         # English name

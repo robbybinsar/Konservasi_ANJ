@@ -5,7 +5,7 @@ library(openxlsx)
 UM <- c("SMM", "ANJA", "ANJAS", "ANJAP", "PMP", "PPM", "KAL")
 
 for (i in UM) {
-  myarray <- read.xlsx("C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2020.xlsx",
+  myarray <- read.xlsx("C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/2020/CITIZEN SCIENCE 2020.xlsx",
             sheet = i, startRow = 3, cols = 2)
   pertama <- nrow(myarray)
   myarray2020 <- myarray$Nama

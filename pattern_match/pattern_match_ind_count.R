@@ -3,7 +3,7 @@ library(stringdist)
 library(dplyr)
 
 
-# funtion for stringsim
+# function for stringsim
 # month in english (copy paste first the latin name from previous month in data_jml_spesies_ANJ.xlsx)
 lookupf <- function(month) {
     #my look up data reference
