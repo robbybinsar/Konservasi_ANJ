@@ -1,0 +1,607 @@
+,Nama.Latin,closestMatch,ANJA,ANJAS,SMM,KAL,PMP,PPM,ANJAP,sum
+1,-,0,0,0,0,0,0,0,0,0
+2,Acanthophis laevis,0,0,0,0,0,0,1,0,1
+3,Accipiter cirrocephalus,0,0,0,0,0,0,0,0,0
+4,Accipiter gularis,0,0,0,8,0,0,0,0,8
+5,Accipiter novaehollandiae,0,0,0,0,0,0,17,24,41
+6,Accipiter poliocephalus,0,0,0,0,0,0,0,0,0
+7,Aceros undulatus,0,0,0,0,0,0,0,0,0
+8,Acridotheres javanicus,Acridotheres Javanicus,0,0,0,1,0,0,0,1
+10,Acridotheres tristis,0,0,0,0,0,0,0,0,0
+11,Acrochordus cf. arafurae,0,0,0,0,0,0,0,0,0
+12,Actenoides concretus,0,0,0,0,0,0,0,0,0
+13,Actitis hypoleucos,0,0,0,0,0,0,0,18,18
+14,Aegithina tiphia,0,0,0,0,0,0,0,0,0
+15,Aethopyga siparaja,0,0,0,0,0,0,0,0,0
+16,Ahaetulla prasina,0,0,0,0,0,0,0,0,0
+17,Alap-Alap,0,0,0,0,0,0,0,0,0
+18,Alcedo atthis,0,0,0,1,0,0,0,0,1
+19,Alcedo azurea,0,0,1,0,0,0,0,2,3
+20,Alcedo coerulescens,0,0,1,8,0,0,0,0,9
+21,Alcedo meninting,0,0,0,38,26,0,0,0,64
+22,Alcedo pusilla,0,0,0,0,0,0,0,2,2
+23,Alophoixus ochraceus,0,0,0,0,0,0,0,0,0
+24,Amatthusia Phidippus,0,0,0,0,0,0,0,0,0
+25,Amaurornis cinerea,0,0,0,0,0,0,6,0,6
+26,Amaurornis moluccana,0,0,0,0,0,0,1,0,1
+27,Amaurornis olivaceus,0,0,0,0,0,0,0,3,3
+28,Amaurornis phoenicurus,0,0,0,14,8,0,0,0,22
+29,Ameles decolor,0,0,0,0,0,0,0,0,0
+30,Anabas testudineus,0,0,0,0,0,0,0,0,0
+31,Anak Burung,0,0,0,0,0,0,0,0,0
+32,Anas gibberifrons,0,0,0,0,0,0,0,0,0
+33,Ancistroides nigrita,0,0,0,0,0,0,0,0,0
+34,Ancylis albacostana,0,0,0,0,0,0,0,0,0
+35,Anhinga melanogaster,0,0,0,0,0,0,0,0,0
+36,Anorrhinus galeritus,0,0,4,0,0,0,0,0,4
+37,Anthracoceros albirostris,0,0,5,0,0,0,0,0,5
+38,Anthracoceros malayanus,0,0,0,1,7,0,0,0,8
+39,Anthracoceros sp,0,0,0,0,0,0,0,0,0
+40,Anthreptes malacensis,0,0,0,0,2,0,0,0,2
+41,Anthreptes rhodolaemus,0,0,0,0,0,0,0,0,0
+42,Anthreptes simplex,0,0,0,0,0,0,0,0,0
+43,Anthreptes singalensis,0,0,0,0,0,0,0,0,0
+44,Anthroloceros Malayanus,0,0,0,0,0,0,0,0,0
+45,Apis andreniformis,0,0,0,0,0,0,0,0,0
+46,Apis sp,0,0,0,0,0,0,0,0,0
+47,Aplonis cantoroides,0,0,0,0,0,0,0,0,0
+48,Aplonis magna,0,0,0,0,0,0,52,0,52
+49,Aplonis metallica,0,0,0,0,0,10,0,252,262
+50,Aplonis panayensis,0,0,0,0,0,0,0,0,0
+51,Apodemus sylvaticus,0,0,0,0,0,0,2,0,2
+52,Apodora papuana,0,0,0,0,0,0,0,0,0
+53,Apus pacificus,0,0,0,0,0,0,0,0,0
+54,Arachnothera longirostra,0,0,0,0,0,0,0,0,0
+55,Ardea alba,0,0,0,0,0,0,15,0,15
+56,Ardea purpurea,0,1,0,0,0,0,0,0,1
+57,Ardea sumatrana,0,0,0,0,0,0,0,0,0
+58,Ardeola bacchus,0,0,0,1,0,0,0,0,1
+59,Ardeola speciosa,0,0,0,0,0,0,0,0,0
+60,Argusianus argus,0,0,0,0,4,0,0,0,4
+61,Aromia Moschata,0,0,0,0,0,0,0,0,0
+62,Arses telescophthalmus,0,0,0,0,0,0,0,5,5
+63,Athyma perius,0,0,0,0,0,0,0,0,0
+64,Attacus atlas,0,0,0,0,0,0,1,0,1
+65,Aviceda subcristata,0,0,0,0,0,3,8,2,13
+66,Bajing,0,0,0,0,0,0,0,0,0
+67,Bangau,0,0,9,0,0,0,0,0,9
+68,Batrachostomus stellatus,0,0,0,0,0,0,0,0,0
+69,Belalang Mantthis,0,0,0,0,0,0,0,0,0
+70,Belibis,0,0,0,0,0,0,0,0,0
+71,Berang-Berang,0,0,0,0,3,0,0,0,3
+72,Boiga dendrophila,0,0,0,0,0,0,0,0,0
+73,Broghammerus timorensis,0,0,0,0,0,1,0,0,1
+74,Bronchocela jubata,0,0,0,0,0,0,0,0,0
+75,Bubulcus ibis,0,0,0,15,0,0,0,0,15
+76,Buceros bicornis,0,0,0,0,0,0,0,0,0
+77,Buceros rhinoceros,0,0,15,0,8,0,0,0,23
+78,Bungarus candidus,0,0,0,0,0,0,0,0,0
+79,Burung Bubut,0,1,0,0,0,0,0,0,1
+80,Burung Cucur Udang,0,0,1,0,0,0,0,0,1
+81,Burung elang,Burung Elang,0,0,0,0,0,0,0,0
+82,Burung Elang,0,0,0,0,0,0,0,0,0
+83,Burung Hantu,0,0,0,0,0,0,0,0,0
+84,Burung Jalak,0,0,3,0,0,0,0,0,3
+85,Burung Nuri,0,0,6,0,0,0,0,0,6
+86,Burung pelatuk ,0,0,0,0,0,0,0,0,0
+87,Burung warna putih,0,0,0,0,0,0,0,0,0
+88,Butastur liventer,0,0,0,0,0,0,0,0,0
+89,Butorides striatus,0,0,0,0,0,0,0,0,0
+90,Cacatua galerita,0,0,0,0,0,8,0,54,62
+91,Cacatua sp,0,0,0,0,0,0,0,0,0
+92,Cacatua sulphurea,0,0,0,0,0,0,25,0,25
+93,Cacomantis merulinus,0,0,0,0,0,0,0,0,0
+94,Cacomantis sepulcralis,0,0,0,0,0,0,0,0,0
+95,Cacomantis variolosus,0,0,0,0,0,0,0,13,13
+96,Calidaris alba,0,0,0,0,0,0,0,0,0
+97,Callosciurus notatus,0,0,0,0,0,0,0,0,0
+98,Callosciurus prevostii,0,0,0,0,0,0,0,0,0
+99,Calloselasma rhodostoma,0,0,0,1,0,0,0,0,1
+100,Calotes sp,0,0,0,0,0,0,0,0,0
+101,Candoia aspera,0,0,0,0,0,0,0,0,0
+102,Capung,0,0,0,0,0,0,0,0,0
+103,Capung Cokelat Bata,0,0,0,0,0,0,0,0,0
+104,Carlia fusca,0,0,0,0,0,0,0,0,0
+105,Carterocephalus palaemon,0,0,0,0,0,0,0,0,0
+106,Casuarius casuarius,0,0,0,0,0,2,0,2,4
+107,Casuarius unappendiculatus,0,0,0,0,0,0,0,0,0
+108,Cekarang Belukar,0,0,0,0,0,0,0,0,0
+109,Celeus brachyurus,0,0,0,0,0,0,0,0,0
+110,Centropus bengalensis,0,0,0,0,0,0,0,0,0
+111,Centropus bernsteini,0,0,0,0,0,4,6,20,30
+112,Centropus rectunguis,0,0,0,0,0,0,0,0,0
+113,Centropus sinensis,0,3,0,0,16,0,0,0,19
+114,Cercopithecidae,0,0,0,0,0,0,0,0,0
+115,Cervus timorensis,0,0,0,0,0,10,0,0,10
+116,Ceyx rufidorsa,0,0,0,0,1,0,0,0,1
+117,Chalcites ruficollis,0,0,0,0,0,0,0,0,0
+118,Chalcophaps indica,0,1,0,2,0,0,0,0,3
+120,Chalcophaps stephani,Chalcophaps stepani,0,0,0,0,0,1,0,1
+121,Chalcopsitta atra,0,0,0,0,0,3,101,73,177
+122,Channa micropeltes,0,0,0,0,0,0,0,0,0
+123,Channa striata,0,0,0,0,0,0,0,0,0
+124,Charmosyna papou,0,0,0,0,0,0,35,0,35
+125,Charmosyna placentis,Charmosyna placontis,0,0,0,0,0,7,58,65
+127,Charmosyna rubrigularis,0,0,0,0,0,0,0,0,0
+128,Chersonesia rahria,0,0,1,0,0,0,0,0,1
+129,Chilopoda,0,0,0,0,0,0,0,0,0
+130,Chlidonias hybridus,0,0,0,0,0,0,0,0,0
+131,Chloropsis cochinchinensis,0,0,0,0,0,0,0,0,0
+132,Chloropsis cyanopogon,0,0,5,0,0,0,0,0,5
+133,Chloropsis sonnerati,0,0,0,0,0,0,0,0,0
+134,Chrysococcyx ruficollis,0,0,0,0,0,0,0,0,0
+135,Chrysopelea paradisi,0,0,0,0,0,0,0,0,0
+136,Chrysophlegma miniaceum,0,0,0,0,0,0,0,0,0
+137,Ciconia ciconia,0,25,0,0,0,0,0,0,25
+138,Ciconiidae 1,0,0,0,0,0,0,0,0,0
+139,Ciconiidae sp,0,0,0,0,0,0,0,0,0
+140,Cinnyris jugularis,0,0,0,3,0,0,0,14,17
+141,Clarias sp,0,0,0,0,0,0,0,0,0
+142,Cocomantis flabeliformis,0,0,0,0,0,0,0,0,0
+143,Coelagnatus Radiatus,0,0,0,0,0,0,0,0,0
+144,Collocalia esculenta,0,22,0,0,0,0,3,4,29
+145,Collocalia Maxima,0,0,0,0,0,0,0,0,0
+146,Colluricinclam megarhyncha,0,0,0,0,0,0,0,0,0
+147,Colossoma macropomum,0,0,0,0,0,0,0,0,0
+148,Columba livia,0,7,0,0,0,0,0,0,7
+149,Common sp,0,0,0,0,0,0,0,0,0
+150,Copsychus malabaricus,0,0,0,0,0,0,0,0,0
+151,Copsychus saularis,0,0,1,0,1,0,0,0,2
+152,Coracina melaena,0,0,0,0,0,0,0,0,0
+153,Coracina papuensis,0,0,0,0,0,0,36,9,45
+154,Corvus enca,0,0,1,0,26,0,0,0,27
+155,Cosymbotus platyurus,0,0,0,0,0,0,0,0,0
+156,Coturnix chinensis,0,0,0,1,0,0,0,0,1
+157,Craseonycteris thonglongyai,0,0,0,0,0,0,0,0,0
+158,Crateroscelis muriana,0,0,0,0,0,0,0,0,0
+159,Crocodylus novaeguineae,0,0,0,0,0,4,1,0,5
+160,Crocodylus porosus,0,0,0,0,0,0,0,0,0
+161,Crocothemis servilia,0,0,0,0,0,0,0,0,0
+162,Cucak Ijo,0,0,0,0,0,0,0,0,0
+163,Cucak Ijo Besar,0,0,0,0,0,0,0,0,0
+164,Cuculus saturatus,0,0,0,0,0,0,2,0,2
+165,Cuora amboinensis,0,0,0,0,0,0,0,0,0
+166,Cuora amboinensis couro,0,0,0,0,0,0,0,0,0
+167,Cuora amboninensis,Cuora amboinensis,0,0,0,0,0,0,0,0
+168,Cyclopsitta diophthalma,0,0,0,0,0,0,0,131,131
+169,Cymbirhynchus macrorhynchos,0,0,0,0,0,0,0,0,0
+170,Cynopterus titthaecheilus,0,0,0,0,0,0,0,2,2
+171,Dacelo gaudichaud,0,0,0,0,0,1,8,21,30
+172,Danaidae,0,0,0,0,0,0,0,0,0
+173,Daphnis hypothous,0,0,0,0,0,0,0,0,0
+174,dari Famili Junonia,0,0,0,0,0,0,0,0,0
+175,Dasia olivacea,0,0,0,0,0,0,0,0,0
+176,Delichon dasypus,0,0,0,0,0,0,0,0,0
+177,Dendrelaphis caudolineatus,0,0,0,1,0,0,0,0,1
+178,Dendrelaphis pictus,0,0,0,0,0,0,0,2,2
+179,Dendrocopos moluccensis,0,0,0,1,0,0,0,0,1
+180,Dendrocygna arcuata,0,0,0,0,0,0,0,0,0
+181,Dendrocygna guttata,0,0,0,0,0,6,20,226,252
+182,Dendrocygna javanica,0,0,0,1,0,0,0,0,1
+183,Dendrocygna sp,0,0,0,0,0,0,0,0,0
+184,Dendrocygna eytoni,0,0,0,0,0,0,0,0,0
+185,Dicaeum ignipectus,0,0,0,0,0,0,0,0,0
+186,Dicaeum pectorale,0,0,0,0,0,0,0,11,11
+187,Dicaeum trigonostigma,0,0,0,0,0,0,0,0,0
+188,Dicrurus bracteatus,0,0,0,0,0,0,0,0,0
+189,Dicrurus hottentottus,0,0,0,0,0,2,16,13,31
+190,Dicrurus Leucophaeus,0,0,0,0,0,0,0,0,0
+191,Dicrurus paradiseus,0,0,0,0,0,0,0,0,0
+192,Dicrurus sp,0,0,0,0,0,0,0,0,0
+193,Dicrurus sumatranus,0,0,12,0,0,0,0,0,12
+194,Dinopium javanense,0,0,0,0,0,0,0,0,0
+195,Diplacodes trivialis ,0,0,0,0,3,0,0,0,3
+196,Dogania subplana,0,0,0,0,0,0,0,0,0
+197,Doleschallia bisaltide ,0,0,0,0,0,0,0,0,0
+198,Dorcopsis muelleri,0,0,0,0,0,0,0,0,0
+199,Draco volans,0,0,0,0,0,0,0,0,0
+200,Dryocopus javensis,0,0,1,0,0,0,0,0,1
+201,Ducula aenea,0,0,0,0,1,0,0,0,1
+202,Ducula chalconota,0,0,0,0,0,0,0,0,0
+203,Ducula pinon,0,0,0,0,0,2,18,44,64
+204,Ducula zoeae,0,0,0,0,0,2,2,2,6
+205,Eclectus roratus,0,0,0,0,0,7,15,30,52
+206,Eclectus sp,0,0,0,0,0,0,0,0,0
+207,Edolisoma schisticeps,0,0,0,0,0,0,0,0,0
+208,Egretta alba,Egretta sacra,0,0,0,0,5,0,0,5
+209,Egretta eulophotes,0,0,0,27,0,0,0,0,27
+210,Egretta garzetta,0,0,0,1,7,2,0,0,10
+211,Egretta intermedia,0,0,0,1,0,8,18,20,47
+212,Egretta sacra,0,0,0,0,0,0,1,2,3
+213,Elang,0,0,0,0,0,2,0,0,2
+214,Elanus caeruleus,0,0,0,39,4,0,0,0,43
+215,Emoia caeruleocauda,0,0,0,0,0,0,0,5,5
+216,Epicauta Hirticornis,0,0,0,0,0,0,0,0,0
+217,Eudynamys scolopaceus,0,0,0,0,0,0,0,0,0
+218,Eurema blanda,0,0,0,0,0,0,0,0,0
+219,Eurostopodus archboldi,0,0,0,0,0,0,0,1,1
+220,Eurostopodus papuensis,0,0,0,0,0,0,0,0,0
+221,Eurystomus orientalis,0,0,0,0,10,0,23,0,33
+222,Euthysanius,0,0,0,0,0,0,0,0,0
+223,Eutropis multifasciata,0,0,0,0,0,0,0,0,0
+224,Exobrucus  sinensis,0,0,0,0,0,0,1,0,1
+225,Falco peregrinus,0,0,0,0,0,0,0,0,0
+226,Gallus gallus,0,0,0,0,0,0,0,0,0
+227,Gecko Gecko,0,0,0,0,0,0,0,0,0
+228,Gekko monarchus,0,0,0,0,0,0,0,0,0
+229,Gekko smithii,0,0,1,0,0,0,0,0,1
+230,Gekko vittatus,0,0,0,0,0,0,1,0,1
+231,Gekkonidae,0,0,0,0,0,0,0,0,0
+232,Gelochelidon nilotica,0,0,0,0,0,0,0,0,0
+233,Geoffroyus geoffroyi,0,0,0,0,0,0,33,79,112
+234,Geopelia striata,0,8,1,1,0,0,0,0,10
+235,Glareola maldivarum,0,0,0,0,0,0,0,0,0
+236,Glossogobius giuris,0,0,0,0,0,0,0,0,0
+237,Golden Massher,0,0,0,0,0,0,0,0,0
+238,Goura cristata,0,0,0,0,0,6,0,0,6
+239,Gracula religiosa,0,0,14,0,0,0,0,0,14
+240,Gracupica contra,0,0,4,0,5,0,0,0,9
+241,Halcyon smyrnensis,0,3,0,132,0,0,0,0,135
+242,Haliaeetus leucogaster,0,0,0,0,0,1,5,0,6
+243,Haliastur indus,0,0,0,0,0,2,25,17,44
+244,Haliastur Sphenurus,0,0,0,0,0,0,4,1,5
+245,Hapithus agigator,0,0,0,0,0,0,0,0,0
+246,Harpactes erythrocephalus,0,0,0,0,0,0,0,0,0
+247,Harpyopsis novaeguineae,0,0,0,0,0,0,0,1,1
+248,Hemipus hirundinaceus,0,0,0,1,0,0,0,0,1
+249,Henicopernis longicauda,0,0,0,0,0,0,0,0,0
+250,Heosemys spinosa,0,0,0,0,0,0,0,0,0
+251,Hierodula vitrea,0,0,0,0,7,0,0,0,7
+252,Hirundo rustica,0,0,0,0,0,0,0,2,2
+253,Hirundo sp,0,2,0,0,0,0,0,0,2
+254,Hirundo tahitica,0,0,0,0,33,0,0,0,33
+255,Homolopsis buccata,0,0,0,0,0,0,0,0,0
+256,Hydroprogne caspia,0,0,0,0,0,0,0,0,0
+257,Hydrosaurus amboinensis,0,0,0,0,0,0,1,0,1
+258,Hydrosaurus weberi,0,0,0,0,0,0,0,0,0
+259,Hylobates agilis,0,0,0,0,0,0,0,0,0
+260,Hylobates albibarbis,0,0,0,0,23,0,0,0,23
+261,Hypolimnas Bolina,0,0,0,0,0,0,0,0,0
+262,Hypsiscopus Plumbea,0,0,0,0,0,0,0,0,0
+263,Hystrix brachyura,0,0,0,0,0,0,0,0,0
+264,Ichthyophaga ichthyaetus,0,0,0,0,0,0,0,0,0
+265,Ichtyopaga Humilis,0,0,0,0,0,0,0,0,0
+266,Ictinaetus malaiensis,Ictinaetus malayensis,0,0,0,0,0,0,0,0
+267,Ictinaetus malayensis,0,0,1,3,0,0,0,0,4
+268,Ictinaetus malayensis,0,0,1,0,0,0,0,0,1
+269,Ikan lele,0,0,0,0,0,0,0,0,0
+270,Imbo,0,0,0,0,0,0,0,0,0
+271,Irena puella,0,0,0,0,0,0,0,0,0
+272,Iris oratoria,0,0,0,0,0,0,0,0,0
+273,Isoodon macrourus,0,0,0,0,0,0,0,0,0
+274,Ixobrychus flavicollis,0,0,0,0,0,0,0,2,2
+275,Jangkrik,0,0,1,0,0,0,0,0,1
+276,Junonia Hylas,0,0,0,0,0,0,0,0,0
+277,K galam,0,0,0,0,0,0,0,0,0
+278,Kadal,0,0,0,0,0,0,0,0,0
+279,Kadal putih,0,0,0,0,0,0,0,0,0
+280,Kalajengking,0,0,2,0,0,0,0,0,2
+281,Kalelawar,0,0,0,0,0,0,0,0,0
+282,Kecoa,0,0,0,0,0,0,0,0,0
+283,Kelabang,0,0,0,0,0,0,0,0,0
+284,Kengkareng,0,0,0,0,0,0,0,0,0
+285,kengkurung ,0,0,0,0,0,0,0,0,0
+286,Kepompong,0,0,0,0,0,0,0,0,0
+287,Ketupa ketupu,0,0,0,0,0,0,0,0,0
+288,Kucing Hutan,0,0,1,0,0,0,0,0,1
+289,Kumbang,0,0,0,0,0,0,0,0,0
+290,Kumbang Hitam,0,0,0,0,1,0,0,0,1
+291,Kumbang Kepala Kuning,0,0,0,0,0,0,0,0,0
+292,Kumbang Kepala Putih,0,0,0,0,0,0,0,0,0
+293,Kuntul,0,0,0,0,0,0,0,0,0
+294,kupu-kupu,Kupu-Kupu,0,0,0,0,0,0,0,0
+295,Kupu-kupu,kupu-kupu,0,0,0,0,1,0,0,1
+296,Kupu-Kupu,0,0,0,0,0,0,0,0,0
+297,Kupu-Kupu Cokelat Bulat-Bulat,0,0,0,0,0,0,0,0,0
+298,Kupu-Kupu hitam Kuning,0,0,0,0,0,0,0,0,0
+299,Kupu-Kupu Hitam Putih,0,0,0,0,0,0,0,0,0
+300,Kupu-Kupu Hitam putih Biru,0,0,0,0,0,0,0,0,0
+301,Kupu-Kupu Kuning,0,0,0,0,0,0,0,0,0
+302,Kupu-Kupu Orange,0,0,0,0,0,0,0,0,0
+303,Kupu-Kupu Putih,0,0,0,0,0,0,0,0,0
+304,Kupu -kupu dan capung,0,0,0,0,0,0,0,0,0
+305,Kura-kura,0,0,0,0,0,0,0,0,0
+306,Laba-laba,0,0,0,0,0,0,0,0,0
+307,Laba-Laba,Laba-laba,0,0,0,0,0,0,0,0
+308,Laba-Laba Besar,0,0,0,0,0,0,0,0,0
+309,Lacertilia,0,0,0,0,0,0,0,0,0
+310,Lalage atrovirens,0,0,0,0,0,0,8,5,13
+311,Lalage leucomela,0,0,0,0,0,0,0,4,4
+312,Lalage nigra,0,0,0,0,0,0,0,1,1
+313,Lalat babi,0,0,0,0,0,0,0,0,0
+314,Lanius schach,0,0,0,0,0,0,0,0,0
+315,Laptocorisa acuta,Leptocorisa acuta,0,0,0,0,0,0,0,0
+316,Leiopython albertisii,0,0,0,0,0,0,0,1,1
+317,Lepidiota stigma,0,0,0,0,0,0,0,0,0
+318,Leprolapis smarangdina,0,0,0,0,0,0,0,0,0
+319,Leptocoma sperata,0,0,0,0,5,0,0,0,5
+320,Leptocorisa acuta,0,0,0,0,1,0,0,0,1
+321,Leptoptilos javanicus,0,0,0,1,0,0,0,0,1
+322,Lialis burtonis,0,0,0,0,0,0,0,0,0
+323,Liasis fuscus,0,0,0,0,0,0,0,0,0
+324,Limacodidae,0,0,0,0,0,0,0,0,0
+325,Liopeltis tricolor,0,0,0,1,4,0,0,0,5
+326,Lipan,0,0,1,0,0,0,0,0,1
+327,Litoria infrafrenata,0,0,0,0,0,0,1,2,3
+328,Locusta migratoria,0,0,0,0,0,0,2,0,2
+329,Locustella fasciolata,0,0,0,0,0,0,0,0,0
+330,Lonchura fuscans,0,0,0,0,0,0,0,0,0
+331,Lonchura maja,0,8,0,0,0,0,0,0,8
+332,Lonchura punctulata,0,0,8,1,0,0,0,0,9
+333,Lonchura tristissima,0,0,0,0,0,0,5,0,5
+334,Lophotriorchis kienerii,0,0,0,0,0,0,0,0,0
+335,Lophura erythrophthalma,0,0,0,0,0,0,0,0,0
+336,Loriculus aurantiifrons,0,0,0,0,0,0,0,0,0
+337,Loriculus galgulus,0,0,0,1,0,0,0,0,1
+338,Lorius lory,0,0,0,0,0,4,40,137,181
+339,Lutra sp.,0,0,0,0,0,0,0,0,0
+340,Lutrinae,0,0,0,0,0,0,0,0,0
+341,Lutung,0,0,0,0,0,0,0,0,0
+342,Lycodon capucinus,0,0,0,0,0,0,0,0,0
+343,Lyssa zampa,0,0,0,0,0,0,0,0,0
+344,Lyssa Zampa,Lyssa zampa,0,0,0,0,0,0,0,0
+345,Macaca fascicularis,0,11,9,119,123,0,0,0,262
+346,Macaca nemestrina,0,8,0,0,54,0,0,0,62
+347,Macroglossum regulus,0,0,0,0,0,0,0,0,0
+348,Macropsita pusio,0,0,0,0,0,0,0,0,0
+349,Macropygia amboinensis,0,0,0,0,0,0,3,6,9
+350,Macropygia nigrirostris,0,0,0,0,0,0,0,1,1
+351,Mahasena carbetti,0,0,0,0,0,0,0,0,0
+352,Malayopython reticulatus,0,0,0,0,6,0,0,0,6
+353,Malurus alboscapulatus,0,0,0,0,0,0,5,0,5
+354,Malurus cyanocephalus,0,0,0,0,0,0,10,39,49
+355,Manucodia ater,0,0,0,0,0,0,0,0,0
+356,Megaderma spasma,0,0,0,0,0,0,0,0,0
+357,Megalaima australis,0,0,0,0,0,0,0,0,0
+358,Megalaima raflesii,0,0,0,0,0,0,0,0,0
+359,Megapodius freycinet,0,0,0,0,0,0,0,0,0
+360,Megapodius reinwardt,0,0,0,0,0,0,1,0,1
+361,Melidora macrorrhina,0,0,0,0,0,0,0,1,1
+362,Melilestes megarhynchus,0,0,0,0,0,0,1,0,1
+363,Meliphaga analoga,0,0,0,0,0,0,2,0,2
+364,Meliphaga aruensis,0,0,0,0,0,0,0,2,2
+365,Meliphaga aruensis,0,0,0,0,0,0,0,0,0
+366,Meliphaga flaviristus,0,0,0,0,0,0,0,0,0
+367,Melloria quoyi,0,0,0,0,0,0,1,1,2
+368,Melpihaga montana,0,0,0,0,0,0,0,10,10
+369,Merops leschenaulti,0,0,0,1,0,0,0,0,1
+370,Merops ornatus,0,0,0,0,0,0,0,0,0
+371,Merops viridis,0,0,0,0,0,0,0,0,0
+372,Merops philippinus,0,0,0,0,0,0,0,0,0
+373,Microcarbo melanoleucos,0,0,0,0,0,0,3,0,3
+374,Microhierax fringillarius,0,0,0,0,0,0,0,0,0
+375,Micropechis ikaheca,0,0,0,0,0,0,0,0,0
+376,Micropsitta pusio,0,0,0,0,0,0,0,46,46
+377,Milvus migrans,0,0,0,0,0,0,0,0,0
+378,Mino anais,0,0,0,0,0,0,2,0,2
+380,Mino dumontii,0,0,0,0,0,4,10,73,87
+381,Mixornis gularis,0,0,0,0,0,0,0,0,0
+382,Monyet,0,0,0,0,0,0,0,0,0
+383,Morelia amethistina,0,0,0,0,0,0,0,0,0
+384,Morelia viridis,0,0,0,0,0,0,0,1,1
+385,Motacilla cinerea,Motacilla Cinerea,0,0,0,0,0,0,1,1
+387,Muntiacus muntjak,0,0,0,0,0,0,0,0,0
+388,Muscicapa griseisticta,0,0,0,0,0,0,0,0,0
+389,Mustela nudipes,0,0,0,0,3,0,0,0,3
+390,Mycalesis Persus Caesonia,0,0,0,0,0,0,0,0,0
+391,Myiagra alecto,0,0,0,0,0,0,1,6,7
+392,Mysomela ningrita,0,0,0,0,0,0,0,0,0
+393,Naja sputratrix,0,0,6,0,0,0,0,0,6
+394,Naja sumatrana,0,5,1,1,9,0,0,0,16
+395,Nannosciurus melanotis,0,0,0,0,23,0,0,0,23
+396,Nectarinia aspasia,0,0,0,0,0,0,11,44,55
+397,Nectarinia jugularis,0,0,0,1,0,0,5,3,9
+398,Nephila inaurata,0,0,0,0,0,0,1,0,1
+399,Neptis hylas,0,0,0,0,5,0,0,0,5
+400,Nettapus pulchellus,0,0,0,0,0,0,0,0,0
+401,Neurothemis fluctuans,0,0,0,0,1,0,0,0,1
+402,Neurothemis stigmatizans,Neurothemis stigmatizans,0,0,0,0,0,0,0,0
+403,Neurothemis stigmatizans,0,0,0,0,0,0,0,0,0
+404,Neurothemis terminata,0,0,0,0,0,0,0,0,0
+405,Ninox connivens,0,0,0,0,0,0,0,0,0
+406,Ninox rufa,0,0,0,0,0,0,0,0,0
+407,Nisaetus cirrhatus,0,0,0,0,8,0,0,0,8
+408,Nisaetus nanus,0,0,0,0,0,0,0,0,0
+409,Nucras caesicaudata,0,0,0,0,0,0,0,0,0
+410,Nuri,0,0,0,0,0,0,0,0,0
+411,Nycticorax caledonicus,0,0,0,0,0,0,0,2,2
+412,Nyctormis amictus,0,0,0,0,0,0,0,0,0
+413,Nyticorax nyticorax,0,0,0,0,0,0,0,0,0
+414,Occidozyga sumatrana,0,0,0,0,0,0,0,0,0
+415,Oecophylla Sp,0,0,0,0,1,0,0,0,1
+416,Oligodon octolineatus,0,0,0,0,0,0,0,0,0
+417,Onichoprion anaethetus,0,0,0,0,0,0,0,0,0
+418,Ophiophagus hannah,0,0,0,0,0,0,0,0,0
+419,Ophiophagus sp.,0,0,0,0,2,0,0,0,2
+420,Oreochromis niloticus,0,0,1,0,0,0,0,0,1
+421,Oriens Gola,0,0,0,0,0,0,0,0,0
+422,Oriolus chinensis,0,0,0,0,0,0,0,0,0
+423,Oriolus sp,0,0,0,0,0,0,0,0,0
+424,Orlitia borneensis,0,0,0,0,2,0,0,0,2
+425,Orthetrum sabina,0,0,0,0,0,0,0,0,0
+426,Orthotomus ruficeps,0,1,0,0,0,0,0,0,1
+427,Orthotomus sp,0,0,0,0,0,0,0,0,0
+428,Oryctes Rhinoceros,0,0,0,0,1,0,0,0,1
+429,Oryga Deffinita,0,0,0,0,0,0,0,0,0
+430,Orygyia Definta,0,0,0,0,0,0,0,0,0
+431,Otus lempiji,0,0,0,0,0,0,0,0,0
+432,Oxya serville,0,0,0,0,0,0,0,0,0
+433,Oxya Yezoensis,0,0,0,0,0,0,0,0,0
+434,Papilio demoleus,0,0,0,0,0,0,0,0,0
+435,Paradoxurus hermaphroditus,0,0,0,0,0,0,0,0,0
+436,Paradoxurus sp,0,0,0,0,0,0,0,0,0
+437,Parambassis siamensis,0,0,0,0,0,0,0,0,0
+438,Parias hageni,0,0,0,1,0,0,0,0,1
+439,Parus major,0,0,0,0,0,0,0,0,0
+440,Passer domesticus,0,13,1,0,0,0,0,2,16
+441,Passer montanus,0,0,0,0,0,0,0,0,0
+442,Paysandisia archon,0,0,0,0,0,0,0,0,0
+443,Pelargopsis Capensis,0,0,0,1,3,0,0,0,4
+444,Pellorneum capistratum,0,0,0,1,0,0,0,0,1
+445,Peltops blainvillii,0,0,0,0,0,0,4,0,4
+446,Peltops montanus,0,0,0,0,0,0,0,0,0
+447,Perameles nasuta,0,0,0,0,0,5,1,0,6
+448,Pericrocotus miniatus,0,0,0,0,0,0,0,0,0
+449,Petaurus breviceps,0,0,0,0,0,0,0,1,1
+450,Phaenicophaeus curvirostris,0,0,0,0,0,0,0,0,0
+451,Phaenicophaeus diardi,0,0,0,0,0,0,0,0,0
+452,Phalacrocorax sulcirostris,0,0,0,0,0,0,0,0,0
+453,Phalanger orientalis,0,0,0,0,0,0,0,0,0
+454,Philemon buceroides,0,0,0,0,0,2,11,25,38
+455,Phyllergates cucullatus,0,0,0,0,0,0,0,0,0
+456,Phylloscopus trivirgatus,0,0,0,0,0,0,0,0,0
+457,Phyton,0,0,0,0,0,0,0,0,0
+458,Picidae,0,0,0,0,0,0,0,0,0
+459,Picus puniceus,0,0,0,0,0,0,0,0,0
+460,Pitta moluccensis,0,0,0,11,0,0,0,0,11
+461,Pitta sordida,0,0,0,5,0,0,0,6,11
+462,Pityriasis gymnocephala ,0,0,0,0,0,0,0,0,0
+463,Platylpornia flavida,0,0,0,0,0,0,0,0,0
+464,Ploceus montanus,0,0,0,0,0,0,0,0,0
+465,Podargus papuensis,0,0,0,0,0,1,0,1,2
+466,Pongo pygmaeus wurmbii,0,0,0,0,18,0,0,0,18
+467,Presbytis frontata,0,0,0,0,3,0,0,0,3
+468,Presbytis melalophos,0,0,0,0,0,0,0,0,0
+469,Presbytis rubicunda,0,0,0,0,10,0,0,0,10
+470,Prinia atrogularis,0,0,4,0,0,0,0,0,4
+471,Prinia familiaris,0,0,0,0,0,0,0,0,0
+472,Prinia flaviventris,0,0,0,0,0,0,0,0,0
+473,Prinia superciliaris,0,0,0,0,0,0,0,0,0
+474,Prionailurus bengalensis,0,0,0,0,1,0,0,0,1
+475,Probosciger aterimus,0,0,0,0,0,9,6,7,22
+476,Pseudorectes ferrugineus,0,0,0,0,0,0,0,2,2
+477,Psittacula alexandri,0,0,0,0,0,0,0,0,0
+478,Psittacula longicauda,0,0,1,0,0,0,0,0,1
+479,Psittaculata sp,0,2,0,0,0,0,0,0,2
+480,Psittaculirostris desmarestii,0,0,0,0,0,0,0,0,0
+481,Pteropus vampyrus,0,0,0,0,0,0,0,42,42
+483,Ptilinopus aurantifrons,0,0,0,0,0,0,0,0,0
+484,Ptilinopus coronulatus,0,0,0,0,0,0,4,3,7
+485,Ptilinopus iozonus,0,0,0,0,0,0,24,53,77
+486,Ptilinopus magnificus,0,0,0,0,0,0,0,0,0
+487,Ptilinopus nanus,0,0,0,0,0,0,0,1,1
+488,Ptilinopus pulchellus,0,0,0,0,0,0,0,0,0
+489,Pycnonotus aurigaster,0,7,4,0,0,0,0,0,11
+490,Pycnonotus erythrophthalmos,0,0,0,0,0,0,0,0,0
+491,Pycnonotus Eutilotus,0,0,0,0,0,0,0,0,0
+492,Pycnonotus goiavier,0,0,0,1,0,0,0,0,1
+493,Pycnonotus melanicterus,0,0,0,0,0,0,0,0,0
+494,Pycnopygius ixoides,0,0,0,0,0,0,0,0,0
+495,Python breitensteini,0,0,0,0,0,0,0,0,0
+496,Python reticulatus,0,1,0,1,0,0,0,0,2
+497,Rallus torquatus,0,0,0,0,0,0,0,0,0
+498,Ramsayornis modestus,0,0,0,0,0,0,0,2,2
+499,Rangkong,0,0,0,0,0,0,0,0,0
+500,Rangkong putih,0,0,0,0,0,0,0,0,0
+501,Rattus tiomanicus,0,0,0,0,0,0,0,0,0
+502,Ratufa affinis,0,0,0,1,0,0,0,0,1
+503,Ratufa bicolor,0,0,0,0,0,0,0,0,0
+504,Rayap,0,0,0,0,0,0,0,0,0
+505,Rhinoplax vigil,0,0,0,0,0,0,0,0,0
+506,Rhipidura albolimbata,0,0,0,0,0,0,0,0,0
+507,Rhipidura albolimbata,0,0,0,0,0,0,0,3,3
+508,Rhipidura atra,0,0,0,0,0,0,0,0,0
+509,Rhipidura javanica,0,1,0,0,0,0,0,0,1
+510,Rhipidura leucophrys,0,0,0,0,0,1,13,1,15
+511,Rhipidura maculipectus,0,0,0,0,0,0,0,7,7
+512,Rhodothemis rufa,0,0,0,0,4,0,0,0,4
+513,Rhynchophorus papuanus,0,0,0,0,0,0,0,0,0
+514,Rhyticeros plicatus,0,0,0,0,0,5,20,63,88
+515,Ruak ruak,0,0,0,0,0,0,0,0,0
+516,Rusa unicolor,0,0,0,0,0,0,0,0,0
+517,Salticidae,0,0,0,0,0,0,0,0,0
+518,Sanca,0,0,0,0,0,0,0,0,0
+519,Scandentia sp,0,0,0,0,0,0,0,0,0
+520,Scincidae,0,0,0,0,0,0,0,0,0
+521,Scolopendra cataracta,0,0,0,0,0,0,0,0,0
+522,Scorpion,0,0,0,0,0,0,0,0,0
+523,Scythrops novaehollandiae,0,0,0,0,0,0,0,2,2
+524,Seleucidis melanoleucus,0,0,0,0,0,1,0,0,1
+525,Serangga,0,0,0,0,0,0,0,0,0
+526,Serangga Bumbelbe,0,0,0,0,0,0,0,0,0
+527,Setora Nitens,0,0,0,0,0,0,0,0,0
+528,Siput,0,0,0,0,0,0,0,0,0
+529,Sphenomorphus sp.,0,0,0,0,0,0,0,0,0
+530,Spilocuscus maculatus,0,0,0,0,0,0,0,0,0
+531,Spilocuscus wilsoni,0,0,0,0,0,0,0,0,0
+532,Spilornis cheela,0,0,0,5,3,0,0,0,8
+533,Spinaria spinator,0,0,0,0,0,0,2,0,2
+534,Stachyris rufifrons,0,0,0,0,0,0,0,0,0
+535,Stagmomantis Carolina,0,0,0,0,0,0,0,0,0
+536,Statmimanthis,0,0,0,0,0,0,0,0,0
+537,Sterna albifrons,0,0,0,0,0,0,0,0,0
+538,Sterna hirundo,0,0,0,0,0,0,0,0,0
+539,Streptopelia chinensis,0,1,0,8,5,0,0,0,14
+540,Sturnidae sp,0,0,0,0,0,0,0,0,0
+541,Sus scrofa,0,0,0,0,0,7,2,8,17
+542,Susica Pallida,0,0,0,0,0,0,0,0,0
+543,Syma torotoro,0,0,0,0,0,1,0,1,2
+544,Symphalangus syndactylus,0,0,0,0,0,0,0,0,0
+545,Tabanidae,0,0,0,0,0,0,0,0,0
+546,Tadorna radjah,0,0,0,0,0,0,0,17,17
+547,Takydromus sexlineatus,0,0,0,0,0,0,0,0,0
+548,Talegalla cuvieri,0,0,0,0,0,0,2,0,2
+549,Talegalla jobiensis,0,0,0,0,0,0,0,0,0
+550,Tarantula putih,0,0,0,0,0,0,0,0,0
+551,Tarsius bancanus ssp. saltator,0,0,0,1,0,0,0,0,1
+552,Tephrodornis gularis,0,0,0,0,0,0,0,0,0
+553,Threskiornis aethiopicus,0,0,0,0,0,0,1,1,2
+554,Thylogale brunii,0,0,0,0,0,0,0,0,0
+555,Tikus,0,0,0,0,0,0,0,0,0
+556,Tiliqua scincoides,0,0,0,0,0,0,2,1,3
+557,Todhramphus chloris,0,3,0,0,0,0,0,0,3
+558,Todiramphus sanctus,0,0,0,0,0,1,8,0,9
+559,Tokek,0,0,0,0,0,0,0,0,0
+560,Toxorhamphus novaeguineae,0,0,0,0,0,0,2,0,2
+561,Toxotes sp.,0,0,0,0,0,0,0,0,0
+562,Trachypithecus cristatus,0,0,6,0,0,0,0,0,6
+563,Trachypithecus sp,0,0,0,0,0,0,0,0,0
+564,Treron capellei,0,0,1,0,0,0,0,0,1
+565,Treron curvirostra,0,0,0,0,0,0,0,0,0
+566,Treron sp,0,0,0,0,0,0,0,0,0
+567,Treron vernans,0,0,0,3,0,0,0,0,3
+568,Trichogaster Sp,0,0,0,0,0,0,0,0,0
+569,Trichoglossus haematodus,0,0,0,0,0,2,13,3,18
+570,Trichoglossus moluccanus,0,0,0,0,0,0,0,0,0
+571,Trigoniulus corallinus,0,0,0,0,0,0,0,0,0
+572,Triguna,0,0,0,0,0,0,0,0,0
+573,Trimeresurus insularis,0,0,0,0,0,0,0,0,0
+574,Tringa glareola,0,0,0,0,0,1,0,6,7
+575,Tringa nebularia,0,0,0,0,0,1,0,0,1
+576,Tringa stagnatilis,0,0,0,0,0,0,0,0,0
+577,Tropidolaemus subannulatus,0,0,0,1,0,0,0,0,1
+578,Tupaia gracilis,0,0,0,0,3,0,0,0,3
+579,Tupaia montana,Tupaia tana,0,3,0,0,0,0,0,3
+580,Tupaia picta,0,0,0,0,0,0,0,0,0
+581,Tupaia tana,0,0,0,21,6,0,0,0,27
+582,Tyto alba,0,0,0,2,0,0,0,0,2
+583,Ular,0,0,0,0,0,2,0,0,2
+584,Ular Cobra Hitam Kuning,0,0,0,0,0,0,0,0,0
+585,Ular daun,0,0,0,0,0,0,0,0,0
+586,Ular Hitam,0,0,0,0,0,0,0,0,0
+587,Ular hitam pendek,0,0,0,0,0,0,0,0,0
+588,Ular kaki empat,0,0,0,0,0,0,0,0,0
+589,Ular mata tengkalang,0,0,0,0,1,0,0,0,1
+590,Ular Panas Keladan,0,0,0,0,0,0,0,0,0
+591,Ular putih,0,0,0,0,0,1,0,0,1
+592,Ular Python,0,0,0,0,0,0,0,0,0
+593,Ular Sawa,0,0,0,0,0,0,0,0,0
+594,Ulat Api,0,0,0,0,0,0,0,0,0
+595,Ulat Bulu,0,0,2,0,2,0,0,0,4
+596,Ulat Kupu-Kupu,0,0,0,0,0,0,0,0,0
+597,Ulat merah Putih,0,0,0,0,0,0,0,0,0
+598,Ulat pemakan Daun,0,0,0,0,0,0,0,0,0
+599,Urodynamis taitensis,0,0,0,0,0,0,0,0,0
+600,Valanga Nigricornis,0,0,0,0,0,0,0,0,0
+601,Varanus lirungensis,0,0,0,0,0,0,0,0,0
+602,Varanus prasinus,0,0,0,0,0,0,0,0,0
+603,Varanus salvadorii,0,0,0,0,0,0,1,0,1
+604,Varanus salvator,0,8,2,95,29,5,0,3,142
+605,Various,0,0,0,0,0,0,0,0,0
+606,Vespa affinis,0,0,0,0,0,0,0,0,0
+607,Vespa ffinis,Vespa affinis,0,0,0,0,0,0,0,0
+608,Wallago sp,0,0,0,0,0,0,0,0,0
+609,Wayang,0,0,0,0,0,0,0,0,0
+610,Ypthima fasciata,0,0,0,0,1,0,0,0,1
+611,Zanclostomus javanicus,0,0,0,0,0,0,0,0,0
+612,Zapornia pusilla,0,0,0,0,0,0,0,1,1
