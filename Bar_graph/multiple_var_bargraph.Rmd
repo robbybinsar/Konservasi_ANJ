@@ -1,10 +1,8 @@
 ---
-title: "Multiple Variable Bar Graph"
+title: "Summary Trembesi PROPER 2021"
 author: "Robby"
-date: "8/1/2020"
-output: 
-    html_document:
-        keep_md: TRUE
+date: "6/28/2021"
+output: word_document
 ---
 
 ```{r setup, include=FALSE}
@@ -16,13 +14,14 @@ library(tidyr)
 library(Rmisc)
 library(plyr)
 library(ggplot2)
+library(knitr)
 ```
 
 
 ### **Reading and Preparing data**
 ```{r}
-df <- read.delim("Trembesi_summary.txt")
-kable(df, format = "html")
+df <- read.delim("read data trembesi summary.txt")
+kable(df)
 ```
 
 ```{r message=FALSE, warning=FALSE}
@@ -31,14 +30,14 @@ attach(df)
 
 **Gather the data to 'long' format so the variables are all in one column**
 ```{r}
-longdata <- pivot_longer(df,c(Tinggi.tanaman, Jumlah.petiole, Jumlah.petiqlule), names_to = "variable")
-kable(head(longdata), format = "pipe")
+longdata <- pivot_longer(df,c(Tinggi, Jumlah.petiole, Jumlah.petiolule), names_to = "variable")
+kable(head(longdata))
 ```
 
 ### **Create summary statistics**
 ```{r}
 summary <- longdata %>% summarySE(measurevar = "value", groupvars = c("Media","variable"))
-kable(summary, format = "pipe")
+kable(summary)
 ```
 
 ### **Create relative frequency**
@@ -47,27 +46,30 @@ kable(summary, format = "pipe")
 dat <- ddply(summary,.(variable),transform, rel_freq = round(value/sum(value),2),
              se_freq = se/value*(value/sum(value)))
 dat <- dat[order(dat$variable,-dat$value),]
-dat["notasi"] <- c("a","ab","ab","ab","b","a","ab","ab","ab","b","a","ab","ab","ab","b") #notation from post hoc test
+dat["notasi"] <- c(
+                   "a", "ab", "bc", "cd", "d",
+                   "a", "a", "a", "c", "b",
+                   "a","b","bd", "d", "c") #notation from post hoc test
 rownames(dat) <- seq_len(nrow(dat))
-kable(dat,format = "pipe")
+kable(dat)
 ```
 
 ### **Sorting x axis variables fill**
 ```{r}
-dat$variable <- factor(dat$variable, levels = c("Tinggi.tanaman", "Jumlah.petiole", "Jumlah.petiqlule"))
+dat$variable <- factor(dat$variable, levels = c("Tinggi","Jumlah.petiole","Jumlah.petiolule"))
 ```
 
 ### **Grafik ggplot**
-```{r}
+```{r fig.width= 10, ,fig.height=6.5}
 kolom1 <- colnames(df)[1]
 grafik <- ggplot(dat, aes(x = reorder(Media,-rel_freq), y = rel_freq, fill = variable)) + 
     geom_bar(stat = 'identity', position = position_dodge(), width = 0.9) +
     geom_errorbar(aes(ymin = rel_freq - se_freq, ymax = rel_freq + se_freq), 
                   width = 0.2,position = position_dodge(0.9))+
-    scale_fill_manual("Variable", values = c("dark blue","orange","yellow"))+ 
-    geom_text(aes(label =rel_freq), size = 2.5, position = position_dodge(width = 0.9), 
-              vjust = -0.5, hjust = -0.1)+
-    geom_text(aes(label= notasi),hjust=1.4, vjust=3,size=3, 
+    scale_fill_manual("Variable", values = c("light blue", "orange", "yellow", "light green"))+ 
+    geom_text(aes(label =rel_freq), size = 4, position = position_dodge(width = 1), 
+              vjust = 6, hjust = 0.5)+
+    geom_text(aes(label= notasi),hjust=0.5, vjust=7,size=5.5, 
               position = position_dodge(1), color = "red")+
     labs(x = kolom1, y = "Frekuensi Relatif Rata-Rata", title = paste("Pengaruh",kolom1, "terhadap", "Tanaman Trembesi"))+
     theme_bw() +
@@ -75,14 +77,14 @@ grafik <- ggplot(dat, aes(x = reorder(Media,-rel_freq), y = rel_freq, fill = var
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           panel.border = element_blank(),
-          plot.title = element_text(size = rel(1),face = "bold",hjust=0),
+          plot.title = element_text(size = rel(1.5),face = "bold",hjust=0),
           axis.title = element_text(face="bold"),
-          axis.title.y = element_text(vjust = 3,size = 8),
-          axis.title.x = element_text(vjust=-1, size=8),
+          axis.title.y = element_text(vjust = 3,size = 14, face = "bold"),
+          axis.title.x = element_text(vjust=-1, size=14, face = "bold"),
           axis.line = element_line(colour="black"),
-          axis.text = element_text(size = 6,color = "black", face = "bold"),
-          legend.text = element_text(size=6),
-          legend.title = element_text(size = 8))
+          axis.text = element_text(size = 10,color = "black", face = "bold"),
+          legend.text = element_text(size=9),
+          legend.title = element_text(size =10))
 print(grafik)
 ```
 
