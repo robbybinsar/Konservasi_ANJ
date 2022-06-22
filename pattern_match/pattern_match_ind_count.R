@@ -13,7 +13,7 @@ lookupf <- function(month) {
     for(u in UM) {
         y <- teladan$Nama.Latin
         #my data that's being looked up for
-        mydata <- read.xlsx("C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2021.xlsx",
+        mydata <- read.xlsx("C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/2021/ANJ PENDAKI detail 2021.xlsx",
                             sheet = u, cols = 19:31, startRow = 3) %>% select(Nama.Latin, all_of(month))
         colnames(mydata)[colnames(mydata)==month] <- u
         mylatin <- mydata[,1]
@@ -30,7 +30,9 @@ lookupf <- function(month) {
         .GlobalEnv$teladan <- teladan
     }
     teladan[is.na(teladan)] <- 0
-    teladan <- teladan[, c("Nama.Latin", "closestMatch", UM)]
+    if (ncol(teladan) == 9){
+        teladan <- teladan[, c("Nama.Latin", "closestMatch", UM)]
+    }
     .GlobalEnv$teladan <- teladan
 }
 

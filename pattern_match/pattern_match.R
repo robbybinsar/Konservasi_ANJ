@@ -17,7 +17,7 @@ df[is.na(df)] <- 0
 xt <- df %>% group_by(Kelas, Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(Jumlah))
 y <- unique(df$Nama.Latin)
 
-dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2021.xlsx"
+dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/2021/ANJ PENDAKI detail 2021.xlsx"
 teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 15:19, startRow = 3)
 teladan <- mutate(teladan, Jumlah = NA)
 
@@ -45,7 +45,7 @@ teladan$Jumlah[is.na(teladan$Jumlah)] <- 0
 stopifnot(nrow(dataf) != 0)
 #PATTERN MATCH BASELINE UM
 dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Fauna ANJ.xlsx"
-dataFaunaUM <- read.xlsx(dat, sheet = "DATABASE FAUNA", cols = 1:34)
+dataFaunaUM <- read.xlsx(dat, sheet = "DATABASE FAUNA", cols = 1:35)
 
 # Filter UM only
 colnames(dataf)[1] <- "baru" ; dataf <- mutate(dataf, statusUM = NA)
@@ -121,7 +121,7 @@ matching_flora <- function(unitmanajemen, bulan){
     xt <- df %>% group_by(Nama.Latin, Nama.Lokal) %>% summarize(Jumlah = sum(Jumlah))
     y <- unique(df$Nama.Latin)
     
-    dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/ANJ PENDAKI detail 2021.xlsx"
+    dats1 <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/2021/ANJ PENDAKI detail 2021.xlsx"
     teladan <- read.xlsx(dats1, sheet = unitmanajemen, cols = 33:37, startRow = 3)
     teladan <- mutate(teladan, Jumlah = NA)
     
@@ -218,11 +218,13 @@ citizen_science <- function(UM, bulan) {
     #load data
     dats <- "./pattern_match/pattern_match.xlsx"
     df <- read.xlsx(dats,sheet = "analisa")
+    df <- df[,1:2]
+    colnames(df)[1] <- "Nama"
     df[is.na(df)] <- 0
-    y <- unique(df$Pengamat) #Nama kolom pengamat bisa dinamis
+    y <- unique(df$Nama) #Nama kolom pengamat bisa dinamis
     
-    datlook <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2021.xlsx"
-    dflook <- read.xlsx(datlook, sheet = UM, startRow = 3, cols = 1:14)
+    datlook <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/2021/CITIZEN SCIENCE 2021.xlsx"
+    dflook <- read.xlsx(datlook, sheet = UM, startRow = 3, cols = 1:15)
     
     #matching
     dataf <- data.frame(matrix(nrow = 0, ncol = 0))
@@ -232,24 +234,25 @@ citizen_science <- function(UM, bulan) {
         indeks <- match(max(hitung), hitung)
         value <- x[indeks]
         if (max(hitung) < 0.55) {
-            jumlah <- nrow(filter(df, Pengamat == i))
-            output <- data.frame(Nama = c(i), closest.match = c(value), Bulan.Mulai = c(bulan), month = c(jumlah))
-            colnames(output)[4] <- bulan
+            jabatan <- unique(filter(df, Nama == i)$Jabatan)[1]
+            jumlah <- nrow(filter(df, Nama == i))
+            output <- data.frame(Nama = c(i), closest.match = c(value),Jabatan = c(jabatan), Bulan.Mulai = c(bulan), month = c(jumlah))
+            colnames(output)[5] <- bulan
             dflook <- bind_rows(dflook, output)
         } else {
-            jumlah <- nrow(filter(df, Pengamat == i))
+            jumlah <- nrow(filter(df, Nama == i))
             dflook[,bulan][match(value,x)] <- jumlah
         }
     }
-    
+
     # Write and save wb
     dflook[is.na(dflook)] <- 0
-    if (ncol(dflook)==15) {
-        dflook <- select(dflook, Bulan.Mulai, Nama, closest.match, Jan:Des)
+    if (ncol(dflook)==16) {
+        dflook <- select(dflook, Bulan.Mulai, Nama, closest.match, Jabatan, Jan:Des)
     } else {
-        dflook <- select(dflook, Bulan.Mulai, Nama, Jan:Des)
+        dflook <- select(dflook, Bulan.Mulai, Nama, Jabatan,Jan:Des)
     }
-    write.csv(dflook, file = "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/CITIZEN SCIENCE 2021.csv",
+    write.csv(dflook, file = "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/SUMMARY PENDAKI/2021/CITIZEN SCIENCE 2021.csv",
               row.names = F)
     .GlobalEnv$dflook <- dflook
     .GlobalEnv$Pengamat <- y

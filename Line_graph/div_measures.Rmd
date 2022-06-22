@@ -1,9 +1,9 @@
 ---
-title: "| Indeks Keanekaragaman Region 3 \n| Jan - Mar 2021\n"
+title: "| Indeks Keanekaragaman Region 1 dan 2 \n| Apr - Jun 2021\n"
 author: |
   | Robby B
   | Conservation Data Assistant
-date: "04/27/2021"
+date: "07/20/2021"
 output:
   pdf_document:
     toc: yes
@@ -37,22 +37,22 @@ library(magick)
 ```
 
 ```{r b}
-subjek <- "Region 3"
-range_x <- "Januari - Maret 2021"
+subjek <- "Region 1 & 2"
+range_x <- "April - Juni 2021"
 filedata <- "C:/Users/robby/Documents/My R/Konservasi_ANJ/Diversity_measures/indeks_kehati/data_jml_spesies_ANJ.xlsx"
 ```
 
-\newpage
+\blandscape
 ## A. Diversity Index
 
-```{r c, message=FALSE, warning=FALSE, echo=FALSE}
+```{r c, message=FALSE, warning=FALSE, echo=FALSE, include=FALSE}
 data <- read.xlsx(filedata, sheet = "grafik_keanekaragaman",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!="PMP"),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
-kable(data, format = "pipe", caption = "Diversity index Jan- Mar 2021")
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+kable(data, format = "pipe", caption = "Diversity index Apr - Jun 2021")
 attach(data)
 ```
 
@@ -74,9 +74,9 @@ div <- ggplot(data, aes(x=date, y=diversity_index, group = sites, color = sites 
     labs(title = paste("Grafik Indeks Keanekaragaman", subjek, range_x), 
          subtitle = "Method: Shannon-Wiener \nPolynomial degree: 2",
          x = "Month", y = "Diversity Index")+
-    annotate(geom="text", x= as.Date("2021-01-17", "%Y-%m-%d"), y= 0.95 , 
+    annotate(geom="text", x= as.Date("2021-02-15", "%Y-%m-%d"), y= 0.95 , 
              label="1 = Batas indeks keanekaragaman kategori rendah",size = 3)+
-    annotate(geom="text", x = as.Date("2021-01-17", "%Y-%m-%d"), y=3.5, 
+    annotate(geom="text", x = as.Date("2021-02-15", "%Y-%m-%d"), y=3.5, 
              label="3.322 = Batas indeks keanekaragaman kategori tinggi", size = 3) +
     theme(
         axis.text = element_text(face = "bold", size = 11),
@@ -89,16 +89,15 @@ ggdraw() + draw_plot(div) +
 ```
 
 
-\newpage
 ## B. Species Number
 
-```{r e, message=FALSE, warning=FALSE, echo=FALSE}
+```{r e, message=FALSE, warning=FALSE, echo=FALSE, include=FALSE}
 data <- read.xlsx(filedata, sheet = "species_number",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!="PMP"),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = paste("Jumlah Spesies", range_x))
 attach(data)
 ```
@@ -106,12 +105,12 @@ attach(data)
 ```{r f, fig.width=9, fig.height= 6.5,echo=FALSE, fig.align='center', warning=FALSE}
 anj <- readPNG("anj.png")
 grafik <- ggplot(data, aes(x = date, y = species.number, fill = sites)) + 
-    geom_bar(stat = 'identity', position = position_dodge(), width = 7) +
+    geom_bar(stat = 'identity', position = position_dodge(), width = 12) +
     scale_fill_manual("Sites", values = c("dark blue","purple","dark green", "brown"))+
     scale_x_date(date_labels = "%b", breaks = "1 month")+
     scale_y_continuous(breaks = seq(0,200,10))+
     geom_text(aes(label= species.number),hjust=0.5, vjust=-1,size=3, 
-              position = position_dodge(width = 7), color = "red")+
+              position = position_dodge(width = 12), color = "red")+
     labs(x = "Month", y = "Jumlah Spesies", title = paste("Jumlah Spesies", subjek),
          subtitle = range_x)+
     theme_bw() +
@@ -134,28 +133,29 @@ ggdraw() + draw_plot(grafik) +
   draw_image("anj.png", scale = .15, x = 0.4, y=0.45)
 ```
 
-\newpage
+
 ## C. Population Size
-```{r g, message=FALSE, warning=FALSE, echo=FALSE}
+
+```{r g, message=FALSE, warning=FALSE, echo=FALSE, include=FALSE}
 data <- read.xlsx(filedata, sheet = "size",
     detectDates = TRUE)
 data <- 
     #data[!(data$sites!="PMP"),]
-    #data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
-    data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
+    data[!(data$sites == "ANJAP"| data$sites=="PMP"|data$sites=="PPM"),]
+    #data[!(data$sites != "ANJAP"& data$sites!= "PMP"& data$sites!= "PPM"),]
 kable(data, format = "pipe", caption = paste("Total individu", range_x))
 attach(data)
 ```
 
-```{r h, fig.width=9, fig.height=6.5,echo=FALSE, fig.align='center', warning=FALSE}
+```{r h, fig.width=9, fig.height=6,echo=FALSE, fig.align='center', warning=FALSE}
 anj <- readPNG("anj.png")
 grafik <- ggplot(data, aes(x = date, y = size, fill = sites)) + 
-    geom_bar(stat = 'identity', position = position_dodge(), width = 7) +
+    geom_bar(stat = 'identity', position = position_dodge(), width = 12) +
     scale_fill_manual("Sites", values = c("dark blue","purple","dark green", "brown"))+
     scale_x_date(date_labels = "%b", breaks = "1 month")+
     scale_y_continuous(breaks = seq(0,5000,100))+
     geom_text(aes(label= size),hjust=0.5, vjust=-1,size=3, 
-              position = position_dodge(width = 7), color = "red")+
+              position = position_dodge(width = 12), color = "red")+
     labs(x = "Month", y = "Total individu", title = paste("Population Size", subjek),
          subtitle = range_x)+
     theme_bw() +
@@ -177,6 +177,7 @@ grafik <- ggplot(data, aes(x = date, y = size, fill = sites)) +
 ggdraw() + draw_plot(grafik) +
   draw_image("anj.png", scale = .15, x = 0.4, y=0.45)
 ```
+\elandscape
 
 
   

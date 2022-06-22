@@ -137,7 +137,7 @@ read_fauna <- function() {
     print (paste("IUCN Redlist Category:", IUCN))
     
     #PPRI 1999
-    dat <- "C:/Users/robby/OneDrive - PT. Austindo Nusantara Jaya Tbk/BIODIVERSITY/01. Database Flora ANJ.xlsx"
+    dat <- "C:/Users/robby/Documents/ANJ/DOKUMEN ANJ/DOKUMEN BERJALAN/BIODIVERSITY/01. Database Flora ANJ.xlsx"
     PPRILookup <- read.xlsx(dat, sheet = "LHK dan PP", cols = 9, startRow = 5)
     split1 <- strsplit(NamaLatin," ")[[1]][1] ; split1 <- paste(split1, "spp.") 
     if (max(stringsim(NamaLatin, PPRILookup$Nama.Latin), na.rm = T) >= 0.9) {

@@ -1,0 +1,241 @@
+---
+title: "Species_modelling historical"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("sp")
+library("raster")
+library("maptools")
+library("rgdal")
+library("dismo")
+library("sf")
+library("terra")
+library("geodata")
+``` 
+
+
+```{r}
+
+bioclim.data <- worldclim_global("bio", 5, "~/My R/Konservasi_ANJ/species_modelling/output/5_res/worldclimbaru")
+bioclim.data <- brick(bioclim.data)
+
+```
+
+```{r}
+obs.data <- st_read("~/My R/Konservasi_ANJ/species_modelling/white_tailed_eagle.shp")
+names(obs.data)[22]<- "latitude"
+names(obs.data)[23] <- "longitude"
+
+```
+
+
+```{r}
+#Determine geographic extent of our data
+max.lat <- ceiling(max(obs.data$latitude))
+min.lat <- floor(min(obs.data$latitude))
+max.lon <- ceiling(max(obs.data$longitude))
+min.lon <- floor(min(obs.data$longitude))
+geographic.extent <- extent(x = c(min.lon, max.lon, 50, 61))
+
+```
+
+```{r, fig.dim= c(6,8)}
+# Load the data to use for our base map
+great_britain <- st_read("~/My R/Konservasi_ANJ/species_modelling/greatbritain.shp")
+
+data("wrld_simpl")
+
+great_britain_prj <- st_transform(great_britain, crs = raster::crs(wrld_simpl, asText = T))
+
+# Plot the base map
+plot(great_britain_prj, 
+     xlim = c(min.lon, max.lon),
+     ylim = c(50, 61),
+     axes = TRUE, 
+     col = "grey95")
+
+# Add the points for individual observation
+points(x = obs.data$longitude, 
+       y = obs.data$latitude, 
+       col = "olivedrab", 
+       pch = 20, 
+       cex = 0.75)
+# And draw a little box around the graph
+box()
+
+
+```
+
+
+```{r}
+# Crop bioclim data to geographic extent of saguaro
+bioclim.data <- raster::crop(x = bioclim.data, y = geographic.extent)
+
+obs.data <- obs.data[, c("longitude", "latitude")]
+obs.data <- as_Spatial(obs.data)
+
+# Build species distribution model
+bc.model <- bioclim(x = bioclim.data, p = obs.data@data)
+
+```
+
+```{r}
+# Predict presence from model
+predict.presence.historical <- dismo::predict(object = bc.model, 
+                                   x = bioclim.data, 
+                                   ext = geographic.extent)
+
+```
+
+
+```{r, fig.dim= c(6,8)}
+# Plot base map
+plot(great_britain_prj, 
+     xlim = c(min.lon, max.lon),
+     ylim = c(50, 61),
+     axes = TRUE, 
+     col = "grey95")
+
+# Add model probabilities
+plot(predict.presence.historical, add = TRUE)
+
+# Redraw those country borders
+plot(great_britain_prj, add = TRUE, border = "grey5")
+
+# Add original observations
+#points(obs.data$longitude, obs.data$latitude, col = "black", pch = 1, cex = 0.5)
+box()
+
+```
+
+#The pseudo-absence point
+
+```{r}
+# Use the bioclim data files for sampling resolution
+bil.files <- list.files(path = "~/My R/Konservasi_ANJ/species_modelling/output/5_res/worldclimbaru/wc2.1_5m", 
+                          pattern = "*.bil$", 
+                          full.names = TRUE)
+
+# We only need one file, so use the first one in the list of .bil files
+mask <- raster(bil.files[1])
+
+# Set the seed for the random-number generator to ensure results are similar
+set.seed(20210707)
+
+# Randomly sample points (same number as our observed points)
+background <- randomPoints(mask = mask,     # Provides resolution of sampling points
+                   n = nrow(obs.data),      # Number of random points
+                   ext = geographic.extent, # Spatially restricts sampling
+                   extf = 1.25)             # Expands sampling a little bit
+
+```
+
+
+```{r, fig.dim= c(6,8)}
+plot(great_britain_prj, 
+     xlim = c(min.lon, max.lon),
+     ylim = c(50, 61),
+     axes = TRUE, 
+     col = "grey95",
+     main = "Presence and pseudo-absence points")
+
+# Add the background points
+points(background, col = "grey30", pch = 1, cex = 0.75)
+
+# Add the observations
+points(x = obs.data$longitude, 
+       y = obs.data$latitude, 
+       col = "olivedrab", 
+       pch = 20, 
+       cex = 0.75)
+
+box()
+
+```
+
+
+```{r}
+# Arbitrarily assign group 1 as the testing data group
+testing.group <- 1
+
+# Create vector of group memberships
+group.presence <- kfold(x = obs.data, k = 5) # kfold is in dismo package
+```
+
+```{r}
+head(group.presence)
+# Should see even representation in each group
+table(group.presence)
+
+```
+
+```{r}
+# Separate observations into training and testing groups
+presence.train <- obs.data[group.presence != testing.group, ]
+presence.test <- obs.data[group.presence == testing.group, ]
+
+# Repeat the process for pseudo-absence points
+group.background <- kfold(x = background, k = 5)
+background.train <- background[group.background != testing.group, ]
+background.test <- background[group.background == testing.group, ]
+
+```
+
+#Training and testing the model
+
+```{r}
+# Build a model using training data
+bc.model <- bioclim(x = bioclim.data, p =presence.train@data)
+
+# Predict presence from model (same as previously, but with the update model)
+predict.presence.pseudo <- dismo::predict(object = bc.model, 
+                                   x = bioclim.data, 
+                                   ext = geographic.extent)
+
+```
+
+
+```{r}
+# Use testing data for model evaluation
+bc.eval <- evaluate(p = presence.test,   # The presence testing data
+                    a = background.test, # The absence testing data
+                    model = bc.model,    # The model we are evaluating
+                    x = bioclim.data)    # Climatic variables for use by model
+
+# Determine minimum threshold for "presence"
+bc.threshold <- threshold(x = bc.eval, stat = "spec_sens")
+
+```
+
+
+```{r, fig.dim= c(6,8)}
+# Plot base map
+plot(great_britain_prj, 
+     xlim = c(min.lon, max.lon),
+     ylim = c(50, 61),
+     axes = TRUE, 
+     col = "grey95")
+
+# Only plot areas where probability of occurrence is greater than the threshold
+plot(predict.presence.pseudo > bc.threshold, 
+     add = TRUE, 
+     legend = FALSE, 
+     col = c(NA, "olivedrab"))
+
+# And add those observations
+points(x = obs.data$longitude, 
+       y = obs.data$latitude, 
+       col = "black",
+       pch = "+", 
+       cex = 0.75)
+
+# Redraw those country borders
+plot(great_britain_prj, add = TRUE, border = "grey5")
+box()
+
+```

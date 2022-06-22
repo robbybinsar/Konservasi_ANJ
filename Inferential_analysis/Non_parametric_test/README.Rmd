@@ -1,0 +1,37 @@
+---
+title: "Non-Parametric Test"
+author: "Robby"
+date: "5/4/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+  Non-parametric tests are methods of statistical analysis that do not require a distribution to meet the required assumptions to be analyzed (especially if the data is not normally distributed). Due to this reason, they are sometimes referred to as distribution-free tests. Non-parametric tests serve as an alternative to parametric tests such as T-test or ANOVA that can be employed only if the underlying data satisfies certain criteria and assumptions.
+
+  Note that nonparametric tests are used as an alternative method to parametric tests, not as their substitutes. In other words, if the data meets the required assumptions for performing the parametric tests, the relevant parametric test must be applied. In addition, in some cases, even if the data do not meet the necessary assumptions but the sample size of the data is large enough, we can still apply the parametric tests instead of the non-parametric tests.
+
+> Below are functions used in the [`non-parametric.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Inferential_analysis/Non_parametric_test/non_parametric.R) script:
+
+### Kruskall Wallis Test
+
+In this analysis we use **Kruskall Wallis test** as an alternative instead of ANOVA.
+
+* `kruskal.test`performs a Kruskal-Wallis rank sum test: The Kruskal-Wallis test (sometimes also called the "one-way ANOVA on ranks") is a rank-based nonparametric test that can be used to determine if there are statistically significant differences between two or more groups of an independent variable on a continuous or ordinal dependent variable. It is considered the nonparametric alternative to the one-way ANOVA, and an extension of the Mann-Whitney U test to allow the comparison of more than two independent groups.
+
+### Post Hoc Analysis
+
+  A post hoc test is used only after we find a statistically significant result and need to determine where our differences truly came from. The term “post hoc” comes from the Latin for “after the event”. There are many different post hoc tests that have been developed, and most of them will give us similar answers. 
+
+* **Pairwise Wilcoxon Rank Sum Tests**:
+  + `pairwise.wilcox.test` Calculate pairwise comparisons between group levels with corrections for multiple testing.
+* **Dunn Test for multiple comparisons**
+  + `dunnTest` Performs Dunn's (1964) test of multiple comparisons following a significant Kruskal-Wallis test, possibly with a correction to control the experimentwise error rate.
+* **Nemenyi test for multiple comparisons**
+  + `NemenyiTest` Nemenyi proposed a test based on rank sums and the application of the family-wise error method to control Type I error inflation, if multiple comparisons are done. The Tukey and Kramer approach uses mean rank sums and can be employed for equally as well as unequally sized samples without ties.
+
+### Example
+
+> Please refer to [`non_parametrictest_on_Sengon_var.Petiqlule.md`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/Inferential_analysis/Non_parametric_test/non_parametrictest_on_Sengon_var.%20Petiqlule.md) on how I use the functions above. 

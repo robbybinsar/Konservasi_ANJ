@@ -1,0 +1,52 @@
+---
+title: "Untitled"
+author: "Robby B"
+date: "11/10/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load Packages
+```{r}
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(hrbrthemes)
+library(openxlsx)
+library(knitr)
+
+```
+
+```{r}
+data <- read.xlsx("~/MSc Biodiversity and Conservation/BIodiv and Cons skills/data presentation/Data Presentation data 21.xlsx", sheet = "mean")
+
+```
+
+```{r d, fig.width=9, fig.height=6,echo=FALSE, fig.align='center', warning=FALSE}
+attach(data)
+
+data$Site <- factor(data$Site, levels = c("S. Spain", "N. Spain", "S. France", "N. France"))
+
+ggplot(data, aes(x=Site, y=Mean, group = Haplotype, color = Haplotype )) +
+    #geom_line(stat = "smooth", size =1) + #change stat to "identity" for straight line
+    #polynomial regression, adjust the poly degree to get a desired line of best fit.
+    stat_smooth(method = "lm", formula = y~poly(x, 2), size = 1.2, se = F)+ 
+    geom_point()+
+    geom_text(aes(label = Mean), size = 3, 
+              position = position_dodge(width = 0), vjust = -0.5, hjust = 0) +
+    scale_y_continuous(expand = c(0,0), limits = c(-1.5,14),breaks = seq(0,15,1)) + 
+    scale_x_discrete(expand = c(0.05,0.05))+
+    theme_bw() + 
+    labs(title = "Mean and Polynomial Regression of Grasshoppers Haplotype From South Spain to North France", 
+         subtitle = "Polynomial degree: 2")+
+    theme(
+        axis.text.x = element_text(face = "bold", size = 11),
+        axis.text.y = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 14),
+        title = element_text(face = "bold", size = 10.5))
+
+
+```

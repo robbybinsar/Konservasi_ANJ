@@ -1,0 +1,76 @@
+---
+title: "Above Ground Biomass and Carbon Sequestration"
+author: "Robby"
+date: "12/4/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Guidelines
+
+This instruction refers to [`carbon_analysis_SMM.Rmd`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/carbon_analysis/carbon_analysis_SMM.Rmd) (Markdown version) or [`carbon_analysis_SMM.R`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/carbon_analysis/carbon_analysis.R) (R Script version)
+
+There are 7 steps in this calculation:
+
+### 1. Load Packages
+```
+library(dplyr)
+library(BIOMASS)
+library(knitr)
+```
+
+### 2. Reading and Preparing Data
+
+loading 2 datasets
+
+* [primer_tree_measurement.csv](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/carbon_analysis/primer_tree_measurement.csv) : This dataset contains full field survey data for tree's DBH (diameter at breast height), taxonomic information, and coordinate.
+* [secunder_tree_measurement.csv](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/carbon_analysis/secunder_tree_measurement.csv): This dataset contains sampling data of random trees in designated plot area with height variable needed to calculate height-diameter model
+
+### 3. Retrieve wood density
+
+Caluclate wood density with `getWoodDensity` function.
+
+`getWoodDensity` : The function estimates the wood density (WD) of the trees from their taxonomy or from their congeners using the global wood density database (Chave et al. 2009, Zanne et al. 2009) or any additional dataset.
+
+### 4. Build Height-Diameter Model
+
+`modelHD` function: This function fits and compares (optional) height-diameter models. All the back transformations for log-log models are done using the Baskerville correction (0.5 * RSE^2, where RSE is the Residual Standard Error).
+
+### 5. Retrieve Height Data
+
+`retrieveH` function: From the diameter and either i) a model, ii) the coordinates of the plot or iii) the region, this function gives an estimation of the total tree height.
+
+### 6. Estimate AGB (Above Ground Biomass) and Carbon Sequestration
+
+* **Compute AGB(Mg) per tree**
+  
+  `computeAGB`function: This function uses Chave et al. 2014's pantropical models to estimate the above-ground biomass of tropical trees.
+  This function uses two different ways of computing the above-ground biomass of a tree:
+
+  1. If tree height data are available, the AGB is computed thanks to the following equation (Eq. 4 in Chave et al., 2014):
+  
+                  AGB = 0.0673 * (WD * H * D^2)^0.976
+  2. If no tree height data is available, the AGB is computed thanks to the site coordinates with the following equation, slightly modified from Eq. 7 in Chave et al., 2014 (see Réjou-Méchain et al. 2017):
+  
+                  AGB = exp(-2.024- 0.896*E + 0.920*log(WD) + 2.795*log(D) - 0.0461*(log(D)^2))
+                  
+  where E is a measure of environmental stress estimated from the site coordinates (coord).
+  
+* **Compute AGB(Mg) per plot (need to be divided by plot area to get Mg/ha)**
+
+  `summaryByPlot` function: This function summarizes the matrix AGB_val given by the function AGBmonteCarlo() by plot. Or just do the sums for each plot of the AGB if the argument AGB_val is the resulting vector from the function computeAGB().
+  
+* **Carbon Sequestration**
+
+  Carbon sequestration is calculated by dividing the mean of AGB per plot by two.
+  
+### 7. Propagate AGB Errors
+
+`AGBmonteCarlo` function: Propagation of the errors throughout the steps needed to compute AGB or AGC.
+
+## Example/ Vignette
+
+Please refer to [`AGB dan Carbon Sequestration PT SMM (Hutan Sekunder Makam Balok).pdf`](https://github.com/robbybinsar/Konservasi_ANJ/blob/master/carbon_analysis/AGB%20dan%20Carbon%20Sequestration%20PT%20SMM%20(Hutan%20Sekunder%20Makam%20Balok).pdf) as an example of a real case data with AGB estimation.

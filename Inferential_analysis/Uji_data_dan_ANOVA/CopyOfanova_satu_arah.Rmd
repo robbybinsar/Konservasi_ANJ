@@ -1,8 +1,8 @@
 ---
-title: "ANOVA satu arah"
-subtitle: "Sengon laut (Tinggi)"
+title: "Guppies"
+subtitle: "Fish Biodiv and Csv"
 author: "Robby"
-date: "6/22/2021"
+date: "4/11/2021"
 output: word_document
 ---
 
@@ -17,12 +17,17 @@ library(Rmisc)
 library(agricolae)
 library(ggplot2)
 library(knitr)
+library(haven)
+library(dplyr)
+library(DescTools)
 ```
 
 
 ### **Reading and preparing data**
 ```{r}
-df <- read.delim("read data sengon laut tinggi.txt")
+df <- read_sav("~/My R/Konservasi_ANJ/Inferential_analysis/Uji_data_dan_ANOVA/fish14.sav")
+df <- select(df, -2:-4, -6)
+df$river <- factor(df$river, levels = c(1,2,3,4,5,6,7,8), labels = c("1","2","3","4","5","6","7","8"))
 satuan <- "(cm)"
 kable(df)
 ```
@@ -34,7 +39,7 @@ attach(df)
 
 ### **One-way ANOVA**
 ```{r}
-model <- lm(Tinggi ~ Media)
+model <- lm(log ~ river)
 hasil_anova <- anova(model)
 print(hasil_anova)
 ```
@@ -88,17 +93,23 @@ grafik <- ggplot(dat,
             geom_text(aes(label= notasi,hjust=offset.h, vjust=offset.v),size=5) +
             geom_text(aes(label=variable),position = position_dodge(width = 0.4),
                     vjust = -0.25, hjust = 1.1,size = 4.5)+
-            labs(x = independent, y = paste(dependent,satuan), 
-                    title = paste("Pengaruh",independent, "terhadap", dependent), 
-                    subtitle = "Analysis of Variance \nPost Hoc Analysis: Tukey's Test") +
+            labs(x = independent, y = "Mean of Guppies (Log Transformed)", 
+                    title = "Summary of Means, ANOVA, and Tukey's HSD (honestly significant difference) test by river", 
+                    subtitle = "Minimal adequate model without interaction (depth and river) and depth") +
+            annotate("text", x = 0, y = 0.9, hjust = 0, vjust = 0, label = "
+          (Log Transformed Guppies ~ River)
+          p-value ANOVA < 0.001
+          df = 7, F value = 5.393
+          Levene test based on mean, p > 0.05
+          Normality test of Standardized Residuals - Shapiro Wilk, p > 0.05 ")+
             theme_bw() +
             theme(
                 panel.background = element_blank(),
                 panel.grid.major = element_blank(),
                 panel.grid.minor = element_blank(),
                 panel.border = element_blank(),
-                plot.title = element_text(size = rel(1.5),face = "bold",hjust=0),
-                plot.subtitle = element_text(size = rel(1.2), hjust = 0),
+                plot.title = element_text(size = rel(1.3),face = "bold",hjust=0),
+                plot.subtitle = element_text(size = rel(1.1), hjust = 0),
                 axis.title = element_text(face="bold",size = 11),
                 axis.title.y = element_text(vjust = 4,size = 13.5),
                 axis.title.x = element_text(vjust=-2, size=13.5),

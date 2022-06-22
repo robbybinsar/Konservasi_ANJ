@@ -1,10 +1,9 @@
 ---
 title: "Homogeneity and normality"
+subtitle: "Trembesi (Tinggi)"
 author: "Robby"
-date: "7/31/2020"
-output: 
-    html_document:
-        keep_md: TRUE
+date: "6/22/2021"
+output: word_document
 ---
 
 ```{r setup, include=FALSE}
@@ -15,14 +14,15 @@ knitr::opts_chunk$set(echo = TRUE)
 library(FSA)
 library(car)
 library(nortest)
+library(knitr)
 
 ```
 
 
 ### **Reading and preparing data**
 ```{r}
-df <- read.delim("Anggrek Tanah (Tinggi).txt")
-kable(df, format = "html")
+df <- read.delim("read data trembesi tinggi.txt")
+kable(df)
 dependent.var <- df[,2] #Column variabel dependent
 independent.var <- df[,1]#Column variabel independent
 satuan <- "(cm)"
@@ -34,7 +34,7 @@ attach(df)
 ```
 
 ```{r}
-df_summary <- data.frame(Summarize(Tinggi.Tanaman ~ Media, digits = 1))
+df_summary <- data.frame(Summarize(Tinggi ~ Media, digits = 2))
 kable(df_summary, format = "pipe")
 ```
 
@@ -43,7 +43,7 @@ kable(df_summary, format = "pipe")
 #### Levene's test for homogeneity of variance.
 *if p > 0.05 assumption of homogeneity fulfilled*
 ```{r}
-levene <- suppressWarnings(leveneTest(Tinggi.Tanaman ~ Media, data = df))
+levene <- suppressWarnings(leveneTest(Tinggi ~ Media, data = df))
 print(levene)
 ```
 
@@ -52,14 +52,14 @@ print(levene)
 
 #### Shapiro-Wilk Normality Test
 ```{r}
-normalitas <- shapiro.test(Tinggi.Tanaman)
+normalitas <- shapiro.test(Tinggi)
 print(normalitas)
 ```
 
 #### Kolmogorov-Smirnov Tests
 ```{r}
-uji_ks <- suppressWarnings(ks.test(Tinggi.Tanaman,"pnorm",mean = mean(Tinggi.Tanaman), 
-                            sd = sd(Tinggi.Tanaman)))
+uji_ks <- suppressWarnings(ks.test(Tinggi,"pnorm",mean = mean(Tinggi), 
+                            sd = sd(Tinggi)))
 print(uji_ks)
 ```
 
@@ -67,22 +67,22 @@ print(uji_ks)
 Although the test statistic obtained from lillie.test(x) is the same as that obtained from ks.test(x, "pnorm", mean(x), sd(x)), it is not correct to use the p-value from the latter for the composite hypothesis of normality (mean and variance unknown), since the distribution of the test statistic is different when the parameters are estimated.
 
 ```{r}
-lillie <- lillie.test(Tinggi.Tanaman)
+lillie <- lillie.test(Tinggi)
 print(lillie)
 ```
 
 ### **Q-Q Plot**
 A Q-Q plot is a scatterplot created by plotting two sets of quantiles against one another. If both sets of quantiles came from the same distribution, we should see the points forming a line that’s roughly straight.
-```{r}
+```{r, fig.width=5.8, fig.height=4.5}
 kol2 <- colnames(df)[2]
-QQplot <- qqPlot(Tinggi.Tanaman, id = F, ylab = kol2, main = "Quantile - Quantile Plot")
+QQplot <- qqPlot(Tinggi, id = F, ylab = kol2, main = "Quantile - Quantile Plot")
 ```
 
 ### **Box-and-whisker plot**
-```{r fig.align='left'}
-box_whisker <- boxplot(Tinggi.Tanaman ~ Media, 
+```{r fig.align='left', fig.width= 8, fig.height= 4}
+box_whisker <- boxplot(Tinggi ~ Media, 
                         xlab = paste(kol2,satuan), ylab = "", col = "orange", border = 
-                        "brown", horizontal = TRUE, las = 1, par(mar = c(8,13,1,1)))
+                        "brown", horizontal = TRUE, las = 1, par(mar = c(5,12,1,1), font.axis=2, font.lab=2))
 ```
 
 
