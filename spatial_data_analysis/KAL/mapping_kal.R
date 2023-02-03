@@ -1,5 +1,6 @@
 library(ggmap)
 library(dplyr)
+library(terra)
 
  # using basemap layer from GGMAP
 kalcoor <- c(lon = 110.200, lat = -1.42)
@@ -10,22 +11,22 @@ ggmap(kal_base)
   #method 1 using st_read : get sf class object good to use for ggplot
   library(sf)
     #HGU
-    kal_shp1 <- st_read("./spatial_data_analysis/KAL/HGU_KAL/HGU KAL.shp")
+    kal_shp1 <- st_read("~/My R/Konservasi_ANJ/spatial_data_analysis/KAL/HGU_KAL/HGU KAL.shp")
     st_crs(kal_shp1)
     summary(kal_shp1)
     plot(kal_shp1)
     #HCV
-    kal_hcv <- st_read("./spatial_data_analysis/KAL/HCV_KAL/KAL_HCV_AREA.shp")
+    kal_hcv <- st_read("~/My R/Konservasi_ANJ/spatial_data_analysis/KAL/HCV_KAL/KAL_HCV_AREA.shp")
   # method 2 using readOGR : get sp object for tmap
   library(rgdal)
     # HGU
-    kal_shp2 <- readOGR(dsn = "./spatial_data_analysis/KAL/HGU_KAL", layer = "HGU KAL")  
+    kal_shp2 <- readOGR(dsn = "~/My R/Konservasi_ANJ/spatial_data_analysis/KAL/HGU_KAL", layer = "HGU KAL")  
     plot(kal_shp2)
     #HCV
-    kal_hcv1 <- readOGR(dsn = "./spatial_data_analysis/KAL/HCV_KAL", layer = "KAL_HCV_AREA")
+    kal_hcv1 <- readOGR(dsn = "~/My R/Konservasi_ANJ/spatial_data_analysis/KAL/HCV_KAL", layer = "KAL_HCV_AREA")
     
 # read data points for orang utan encounter
-orgutan <- read.csv("./spatial_data_analysis/KAL/ex_data_orangutan.csv")
+orgutan <- read.csv("~/My R/Konservasi_ANJ/spatial_data_analysis/KAL/ex_data_orangutan.csv")
 set.seed(8)
 orgutan <- orgutan %>% relocate(spesies) %>% dplyr::select(-X) %>% 
   mutate(date  = sample(seq(as.Date('2020/10/01'), as.Date('2020/12/28'), by="day"), 12)) %>%
@@ -39,7 +40,7 @@ set.seed(13)
                     #lon = runif(18, min = 110.11327, max = 110.14557), lat = runif(18, min = -1.40080, max = -1.35671))
 #pakan_sp <- SpatialPointsDataFrame(coords = pakan[,4:5], data = pakan, proj4string = CRS('+init=EPSG:4326'))
 
-pakan_sp <- readOGR(dsn = "./spatial_data_analysis/KAL/ex_pakan", layer = "ex_pakan_orgutan")
+pakan_sp <- readOGR(dsn = "~/My R/Konservasi_ANJ/spatial_data_analysis/KAL/ex_pakan", layer = "ex_pakan_orgutan")
 
 pakan_sf <- st_as_sf(pakan_sp)
 pakan_sf <- st_transform(pakan_sf, crs = crs(kal_hcv, asText = T))
@@ -127,7 +128,7 @@ raster_kal <- raster("spatial_data_analysis/KAL/123/LC08_L1TP_121061_20190904_20
     tm_shape(orgutan_sp) + tm_dots(col = "month", size = "diameter_sarang_meter", scale = 0.3,
                                       popup.vars  = TRUE, palette = "Set1", group = "SARANG ORANG UTAN", title = "Bulan Observasi")+
     tm_shape(pakan_sp) + tm_dots(group = "TUMBUHAN PAKAN ORANGUTAN")+
-    tm_mouse_coordinates() + tm_scale_bar()
+    tm_mouse_coordinates() + tm_scale_bar() + tmap_options(check.and.fix = TRUE)
   
   # plot map mode
   #1
